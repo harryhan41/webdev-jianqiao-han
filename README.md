@@ -4,7 +4,7 @@ a. I am graduate student at Northeastern
 
 b. webdev
 
-c.   i. https://webdev-jianqiao-han.herokuapp.com/
+c.   i. Link to web page :  https://webdev-jianqiao-han.herokuapp.com/
 
      ii. Link to your project (you might need to come back to this)
 
