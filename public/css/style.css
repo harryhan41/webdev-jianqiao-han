@@ -5,3 +5,9 @@ h1 { text-align: center;
   color: brown;
   font-size: 3.5rem;
 }
+
+@media screen and (orientation: portrait) {
+  #toolbar {
+    width: 100%;
+  }
+}
