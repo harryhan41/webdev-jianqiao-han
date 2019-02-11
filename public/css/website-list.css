@@ -1,0 +1,13 @@
+.navbar {
+  background: steelblue;
+}
+
+.fas {
+  color: white;
+
+}
+
+.navbar-brand{
+  color: white;
+  font-weight: bold;
+}
