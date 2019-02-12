@@ -6,6 +6,10 @@
   color: white;
 }
 
+.fa-cog {
+  color: steelblue;
+}
+
 .form-group {
   padding-top: 30px;
 }
@@ -19,3 +23,29 @@
   padding-top: 30px;
 }
 
+@media (orientation: landscape) {
+  .ib {
+    float: left;
+    width: 50%;
+  }
+
+  .fa-user {
+    visibility: hidden;
+  }
+
+  #w-left {
+    visibility: hidden;
+  }
+
+  #w-check {
+    visibility: hidden;
+  }
+}
+
+@media (orientation: portrait) {
+  #page1 {
+    display: none;
+  !important;
+  }
+
+}
