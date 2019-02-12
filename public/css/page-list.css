@@ -1,14 +1,15 @@
-.navbar {
-  background: steelblue;
-}
-
 .col-sm-10 {
   color: steelblue;
   font-weight: bold;
 }
 
 .fas {
-  color: white;
+  color: black;
+}
+
+.fa-user {
+  color: steelblue;
+  float: right;
 }
 
 .fa-cog {

@@ -6,6 +6,7 @@
   <title>Web-Harry</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/css/page-list.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <!--
@@ -17,10 +18,15 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <i class="fas fa-angle-left"></i>
-  <a class="navbar-brand" href="#">Pages</a>
-  <i class="fas fa-plus"></i>
+  <div>
+    <a class="navbar-brand" href="#"><i class="fas fa-angle-left"></i></a>
+    <a class="navbar-brand" href="#">Pages</a>
+  </div>
+  <ul class="navbar-nav ml-auto mt-lg-0">
+    <i class="fas fa-plus"></i>
+  </ul>
 </nav>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-10">Blog Post</div>
@@ -45,7 +51,9 @@
 </div>
 
 <nav class="navbar fixed-bottom navbar-light bg-light">
-  <a class="navbar-brand" href="#"><i class="fas fa-user"></i></a>
+  <ul class="navbar-nav ml-auto mt-lg-0">
+    <a class="navbar-brand" href="#"><i class="fas fa-user"></i></a>
+  </ul>
 </nav>
 </body>
 </html>
