@@ -6,9 +6,7 @@
   <title>Web-Harry</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <!--
-      <link href="css/style.css" rel="stylesheet"/>
-  -->
+  <link rel="stylesheet" type="text/css" href="/css/login.css">
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -16,12 +14,18 @@
 <body>
 <div class="container">
   <h1>Login</h1>
-  <input type="text"
-         class="form-control"
-         placeholder="username"/>
-  <input type="password"
-         class="form-control"
-         placeholder="password"/>
+  <form>
+    <div class="form-group">
+      <input type="text"
+             class="form-control"
+             placeholder="username"/>
+    </div>
+    <div class="form-group">
+      <input type="password"
+             class="form-control"
+             placeholder="password"/>
+    </div>
+  </form>
   <a class="btn btn-primary btn-block"
      href="profile.html">Login</a>
   <a class="btn btn-success btn-block"

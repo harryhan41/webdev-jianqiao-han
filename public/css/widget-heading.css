@@ -1,0 +1,16 @@
+.fas {
+  color: black;
+}
+
+.fa-user {
+  color: steelblue;
+}
+
+.container {
+  padding-top: 40px;
+}
+
+.navbar-brand {
+  color: white;
+  font-weight: bold;
+}

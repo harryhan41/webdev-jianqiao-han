@@ -1,0 +1,21 @@
+.navbar {
+  background: steelblue;
+}
+
+.fas {
+  color: white;
+}
+
+.form-group {
+  padding-top: 30px;
+}
+
+.navbar-brand {
+  color: white;
+  font-weight: bold;
+}
+
+.row {
+  padding-top: 30px;
+}
+
