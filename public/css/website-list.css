@@ -24,3 +24,20 @@
   padding-top: 30px;
 }
 
+@media (orientation: landscape) {
+  .fa-plus {
+    visibility: hidden;
+  }
+
+  .fa-cog {
+    visibility: hidden;
+  }
+
+  .fa-user {
+    visibility: hidden;
+  }
+}
+
+@media (orientation: portrait) {
+
+}
