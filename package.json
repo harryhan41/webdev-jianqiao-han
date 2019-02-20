@@ -47,5 +47,20 @@
     "tslint": "~5.11.0",
     "typescript": "~3.2.2"
   },
-  "heroku-run-build-script": true
+  "heroku-run-build-script": true,
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harryhan41/webdev-jianqiao-han.git"
+  },
+  "keywords": [
+    "web"
+  ],
+  "author": "harry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harryhan41/webdev-jianqiao-han/issues"
+  },
+  "homepage": "https://github.com/harryhan41/webdev-jianqiao-han#readme"
 }
