@@ -20,6 +20,10 @@ import {WidgetListComponent} from './views/widget/widget-list/widget-list.compon
 import {WidgetHeaderComponent} from './views/widget/widget-edit/widget-header/widget-header.component';
 import {WidgetImageComponent} from './views/widget/widget-edit/widget-image/widget-image.component';
 import {WidgetYoutubeComponent} from './views/widget/widget-edit/widget-youtube/widget-youtube.component';
+import {UserService} from './services/user.service.client';
+import {WebsiteService} from './services/website.service.client';
+import {PageService} from './services/page.service.client';
+import {WidgetService} from './services/widget.service.client';
 
 @NgModule({
   declarations: [
@@ -38,14 +42,14 @@ import {WidgetYoutubeComponent} from './views/widget/widget-edit/widget-youtube/
     WidgetListComponent,
     WidgetHeaderComponent,
     WidgetImageComponent,
-    WidgetYoutubeComponent
+    WidgetYoutubeComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     routing
   ],
-  providers: [],
+  providers: [UserService, WebsiteService, PageService, WidgetService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

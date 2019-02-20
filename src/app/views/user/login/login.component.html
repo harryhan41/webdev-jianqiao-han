@@ -2,7 +2,9 @@
   <div *ngIf="errorFlag" class="alert alert-danger">
     {{errorMsg}}
   </div>
+
   <h1>Login</h1>
+
   <form (ngSubmit)="login()" #f="ngForm">
     <div class="form-group">
       <input type="text"
@@ -17,7 +19,12 @@
     <div class="form-group">
       <input type="password"
              class="form-control"
+             name="password"
+             ngModel
+             required
+             #password='ngModel'
              placeholder="password"/>
+      <span class="help-block" *ngIf="!password.valid && password.touched"> Please enter password! </span>
     </div>
 
     <div class="form-group">
@@ -27,7 +34,6 @@
     <div class="form-group">
       <a routerLink="/register" class="btn btn-success btn-block">Register</a>
     </div>
-
   </form>
 </div>
 
