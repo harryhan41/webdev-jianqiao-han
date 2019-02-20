@@ -11,7 +11,7 @@ export class ProfileComponent implements OnInit {
 
   // properties
   userId: string;
-  user = {};
+  user;
   username: string;
 
   constructor(private userService: UserService, private activateRoute: ActivatedRoute) {
@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit {
       }
     );
     this.user = this.userService.findUserById(this.userId);
-    // this.username = this.user.username;
+    this.username = this.user.username;
   }
 
 }

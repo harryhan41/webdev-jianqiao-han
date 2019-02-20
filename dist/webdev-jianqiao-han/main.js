@@ -41,7 +41,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet>\n  <a routerLink=\"/login\">Login</a>\n  <a routerLink=\"/register\">Register</a>\n  <a routerLink=\"/profile\">Profile</a>\n</router-outlet>\n"
+module.exports = "<router-outlet>\n  <a routerLink=\"/login\">Login</a>\n  <a routerLink=\"/register\">Register</a>\n  <a routerLink=\"/user/:uid\">Profile</a>\n</router-outlet>\n"
 
 /***/ }),
 

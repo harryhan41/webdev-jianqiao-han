@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {WidgetService} from '../../../services/widget.service.client';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-widget-edit',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WidgetEditComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

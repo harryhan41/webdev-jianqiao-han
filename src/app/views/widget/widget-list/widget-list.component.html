@@ -55,6 +55,9 @@
     </div>
     <div class="col-sm-2"><i class="fas fa-cog"></i></div>
   </div>
+  <div class="row" *ngFor="let widget of widgets">
+    {{widget._id}}
+  </div>
 </div>
 
 <nav class="navbar fixed-bottom navbar-light bg-light">
