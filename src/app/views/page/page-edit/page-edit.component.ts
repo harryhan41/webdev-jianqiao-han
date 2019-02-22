@@ -1,31 +1,28 @@
 import {Component, OnInit} from '@angular/core';
-import {PageService} from '../../../services/page.service.client';
 import {ActivatedRoute} from '@angular/router';
+import {Page} from '../../../models/page.model.client';
+import {PageService} from '../../../services/page.service.client';
 
 @Component({
   selector: 'app-page-edit',
   templateUrl: './page-edit.component.html',
-  styleUrls: ['./page-edit.component.css']
+  styleUrls: ['./page-edit.component.css'],
 })
 export class PageEditComponent implements OnInit {
 
-  pageId: string;
-  page;
-  pageName: string;
-  websiteId: string;
-  description: string;
+  page: Page;
 
-  constructor(private pageService: PageService, private activateRoute: ActivatedRoute) {
+  constructor(private pageService: PageService, private router: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.activateRoute.params.subscribe(
+    this.router.params.subscribe(
       (params: any) => {
-        this.pageId = params._id;
-      }
+        this.page._id = params[':pid'];
+        console.log('page id: ' + this.page._id);
+      },
     );
-    this.page = this.pageService.findPageById(this.pageId);
-    this.pageName = this.page.name;
+    this.page = this.pageService.findPageById(this.page._id);
   }
 
 }

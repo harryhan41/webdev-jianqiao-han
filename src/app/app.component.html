@@ -1,21 +1,21 @@
 <router-outlet>
-  <div class="container-fluid">
+  <div class="container">
     <ul><a routerLink="login">Login</a></ul>
     <ul><a routerLink="/register">Register</a></ul>
     <ul><a routerLink="/user/:uid">Profile</a></ul>
 
-    <ul><a routerLink="/user/111/website"> WebSiteList </a></ul>
-    <ul><a routerLink="/user/111/website/new"> WebsiteNewComponent </a></ul>
-    <ul><a routerLink="/user/111/website/111"> WebsiteComponentWithId </a></ul>
-    <ul><a routerLink="/user/111/website/111/edit"> WebSiteEdit </a></ul>
+    <ul><a routerLink="/user/:uid/website"> WebSiteList </a></ul>
+    <ul><a routerLink="/user/:uid/website/new"> WebsiteNewComponent </a></ul>
+    <ul><a routerLink="/user/:uid/website/:wid"> WebsiteComponentWithId </a></ul>
+    <ul><a routerLink="/user/:uid/website/:wid/edit"> WebSiteEdit </a></ul>
 
-    <ul><a routerLink="/user/111/website/111/page"> PageListComponent </a></ul>
-    <ul><a routerLink="/user/111/website/111/page/new"> PageNewComponent </a></ul>
-    <ul><a routerLink="/user/111/website/111/page/100"> PageEditComponent </a></ul>
+    <ul><a routerLink="/user/:uid/website/:wid/page"> PageListComponent </a></ul>
+    <ul><a routerLink="/user/:uid/website/:wid/page/new"> PageNewComponent </a></ul>
+    <ul><a routerLink="/user/:uid/website/:wid/page/:pid"> PageEditComponent </a></ul>
 
-    <ul><a routerLink="/user/111/website/111/page/100/widget"> WidgetListComponent </a></ul>
-    <ul><a routerLink="/user/111/website/111/page/100/widget/new"> WidgetChooserComponent </a></ul>
-    <ul><a routerLink="/user/111/website/111/page/100/widget/123"> WidgetEditComponentWithId </a></ul>
+    <ul><a routerLink="/user/:uid/website/:wid/page/:pid/widget"> WidgetListComponent </a></ul>
+    <ul><a routerLink="/user/:uid/website/:wid/page/:pid/widget/new"> WidgetChooserComponent </a></ul>
+    <ul><a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"> WidgetEditComponentWithId </a></ul>
 
   </div>
 

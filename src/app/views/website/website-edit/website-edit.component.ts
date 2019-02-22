@@ -1,30 +1,26 @@
 import {Component, OnInit} from '@angular/core';
-import {WebsiteService} from '../../../services/website.service.client';
 import {ActivatedRoute} from '@angular/router';
+import {Website} from '../../../models/website.model.client';
+import {WebsiteService} from '../../../services/website.service.client';
 
 @Component({
   selector: 'app-website-edit',
   templateUrl: './website-edit.component.html',
-  styleUrls: ['./website-edit.component.css']
+  styleUrls: ['./website-edit.component.css'],
 })
 export class WebsiteEditComponent implements OnInit {
 
-  websiteId: string;
-  website;
-  websiteName: string;
-  websiteDescription: string;
-  developerId: string;
+  website: Website;
 
-  constructor(private websiteService: WebsiteService, private activateRoute: ActivatedRoute) {
+  constructor(private websiteService: WebsiteService, private router: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.activateRoute.params.subscribe(
+    this.router.params.subscribe(
       (params: any) => {
-        this.websiteId = params._id;
-      }
+        this.website._id = params[':wid'];
+      },
     );
-    this.website = this.websiteService.findWebsiteById(this.websiteId);
+    this.website = this.websiteService.findWebsiteById(this.website._id);
   }
-
 }
