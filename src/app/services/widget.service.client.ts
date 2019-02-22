@@ -1,40 +1,20 @@
 import {Injectable} from '@angular/core';
-import {Http, RequestOptions, Response} from '@angular/http';
-// import 'rxjs/Rx';
-import {environment} from '../../environments/environment';
-import {Router} from '@angular/router';
+import {Widget} from '../models/widget.model.client';
 
 @Injectable()
 export class WidgetService {
   constructor() {
   }
 
-  widgets = [
-    {_id: '123', widgetType: 'HEADING', pageId: '321', size: 2, text: 'GIZMODO'},
-    {_id: '234', widgetType: 'HEADING', pageId: '321', size: 4, text: 'Lorem ipsum'},
-    {
-      _id: '345', widgetType: 'IMAGE', pageId: '321', width: '100%',
-      url: 'http://lorempixel.com/400/200/'
-    },
-    {_id: '456', widgetType: 'HTML', pageId: '321', text: '<p>Lorem ipsum</p>'},
-    {_id: '567', widgetType: 'HEADING', pageId: '321', size: 4, text: 'Lorem ipsum'},
-    {
-      _id: '678', widgetType: 'YOUTUBE', pageId: '321', width: '100%',
-      url: 'https://youtu.be/AM2Ivdi9c4E'
-    },
-    {_id: '789', widgetType: 'HTML', pageId: '321', text: '<p>Lorem ipsum</p>'}
+  widgets: Widget[] = [
+    new Widget('123', 'HEADER', '321', '2', 'GIZMODO', null, null),
+    new Widget('123', 'IMAGE', '321', '2', 'text', '100%', 'http://lorempixel.com/400/200/'),
+    new Widget('123', 'HTML', '321', '2', '<p>blalbla</p>', null, null),
+    new Widget('123', 'YOUTUBE', '321', '2', 'text', '100%', 'https://youtube.com/token'),
   ];
 
-  api = {
-    createWidget: this.createWidget,
-    findWidgetsByPageId: this.findWidgetsByPageId,
-    findWidgetById: this.findWidgetById,
-    updateWidget: this.updateWidget,
-    deleteWidget: this.deleteWidget
-  };
-
-  createWidget(pageId, widget) {
-    widget._id = Math.random();
+  createWidget(pageId: string, widget: Widget) {
+    widget._id = Math.random().toString();
     widget.pageId = pageId;
     this.widgets.push(widget);
     return widget;

@@ -6,23 +6,19 @@ export class PageService {
   constructor() {
   }
 
-  page = [
-    {_id: '321', name: 'Post 1', websiteId: '456', description: 'Lorem'},
-    {_id: '432', name: 'Post 2', websiteId: '456', description: 'Lorem'},
-    {_id: '543', name: 'Post 3', websiteId: '456', description: 'Lorem'}
+  page: Page[] = [
+    new Page('123', 'page123', '123', 'test page 123'),
+    new Page('456', 'page456', '456', 'test page 456'),
+    new Page('789', 'page789', '789', 'test page 789'),
   ];
 
-  api = {
-    createPage: this.createPage,
-    findPageByWebsiteId: this.findPageByWebsiteId,
-    findPageById: this.findPageById,
-    updatePage: this.updatePage,
-    deletePage: this.deletePage,
-  };
-
-  createPage(websiteId, page) {
-    page._id = Math.random();
-    page.websiteId = websiteId;
+  createPage(websiteId: string, page: Page) {
+    const new_page = {
+      _id: Math.random().toString(),
+      name: page.name,
+      websiteId: page.websiteId,
+      title: page.title,
+    };
     this.page.push(page);
     return page;
   }
