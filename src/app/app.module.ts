@@ -50,10 +50,10 @@ import {WidgetService} from './services/widget.service.client';
   imports: [
     BrowserModule,
     FormsModule,
-    routing
+    routing,
   ],
   providers: [UserService, WebsiteService, PageService, WidgetService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {
 }
