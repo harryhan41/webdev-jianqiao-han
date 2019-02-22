@@ -1,5 +1,23 @@
 <router-outlet>
-  <a routerLink="/login">Login</a>
-  <a routerLink="/register">Register</a>
-  <a routerLink="/user/:uid">Profile</a>
+  <div class="container">
+    <ul><a routerLink="login">Login</a></ul>
+    <ul><a routerLink="/register">Register</a></ul>
+    <ul><a routerLink="/user/:uid">Profile</a></ul>
+
+    <ul><a routerLink="/user/111/website"> WebSiteList </a></ul>
+    <ul><a routerLink="/user/111/website/new"> WebsiteNewComponent </a></ul>
+    <ul><a routerLink="/user/111/website/111"> WebsiteComponentWithId </a></ul>
+    <ul><a routerLink="/user/111/website/111/edit"> WebSiteEdit </a></ul>
+
+    <ul><a routerLink="/user/111/website/111/page"> PageListComponent </a></ul>
+    <ul><a routerLink="/user/111/website/111/page/new"> PageNewComponent </a></ul>
+    <ul><a routerLink="/user/111/website/111/page/100"> PageEditComponent </a></ul>
+
+    <ul><a routerLink="/user/111/website/111/page/100/widget"> WidgetListComponent </a></ul>
+    <ul><a routerLink="/user/111/website/111/page/100/widget/new"> WidgetChooserComponent </a></ul>
+    <ul><a routerLink="/user/111/website/111/page/100/widget/123"> WidgetEditComponentWithId </a></ul>
+
+  </div>
+
+
 </router-outlet>

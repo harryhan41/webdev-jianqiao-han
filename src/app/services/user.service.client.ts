@@ -1,69 +1,45 @@
 import {Injectable} from '@angular/core';
-import {Http, RequestOptions, Response} from '@angular/http';
-import {Observable} from 'rxjs';
-
-import {environment} from '../../environments/environment';
-import {Router} from '@angular/router';
+import {User} from '../models/user.model.client';
 
 @Injectable()
 export class UserService {
   constructor() {
   }
 
-  users = [
-    {_id: '123', username: 'alice', password: 'alice', firstName: 'Alice', lastName: 'Wonder'},
-    {_id: '234', username: 'bob', password: 'bob', firstName: 'Bob', lastName: 'Marley'},
-    {_id: '345', username: 'charly', password: 'charly', firstName: 'Charly', lastName: 'Garcia'},
-    {_id: '456', username: 'jannunzi', password: 'jannunzi', firstName: 'Jose', lastName: 'Annunzi'}
+  users: User[] = [
+    new User('123', 'alice', 'qq', 'alice', 'alice', 'a@a.com'),
+    new User('234', 'bob', 'qq', 'bob', 'bob', 'b@b.com'),
+    new User('345', 'charlie', 'qq', 'charlie', 'charlie', 'c@c.com'),
   ];
 
-  api = {
-    createUser: this.createUser,
-    findUserById: this.findUserById,
-    findUserByUsername: this.findUserByUsername,
-    updateUser: this.updateUser,
-    deleteUser: this.deleteUser
-  };
-
-  createUser(user: any) {
-    user._id = Math.random();
-    this.users.push(user);
-    return user;
+  createUser(user: User) {
+    this.users.push(new User(user._id, user.username, user.password, user.firstName, user.lastName, user.email));
   }
 
   findUserById(userId: string) {
-    for (const user of this.users) {
-      if (user._id === userId) {
-        return user;
+    return this.users.find(user => user._id === userId);
+  }
+
+  findUserByCredential(username: string, password: string) {
+    return this.users.find(user => user.username === username && user.password === password);
+  }
+
+  updateUser(user: User) {
+    for (const i in this.users) {
+      if (this.users[i]._id === user._id) {
+        this.users[i].firstName = user.firstName;
+        this.users[i].lastName = user.lastName;
+        return this.users[i];
       }
     }
   }
 
-  findUserByUsername(username: string) {
-    for (const user of this.users) {
-      if (user.username === username) {
-        return user;
-      }
-    }
-  }
-
-
-  updateUser(userId, user) {
-    for (let i = 0; i < this.users.length; i++) {
+  deleteUserById(userId: string) {
+    for (const i in this.users) {
       if (this.users[i]._id === userId) {
-        return this.users[i] = user;
-      }
-    }
-
-  }
-
-  deleteUser(userId) {
-    for (let i = 0; i < this.users.length; i++) {
-      if (this.users[i]._id === userId) {
-        this.users.splice(i, 1);
+        const j = +i;
+        this.users.splice(j, 1);
       }
     }
   }
-
-
 }

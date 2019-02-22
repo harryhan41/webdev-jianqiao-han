@@ -41,7 +41,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet>\n  <a routerLink=\"/login\">Login</a>\n  <a routerLink=\"/register\">Register</a>\n  <a routerLink=\"/user/:uid\">Profile</a>\n</router-outlet>\n"
+module.exports = "<router-outlet>\n  <div class=\"container\">\n    <ul><a routerLink=\"login\">Login</a></ul>\n    <ul><a routerLink=\"/register\">Register</a></ul>\n    <ul><a routerLink=\"/user/:uid\">Profile</a></ul>\n\n    <ul><a routerLink=\"/user/111/website\"> WebSiteList </a></ul>\n    <ul><a routerLink=\"/user/111/website/new\"> WebsiteNewComponent </a></ul>\n    <ul><a routerLink=\"/user/111/website/111\"> WebsiteComponentWithId </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/edit\"> WebSiteEdit </a></ul>\n\n    <ul><a routerLink=\"/user/111/website/111/page\"> PageListComponent </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/page/new\"> PageNewComponent </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/page/100\"> PageEditComponent </a></ul>\n\n    <ul><a routerLink=\"/user/111/website/111/page/100/widget\"> WidgetListComponent </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/page/100/widget/new\"> WidgetChooserComponent </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/page/100/widget/123\"> WidgetEditComponentWithId </a></ul>\n\n  </div>\n\n\n</router-outlet>\n"
 
 /***/ }),
 
@@ -133,6 +133,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// client services
 
 
 
@@ -229,6 +230,32 @@ var routing = _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forRo
 
 /***/ }),
 
+/***/ "./src/app/models/user.model.client.ts":
+/*!*********************************************!*\
+  !*** ./src/app/models/user.model.client.ts ***!
+  \*********************************************/
+/*! exports provided: User */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
+var User = /** @class */ (function () {
+    function User(_id, username, password, firstName, lastName, email) {
+        this._id = _id;
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
+    return User;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/page.service.client.ts":
 /*!*************************************************!*\
   !*** ./src/app/services/page.service.client.ts ***!
@@ -317,56 +344,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return UserService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _models_user_model_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../models/user.model.client */ "./src/app/models/user.model.client.ts");
+
 
 
 var UserService = /** @class */ (function () {
     function UserService() {
         this.users = [
-            { _id: '123', username: 'alice', password: 'alice', firstName: 'Alice', lastName: 'Wonder' },
-            { _id: '234', username: 'bob', password: 'bob', firstName: 'Bob', lastName: 'Marley' },
-            { _id: '345', username: 'charly', password: 'charly', firstName: 'Charly', lastName: 'Garcia' },
-            { _id: '456', username: 'jannunzi', password: 'jannunzi', firstName: 'Jose', lastName: 'Annunzi' }
+            new _models_user_model_client__WEBPACK_IMPORTED_MODULE_2__["User"]('123', 'alice', 'qq', 'alice', 'alice', 'a@a.com'),
+            new _models_user_model_client__WEBPACK_IMPORTED_MODULE_2__["User"]('234', 'bob', 'qq', 'bob', 'bob', 'b@b.com'),
+            new _models_user_model_client__WEBPACK_IMPORTED_MODULE_2__["User"]('345', 'charlie', 'qq', 'charlie', 'charlie', 'c@c.com'),
         ];
-        this.api = {
-            createUser: this.createUser,
-            findUserById: this.findUserById,
-            findUserByUsername: this.findUserByUsername,
-            updateUser: this.updateUser,
-            deleteUser: this.deleteUser
-        };
     }
     UserService.prototype.createUser = function (user) {
-        user._id = Math.random();
-        this.users.push(user);
-        return user;
+        this.users.push(new _models_user_model_client__WEBPACK_IMPORTED_MODULE_2__["User"](user._id, user.username, user.password, user.firstName, user.lastName, user.email));
     };
     UserService.prototype.findUserById = function (userId) {
-        for (var _i = 0, _a = this.users; _i < _a.length; _i++) {
-            var user = _a[_i];
-            if (user._id === userId) {
-                return user;
+        return this.users.find(function (user) { return user._id === userId; });
+    };
+    UserService.prototype.findUserByCredential = function (username, password) {
+        return this.users.find(function (user) { return user.username === username && user.password === password; });
+    };
+    UserService.prototype.updateUser = function (user) {
+        for (var i in this.users) {
+            if (this.users[i]._id === user._id) {
+                this.users[i].firstName = user.firstName;
+                this.users[i].lastName = user.lastName;
+                return this.users[i];
             }
         }
     };
-    UserService.prototype.findUserByUsername = function (username) {
-        for (var _i = 0, _a = this.users; _i < _a.length; _i++) {
-            var user = _a[_i];
-            if (user.username === username) {
-                return user;
-            }
-        }
-    };
-    UserService.prototype.updateUser = function (userId, user) {
-        for (var i = 0; i < this.users.length; i++) {
+    UserService.prototype.deleteUserById = function (userId) {
+        for (var i in this.users) {
             if (this.users[i]._id === userId) {
-                return this.users[i] = user;
-            }
-        }
-    };
-    UserService.prototype.deleteUser = function (userId) {
-        for (var i = 0; i < this.users.length; i++) {
-            if (this.users[i]._id === userId) {
-                this.users.splice(i, 1);
+                var j = +i;
+                this.users.splice(j, 1);
             }
         }
     };
@@ -772,11 +784,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_user_service_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/user.service.client */ "./src/app/services/user.service.client.ts");
+
+
 
 
 
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent() {
+    function LoginComponent(userService, router) {
+        this.userService = userService;
+        this.router = router;
+        this.errorFlag = false;
     }
     LoginComponent.prototype.ngOnInit = function () {
     };
@@ -784,6 +803,12 @@ var LoginComponent = /** @class */ (function () {
         // fetching data from LoginForm
         this.username = this.loginForm.value.username;
         this.password = this.loginForm.value.password;
+        console.log(this.username);
+        console.log(this.password);
+        var user = this.userService.findUserByCredential(this.username, this.password);
+        if (user) {
+            this.router.navigate(['/user', user._id]);
+        }
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('f'),
@@ -795,7 +820,7 @@ var LoginComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/views/user/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/views/user/login/login.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_service_client__WEBPACK_IMPORTED_MODULE_4__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], LoginComponent);
     return LoginComponent;
 }());
