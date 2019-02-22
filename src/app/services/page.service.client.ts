@@ -1,10 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, RequestOptions, Response} from '@angular/http';
-
-// import 'rxjs/Rx';
-
-import {environment} from '../../environments/environment';
-import {Router} from '@angular/router';
+import {Page} from '../models/page.model.client';
 
 @Injectable()
 export class PageService {
@@ -22,7 +17,7 @@ export class PageService {
     findPageByWebsiteId: this.findPageByWebsiteId,
     findPageById: this.findPageById,
     updatePage: this.updatePage,
-    deletePage: this.deletePage
+    deletePage: this.deletePage,
   };
 
   createPage(websiteId, page) {
