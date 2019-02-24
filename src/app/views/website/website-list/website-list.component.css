@@ -1,0 +1,43 @@
+.navbar {
+  background: steelblue;
+}
+
+.col-sm-10 {
+  color: steelblue;
+  font-weight: bold;
+}
+
+.fas {
+  color: white;
+}
+
+.fa-cog {
+  color: steelblue;
+}
+
+.navbar-brand {
+  color: white;
+  font-weight: bold;
+}
+
+.row {
+  padding-top: 30px;
+}
+
+@media (orientation: landscape) {
+  .fa-plus {
+    visibility: hidden;
+  }
+
+  .fa-cog {
+    visibility: hidden;
+  }
+
+  .fa-user {
+    visibility: hidden;
+  }
+}
+
+@media (orientation: portrait) {
+
+}

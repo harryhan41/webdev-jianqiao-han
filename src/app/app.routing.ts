@@ -19,7 +19,7 @@ const appRoutes: Routes = [
   {path: 'user/:uid', component: ProfileComponent},
   {path: 'user/:uid/website', component: WebsiteListComponent},
   {path: 'user/:uid/website/new', component: WebsiteNewComponent},
-  {path: 'user/:uid/website/:wid', component: WebsiteEditComponent},
+  {path: 'user/:uid/website/:wid/edit', component: WebsiteEditComponent},
   {path: 'user/:uid/website/:wid/page', component: PageListComponent},
   {path: 'user/:uid/website/:wid/page/new', component: PageNewComponent},
   {path: 'user/:uid/website/:wid/page/:pid', component: PageEditComponent},
