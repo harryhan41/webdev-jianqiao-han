@@ -18,20 +18,21 @@ export class ProfileComponent implements OnInit {
   }
 
   UpdateUser() {
-    console.log(this.user.username);
-    console.log(this.user.firstName);
-    console.log(this.user.lastName);
-
-    this.userService.updateUser(this.user);
+    // console.log(this.user.username);
+    // console.log(this.user.firstName);
+    // console.log(this.user.lastName);
+    //
+    // this.userService.updateUser(this.user);
   }
 
   ngOnInit() {
-    this.router.params.subscribe(
-      (params: any) => {
-        this.user._id = params['uid'];
-        console.log('user id: ' + this.user._id);
-      },
-    );
-    this.user = this.userService.findUserById(this.user._id);
+    // this.router.params.subscribe(
+    //   (params: any) => {
+    //     this.userService.findUserById(params['userId']).subscribe((user: User) => {
+    //       this.user = user;
+    //     });
+    //     console.log('user id: ' + this.user._id);
+    //   },
+    // );
   }
 }
