@@ -10,25 +10,25 @@ export class UserService {
 
   baseUrl = environment.baseUrl;
 
-  createUser() {
-    return this._http.get<User>(this.baseUrl + '/api/user/');
-  }
-
-  findUserById(userId: string) {
-    return this._http.get<User>(this.baseUrl + '/api/user/' + userId);
-  }
+  // createUser() {
+  //   return this._http.get<User>(this.baseUrl + '/api/user/');
+  // }
+  //
+  // findUserById(userId: string) {
+  //   return this._http.get<User>(this.baseUrl + '/api/user/' + userId);
+  // }
 
   findUserByCredential(username: string, password: string) {
-    return this._http.get<User>(this.baseUrl + 'api/user?username=' + username + '&password=' + password);
+    return this._http.get<User>(this.baseUrl + '/api/user?username=' + username + '&password=' + password);
   }
 
-  updateUser(user: User) {
-    return this._http.put<User>(this.baseUrl + '/api/user' + user._id, user);
-  }
-
-  deleteUserById(userId: string) {
-    return this._http.delete<User>(this.baseUrl + '/api/user' + userId);
-  }
+  // updateUser(user: User) {
+  //   return this._http.put<User>(this.baseUrl + '/api/user' + user._id, user);
+  // }
+  //
+  // deleteUserById(userId: string) {
+  //   return this._http.delete<User>(this.baseUrl + '/api/user' + userId);
+  // }
 }
 
 // import {Injectable} from '@angular/core';

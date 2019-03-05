@@ -3,8 +3,7 @@ import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
 
 import {User} from '../../../models/user.model.client';
-
-// import {UserService} from '../../../services/user.service.client';
+import {UserService} from '../../../services/user.service.client';
 
 @Component({
   selector: 'app-login',
@@ -21,12 +20,9 @@ export class LoginComponent implements OnInit {
   errorFlag: boolean;
   errorMsg: 'Invalid username or password !';
 
-  constructor() {
+  constructor(private userService: UserService, private router: Router) {
+    this.errorFlag = false;
   }
-
-  // constructor(private userService: UserService, private router: Router) {
-  //   this.errorFlag = false;
-  // }
 
   ngOnInit() {
   }
@@ -40,17 +36,11 @@ export class LoginComponent implements OnInit {
     console.log(this.username);
     console.log(this.password);
 
-    // const user: User = this.userService.findUserByCredential(this.username, this.password);
-    // if (user) {
-    //   this.router.navigate(['/user', user._id]);
-    // }
-
-    // this.userService.findUserByCredential(this.username, this.password)
-    //   .subscribe((user: User) => {
-    //     if (user) {
-    //       this.router.navigate(['/user', user._id]);
-    //     }
-    //   });
+    this.userService.findUserByCredential(this.username, this.password)
+      .subscribe((user: User) => {
+        if (user) {
+          this.router.navigate(['/user', user._id]);
+        }
+      });
   }
-
 }

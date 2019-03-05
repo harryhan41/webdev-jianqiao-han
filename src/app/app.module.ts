@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {routing} from './app.routing';
@@ -51,7 +51,7 @@ import {WidgetService} from './services/widget.service.client';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     routing,
   ],
   providers: [UserService, WebsiteService, PageService, WidgetService],
