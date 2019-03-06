@@ -10,8 +10,9 @@ export class UserService {
 
   baseUrl = environment.baseUrl;
 
-  createUser() {
-    return this._http.get<User>(this.baseUrl + '/api/user/');
+  createUser(user: any) {
+    console.log('this is running');
+    return this._http.post<User>(this.baseUrl + '/api/user/', user);
   }
 
   findUserById(userId: string) {

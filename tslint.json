@@ -80,6 +80,7 @@
     "no-unused-expression": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
+    "object-shorthand": [true, "never"],
     "one-line": [
       true,
       "check-open-brace",

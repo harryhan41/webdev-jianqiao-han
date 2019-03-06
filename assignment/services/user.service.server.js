@@ -1,10 +1,10 @@
 module.exports = function (app) {
 
   var users = [
-    {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonderland"},
-    {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley"},
-    {_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia"},
-    {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"}
+    {_id: "1", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonderland"},
+    {_id: "2", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley"},
+    {_id: "3", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia"},
+    {_id: "4", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"}
   ];
 
   app.post("/api/user", createUser);
@@ -15,7 +15,11 @@ module.exports = function (app) {
   app.delete("/api/user/:userId", deleteUser);
 
   function createUser(req, res) {
-    // this.users.push(new User(user._id, user.username, user.password, user.firstName, user.lastName, user.email));
+    console.log("create user");
+    let user = req.body;
+    user._id = Math.round(Math.random() * 1000).toString();
+    users.push(user);
+    res.send(user);
   }
 
   function findUserById(req, res) {
