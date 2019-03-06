@@ -1,9 +1,4 @@
 module.exports = function (app) {
-  // var users = [
-  //   new User('123', 'alice', 'qq', 'alice', 'alice', 'a@a.com'),
-  //   new User('234', 'bob', 'qq', 'bob', 'bob', 'b@b.com'),
-  //   new User('345', 'charlie', 'qq', 'charlie', 'charlie', 'c@c.com'),
-  // ];
 
   var users = [
     {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonderland"},
@@ -13,9 +8,10 @@ module.exports = function (app) {
   ];
 
   app.post("/api/user", createUser);
-  app.get("/api/user?username=username", findUserByUsername);
-  app.get("/api/user?username=username&password=password", findUserByCredentials);
+  //app.get("/api/user", findUserByUsername);
+
   app.get("/api/user/:userId", findUserById);
+  app.get("/api/user", findUserByCredentials);
   app.put("/api/user/:userId", updateUser);
   app.delete("/api/user/:userId", deleteUser);
 
@@ -40,8 +36,12 @@ module.exports = function (app) {
 
   function findUserByCredentials(req, res) {
 
+    console.log('this is xxxxx');
+
     var username = req.query['username'];
+    console.log(username);
     var password = req.query['password'];
+    console.log(password);
     for (var i in users) {
       if (users[i].username === username && users[i].password === password) {
         res.send(users[i]);
@@ -52,6 +52,17 @@ module.exports = function (app) {
   }
 
   function findUserByUsername() {
+    console.log("hit find user by name...");
+
+    var name = req.params.username;
+
+    for (var i in users) {
+      if (users[i]._id === id) {
+        res.send(users[i]);
+        return;
+      }
+    }
+    res.send({});
 
   }
 

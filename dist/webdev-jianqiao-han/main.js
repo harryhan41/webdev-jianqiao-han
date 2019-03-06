@@ -433,15 +433,21 @@ var UserService = /** @class */ (function () {
         this._http = _http;
         this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].baseUrl;
     }
-    // createUser() {
-    //   return this._http.get<User>(this.baseUrl + '/api/user/');
-    // }
-    //
-    // findUserById(userId: string) {
-    //   return this._http.get<User>(this.baseUrl + '/api/user/' + userId);
-    // }
+    UserService.prototype.createUser = function () {
+        return this._http.get(this.baseUrl + '/api/user/');
+    };
+    UserService.prototype.findUserById = function (userId) {
+        return this._http.get(this.baseUrl + '/api/user/' + userId);
+    };
     UserService.prototype.findUserByCredential = function (username, password) {
+        console.log('this is running');
         return this._http.get(this.baseUrl + '/api/user?username=' + username + '&password=' + password);
+    };
+    UserService.prototype.updateUser = function (user) {
+        return this._http.put(this.baseUrl + '/api/user' + user._id, user);
+    };
+    UserService.prototype.deleteUserById = function (userId) {
+        return this._http.delete(this.baseUrl + '/api/user' + userId);
     };
     UserService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
@@ -450,51 +456,6 @@ var UserService = /** @class */ (function () {
     return UserService;
 }());
 
-// import {Injectable} from '@angular/core';
-// import {User} from '../models/user.model.client';
-//
-// @Injectable()
-// export class UserService {
-//   constructor() {
-//   }
-//
-//   users: User[] = [
-//     new User('123', 'alice', 'qq', 'alice', 'alice', 'a@a.com'),
-//     new User('234', 'bob', 'qq', 'bob', 'bob', 'b@b.com'),
-//     new User('345', 'charlie', 'qq', 'charlie', 'charlie', 'c@c.com'),
-//   ];
-//
-//   createUser(user: User) {
-//     this.users.push(new User(user._id, user.username, user.password, user.firstName, user.lastName, user.email));
-//   }
-//
-//   findUserById(userId: string) {
-//     return this.users.find(user => user._id === userId);
-//   }
-//
-//   findUserByCredential(username: string, password: string) {
-//     return this.users.find(user => user.username === username && user.password === password);
-//   }
-//
-//   updateUser(user: User) {
-//     for (const i in this.users) {
-//       if (this.users[i]._id === user._id) {
-//         this.users[i].firstName = user.firstName;
-//         this.users[i].lastName = user.lastName;
-//         return this.users[i];
-//       }
-//     }
-//   }
-//
-//   deleteUserById(userId: string) {
-//     for (const i in this.users) {
-//       if (this.users[i]._id === userId) {
-//         const j = +i;
-//         this.users.splice(j, 1);
-//       }
-//     }
-//   }
-// }
 
 
 /***/ }),
@@ -892,8 +853,6 @@ var LoginComponent = /** @class */ (function () {
         // fetching data from LoginForm
         this.username = this.loginForm.value.username;
         this.password = this.loginForm.value.password;
-        console.log(this.username);
-        console.log(this.password);
         this.userService.findUserByCredential(this.username, this.password)
             .subscribe(function (user) {
             if (user) {
@@ -1018,7 +977,7 @@ module.exports = ".container {\r\n  padding-top: 5%;\r\n}\r\n\r\n/*# sourceMappi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <h1>Register</h1>\n  <form>\n    <div class=\"form-group\">\n      <input type=\"text\"\n             class=\"form-control\"\n             placeholder=\"username\"/>\n    </div>\n    <div class=\"form-group\">\n      <input type=\"password\"\n             class=\"form-control\"\n             placeholder=\"password\"/>\n    </div>\n    <div class=\"form-group\">\n      <input type=\"password\"\n             class=\"form-control\"\n             placeholder=\"verify password\"/>\n    </div>\n  </form>\n\n  <a routerLink=\"/user/:uid\" class=\"btn btn-primary btn-block\">Register</a>\n  <a routerLink=\"/login\" class=\"btn btn-danger btn-block\">Cancel</a>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div *ngIf=\"errorFlag\" class=\"alert alert-danger\">\n    {{errorMsg}}\n  </div>\n\n  <h1>Register</h1>\n\n  <form>\n    <div class=\"form-group\">\n      <input type=\"text\"\n             class=\"form-control\"\n             placeholder=\"username\"/>\n    </div>\n    <div class=\"form-group\">\n      <input type=\"password\"\n             class=\"form-control\"\n             placeholder=\"password\"/>\n    </div>\n    <div class=\"form-group\">\n      <input type=\"password\"\n             class=\"form-control\"\n             placeholder=\"verify password\"/>\n    </div>\n  </form>\n\n  <a routerLink=\"/user/:uid\" class=\"btn btn-primary btn-block\">Register</a>\n  <a routerLink=\"/login\" class=\"btn btn-danger btn-block\">Cancel</a>\n</div>\n"
 
 /***/ }),
 
