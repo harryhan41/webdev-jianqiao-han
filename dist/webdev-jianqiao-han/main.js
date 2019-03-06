@@ -41,7 +41,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet>\n  <div class=\"container\">\n    <ul><a routerLink=\"/login\">Login</a></ul>\n    <ul><a routerLink=\"/register\">Register</a></ul>\n    <ul><a routerLink=\"/user/:uid\">Profile</a></ul>\n\n    <!--<ul><a routerLink=\"/user/:uid/website\"> WebSiteList </a></ul>-->\n    <!--<ul><a routerLink=\"/user/:uid/website/new\"> WebsiteNewComponent </a></ul>-->\n    <!--<ul><a routerLink=\"/user/:uid/website/:wid/edit\"> WebSiteEdit </a></ul>-->\n\n    <!--<ul><a routerLink=\"/user/:uid/website/:wid/page\"> PageListComponent </a></ul>-->\n    <!--<ul><a routerLink=\"/user/:uid/website/:wid/page/new\"> PageNewComponent </a></ul>-->\n    <!--<ul><a routerLink=\"/user/:uid/website/:wid/page/:pid\"> PageEditComponent </a></ul>-->\n\n    <!--<ul><a routerLink=\"/user/:uid/website/:wid/page/:pid/widget\"> WidgetListComponent </a></ul>-->\n    <!--<ul><a routerLink=\"/user/:uid/website/:wid/page/:pid/widget/new\"> WidgetChooserComponent </a></ul>-->\n    <!--<ul><a routerLink=\"/user/:uid/website/:wid/page/:pid/widget/:wgid\"> WidgetEditComponentWithId </a></ul>-->\n  </div>\n</router-outlet>\n"
+module.exports = "<router-outlet>\n  <div class=\"container\">\n    <ul><a routerLink=\"/login\">Login</a></ul>\n    <!--<ul><a routerLink=\"/register\">Register</a></ul>-->\n    <!--<ul><a routerLink=\"/user/:uid\">Profile</a></ul>-->\n\n    <!--<ul><a routerLink=\"/user/:uid/website\"> WebSiteList </a></ul>-->\n    <!--<ul><a routerLink=\"/user/:uid/website/new\"> WebsiteNewComponent </a></ul>-->\n    <!--<ul><a routerLink=\"/user/:uid/website/:wid/edit\"> WebSiteEdit </a></ul>-->\n\n    <!--<ul><a routerLink=\"/user/:uid/website/:wid/page\"> PageListComponent </a></ul>-->\n    <!--<ul><a routerLink=\"/user/:uid/website/:wid/page/new\"> PageNewComponent </a></ul>-->\n    <!--<ul><a routerLink=\"/user/:uid/website/:wid/page/:pid\"> PageEditComponent </a></ul>-->\n\n    <!--<ul><a routerLink=\"/user/:uid/website/:wid/page/:pid/widget\"> WidgetListComponent </a></ul>-->\n    <!--<ul><a routerLink=\"/user/:uid/website/:wid/page/:pid/widget/new\"> WidgetChooserComponent </a></ul>-->\n    <!--<ul><a routerLink=\"/user/:uid/website/:wid/page/:pid/widget/:wgid\"> WidgetEditComponentWithId </a></ul>-->\n  </div>\n</router-outlet>\n"
 
 /***/ }),
 
@@ -922,27 +922,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ProfileComponent = /** @class */ (function () {
-    function ProfileComponent(userService, router) {
+    function ProfileComponent(userService, router, acRouter) {
         this.userService = userService;
         this.router = router;
-        this.user = new _models_user_model_client__WEBPACK_IMPORTED_MODULE_3__["User"]('111', 'alice', 'qq', 'alice', 'alice', 'alice@alice');
+        this.acRouter = acRouter;
+        this.user = new _models_user_model_client__WEBPACK_IMPORTED_MODULE_3__["User"]('000', 'alias', 'alias', 'alias', 'alias', 'alias@alias');
     }
     ProfileComponent.prototype.UpdateUser = function () {
-        // console.log(this.user.username);
-        // console.log(this.user.firstName);
-        // console.log(this.user.lastName);
-        //
-        // this.userService.updateUser(this.user);
+        this.userService.updateUser(this.user).subscribe();
     };
     ProfileComponent.prototype.ngOnInit = function () {
-        // this.router.params.subscribe(
-        //   (params: any) => {
-        //     this.userService.findUserById(params['userId']).subscribe((user: User) => {
-        //       this.user = user;
-        //     });
-        //     console.log('user id: ' + this.user._id);
-        //   },
-        // );
+        var _this = this;
+        this.router.params.subscribe(function (params) {
+            _this.user._id = params['uid'];
+            console.log('user id: ' + _this.user._id);
+        });
+        this.userService.findUserById(this.user._id.toString())
+            .subscribe(function (data) {
+            console.log('in login comp...');
+            console.log(data);
+            _this.user = data;
+        });
     };
     ProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -950,7 +950,7 @@ var ProfileComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./profile.component.html */ "./src/app/views/user/profile/profile.component.html"),
             styles: [__webpack_require__(/*! ./profile.component.css */ "./src/app/views/user/profile/profile.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_service_client__WEBPACK_IMPORTED_MODULE_4__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_service_client__WEBPACK_IMPORTED_MODULE_4__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
     ], ProfileComponent);
     return ProfileComponent;
 }());

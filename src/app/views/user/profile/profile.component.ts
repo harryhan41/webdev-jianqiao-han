@@ -13,26 +13,25 @@ export class ProfileComponent implements OnInit {
   // properties
   user: User;
 
-  constructor(private userService: UserService, private router: ActivatedRoute) {
-    this.user = new User('111', 'alice', 'qq', 'alice', 'alice', 'alice@alice');
+  constructor(private userService: UserService, private router: ActivatedRoute, private acRouter: ActivatedRoute) {
+    this.user = new User('000', 'alias', 'alias', 'alias', 'alias', 'alias@alias');
   }
 
   UpdateUser() {
-    // console.log(this.user.username);
-    // console.log(this.user.firstName);
-    // console.log(this.user.lastName);
-    //
-    // this.userService.updateUser(this.user);
+    this.userService.updateUser(this.user).subscribe();
   }
 
   ngOnInit() {
-    // this.router.params.subscribe(
-    //   (params: any) => {
-    //     this.userService.findUserById(params['userId']).subscribe((user: User) => {
-    //       this.user = user;
-    //     });
-    //     console.log('user id: ' + this.user._id);
-    //   },
-    // );
+    this.router.params.subscribe(params => {
+      this.user._id = params['uid'];
+      console.log('user id: ' + this.user._id);
+    });
+
+    this.userService.findUserById(this.user._id.toString())
+      .subscribe(data => {
+        console.log('in login comp...');
+        console.log(data);
+        this.user = data;
+      });
   }
 }
