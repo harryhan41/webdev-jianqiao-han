@@ -285,6 +285,30 @@ var User = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/models/website.model.client.ts":
+/*!************************************************!*\
+  !*** ./src/app/models/website.model.client.ts ***!
+  \************************************************/
+/*! exports provided: Website */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Website", function() { return Website; });
+var Website = /** @class */ (function () {
+    function Website(_id, name, developerId, description) {
+        this._id = _id;
+        this.name = name;
+        this.developerId = developerId;
+        this.description = description;
+    }
+    return Website;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/models/widget.model.client.ts":
 /*!***********************************************!*\
   !*** ./src/app/models/widget.model.client.ts ***!
@@ -466,6 +490,7 @@ var WebsiteService = /** @class */ (function () {
         return this._http.get(this.baseUrl + '/api/user/' + userId + '/website');
     };
     WebsiteService.prototype.findWebsiteById = function (websiteId) {
+        return this._http.get(this.baseUrl + '/api/website' + websiteId);
     };
     WebsiteService.prototype.updateWebsite = function (websiteId, website) {
     };
@@ -845,7 +870,7 @@ module.exports = ".navbar {\r\n  background: steelblue;\r\n}\r\n\r\n.fas {\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-fixed-top\">\n  <div class=\"container-fluid\">\n    <a class=\"navbar-brand cl-text-white\" routerLink=\"\">Profile</a>\n    <a (click)=\"UpdateUser()\" class=\"btn-primary navbar-text pull-right\"><span>\n      <i class=\"fas fa-check\"></i>\n    </span></a>\n  </div>\n</nav>\n\n<div class=\"container\">\n  <h1>Profile</h1>\n\n  <div class=\"form-group\">\n    <label for=\"username\"><b>Username</b></label>\n    <input [(ngModel)]=\"user.username\" type=\"text\" class=\"form-control\" id=\"username\"\n           placeholder=\"username\"/>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"email\"><b>Email</b></label>\n    <input [(ngModel)]=\"user.email\" type=\"email\" class=\"form-control\" id=\"email\"\n           placeholder=\"abcdefg@xxx.com\"/>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"firstname\"><b>First Name</b></label>\n    <input [(ngModel)]=\"user.firstName\" type=\"text\" class=\"form-control\" id=\"firstname\"\n           placeholder=\"first name\"/>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"lastname\"><b>Last Name</b></label>\n    <input [(ngModel)]=\"user.lastName\" type=\"text\" class=\"form-control\" id=\"lastname\"\n           placeholder=\"last name\"/>\n  </div>\n  <a routerLink=\"/user/:uid/website\" class=\"btn btn-primary btn-block\">Websites</a>\n  <a routerLink=\"/login\" class=\"btn btn-danger btn-block\">Logout</a>\n\n</div>\n<nav class=\"navbar fixed-bottom\">\n  <ul class=\"navbar-nav ml-auto mt-lg-0\">\n    <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-user\"></i></a>\n  </ul>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-fixed-top\">\n  <div class=\"container-fluid\">\n    <a class=\"navbar-brand cl-text-white\" routerLink=\"\">Profile</a>\n    <a (click)=\"UpdateUser()\" class=\"btn-primary navbar-text pull-right\"><span>\n      <i class=\"fas fa-check\"></i>\n    </span></a>\n  </div>\n</nav>\n\n<div class=\"container\">\n  <h1>Profile</h1>\n\n  <div class=\"form-group\">\n    <label for=\"username\"><b>Username</b></label>\n    <input [(ngModel)]=\"user.username\" type=\"text\" class=\"form-control\" id=\"username\"\n           placeholder=\"username\"/>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"email\"><b>Email</b></label>\n    <input [(ngModel)]=\"user.email\" type=\"email\" class=\"form-control\" id=\"email\"\n           placeholder=\"abcdefg@xxx.com\"/>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"firstname\"><b>First Name</b></label>\n    <input [(ngModel)]=\"user.firstName\" type=\"text\" class=\"form-control\" id=\"firstname\"\n           placeholder=\"first name\"/>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"lastname\"><b>Last Name</b></label>\n    <input [(ngModel)]=\"user.lastName\" type=\"text\" class=\"form-control\" id=\"lastname\"\n           placeholder=\"last name\"/>\n  </div>\n  <a routerLink=\"/user/{{user._id}}/website\" class=\"btn btn-primary btn-block\">Websites</a>\n  <a routerLink=\"/login\" class=\"btn btn-danger btn-block\">Logout</a>\n\n</div>\n<nav class=\"navbar fixed-bottom\">\n  <ul class=\"navbar-nav ml-auto mt-lg-0\">\n    <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-user\"></i></a>\n  </ul>\n</nav>\n"
 
 /***/ }),
 
@@ -1006,7 +1031,7 @@ module.exports = ".navbar {\r\n  background: steelblue;\r\n}\r\n\r\n.fas {\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ib\" id=\"page1\">\n  <nav class=\"navbar\">\n    <div>\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-angle-left\"></i></a>\n      <a class=\"navbar-brand\" href=\"#\">Websites</a>\n    </div>\n    <ul class=\"navbar-nav ml-auto mt-lg-0\">\n      <i class=\"fas fa-plus\"></i>\n    </ul>\n  </nav>\n\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-sm-10 col-9\">Address Book App</div>\n      <div class=\"col-sm-2 col-3\"><i class=\"fas fa-cog\"></i></div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-sm-10 col-9\">Blogger</div>\n      <div class=\"col-sm-2 col-3\"><i class=\"fas fa-cog\"></i></div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-sm-10 col-9\">Blogging App</div>\n      <div class=\"col-sm-2 col-3\"><i class=\"fas fa-cog\"></i></div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-sm-10 col-9\">Script Testing App</div>\n      <div class=\"col-sm-2 col-3\"><i class=\"fas fa-cog\"></i></div>\n    </div>\n  </div>\n\n  <nav class=\"navbar fixed-bottom\">\n    <ul class=\"navbar-nav ml-auto mt-lg-0\">\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-user\"></i></a>\n    </ul>\n  </nav>\n\n</div>\n<div class=\"ib\" id=\"page2\">\n  <nav class=\"navbar navbar-expand-lg\">\n    <div>\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-angle-left\" id=\"w-left\"></i></a>\n      <a class=\"navbar-brand\" href=\"#\">Edit Websites</a>\n    </div>\n    <ul class=\"navbar-nav ml-auto mt-lg-0\">\n      <i class=\"fas fa-check\" id=\"w-check\"></i>\n    </ul>\n  </nav>\n  <div class=\"container\">\n    <form>\n      <div class=\"form-group\">\n        <label for=\"name\"><b>Website Name</b></label>\n        <input [(ngModel)]=\"website.name\"\n               type=\"text\"\n               class=\"form-control\"\n               id=\"name\"\n               placeholder=\"Name\"/>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"Description\"><b>Website Description</b></label>\n        <textarea class=\"form-control\" id=\"Description\" placeholder=\"Description\" rows=\"6\"></textarea>\n      </div>\n      <a routerLink=\"/register\" class=\"btn btn-danger btn-block\">\n        Delete\n      </a>\n    </form>\n  </div>\n  <nav class=\"navbar fixed-bottom\">\n    <ul class=\"navbar-nav ml-auto mt-lg-0\">\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-user\"></i></a>\n    </ul>\n  </nav>\n</div>\n"
+module.exports = "<div class=\"ib\" id=\"page1\">\n  <nav class=\"navbar\">\n    <div>\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-angle-left\"></i></a>\n      <a class=\"navbar-brand\" href=\"#\">Websites</a>\n    </div>\n    <ul class=\"navbar-nav ml-auto mt-lg-0\">\n      <i class=\"fas fa-plus\"></i>\n    </ul>\n  </nav>\n\n  <div class=\"container\">\n    <ul class=\"list-group cl-list-group-borderless\">\n      <li class=\"list-group-item cl-list-item-borderless\" *ngFor=\"let website of websites\">\n        <a routerLink=\"/user/{{userId}}/website/{{website._id}}\"><span class=\"fas fa-cog float-right\"></span></a>\n        <a routerLink=\"/user/{{userId}}/website/{{website._id}}/page\">{{website.name}}</a>\n      </li>\n    </ul>\n  </div>\n\n  <nav class=\"navbar fixed-bottom\">\n    <ul class=\"navbar-nav ml-auto mt-lg-0\">\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-user\"></i></a>\n    </ul>\n  </nav>\n\n</div>\n<div class=\"ib\" id=\"page2\">\n  <nav class=\"navbar navbar-expand-lg\">\n    <div>\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-angle-left\" id=\"w-left\"></i></a>\n      <a class=\"navbar-brand\" href=\"#\">Edit Websites</a>\n    </div>\n    <ul class=\"navbar-nav ml-auto mt-lg-0\">\n      <i class=\"fas fa-check\" id=\"w-check\"></i>\n    </ul>\n  </nav>\n  <div class=\"container\">\n    <form>\n      <div class=\"form-group\">\n        <label for=\"name\"><b>Website Name</b></label>\n        <input [(ngModel)]=\"website.name\" type=\"text\" class=\"form-control\" id=\"name\" placeholder=\"Name\"/>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"Description\"><b>Website Description</b></label>\n        <textarea [(ngModel)]=\"website.description\" class=\"form-control\" id=\"Description\" placeholder=\"Description\"\n                  rows=\"6\"></textarea>\n      </div>\n      <a routerLink=\"/register\" class=\"btn btn-danger btn-block\">\n        Delete\n      </a>\n    </form>\n  </div>\n  <nav class=\"navbar fixed-bottom\">\n    <ul class=\"navbar-nav ml-auto mt-lg-0\">\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-user\"></i></a>\n    </ul>\n  </nav>\n</div>\n"
 
 /***/ }),
 
@@ -1023,22 +1048,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _services_website_service_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/website.service.client */ "./src/app/services/website.service.client.ts");
+/* harmony import */ var _models_website_model_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../models/website.model.client */ "./src/app/models/website.model.client.ts");
+/* harmony import */ var _services_website_service_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/website.service.client */ "./src/app/services/website.service.client.ts");
+
 
 
 
 
 var WebsiteEditComponent = /** @class */ (function () {
-    function WebsiteEditComponent(websiteService, router) {
-        this.websiteService = websiteService;
+    function WebsiteEditComponent(webService, router, activatedRoute) {
+        this.webService = webService;
         this.router = router;
+        this.activatedRoute = activatedRoute;
+        this.websites = [{}];
+        this.website = new _models_website_model_client__WEBPACK_IMPORTED_MODULE_3__["Website"]('1', 'website', '0', 'temp');
     }
     WebsiteEditComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.router.params.subscribe(function (params) {
-            _this.website._id = params[':wid'];
+        this.activatedRoute.params.subscribe(function (params) {
+            _this.userId = params['uid'];
+            _this.website._id = params['wid'];
+            console.log('website id: ' + _this.website._id);
         });
-        // this.website = this.websiteService.findWebsiteById(this.website._id);
+        this.webService.findWebsitesByUser(this.userId)
+            .subscribe(function (websites) {
+            _this.websites = websites;
+            console.log('websites: ' + websites);
+        });
+        this.webService.findWebsiteById(this.website._id)
+            .subscribe(function (website) {
+            _this.website = website;
+            console.log('website: ' + website);
+        });
     };
     WebsiteEditComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1046,7 +1087,7 @@ var WebsiteEditComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./website-edit.component.html */ "./src/app/views/website/website-edit/website-edit.component.html"),
             styles: [__webpack_require__(/*! ./website-edit.component.css */ "./src/app/views/website/website-edit/website-edit.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_website_service_client__WEBPACK_IMPORTED_MODULE_3__["WebsiteService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_website_service_client__WEBPACK_IMPORTED_MODULE_4__["WebsiteService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
     ], WebsiteEditComponent);
     return WebsiteEditComponent;
 }());
@@ -1073,7 +1114,7 @@ module.exports = ".navbar {\r\n  background: steelblue;\r\n  font-weight: bold;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar fixed-top\">\n  <div class=\"container-fluid\">\n    <div class=\"float-left\">\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-angle-left\"></i></a>\n      <a class=\"navbar-brand\" href=\"#\">Websites</a>\n    </div>\n    <a class=\"navbar-brand float-right\">\n      <i class=\"fas fa-plus\"></i>\n    </a>\n  </div>\n</nav>\n\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-sm-10 col-9\">Address Book App</div>\n    <div class=\"col-sm-2 col-3\"><i class=\"fas fa-cog\"></i></div>\n  </div>\n\n  <ul class=\"list-group cl-list-group-borderless\">\n\n    <li class=\"list-group-item cl-list-item-borderless\" *ngFor=\"let website of websites\">\n      <a routerLink=\"/user/{{userId}}/website/{{website._id}}\"><span class=\"fas fa-cog float-right\"></span></a>\n      <a routerLink=\"/user/{{userId}}/website/{{website._id}}/page\">{{website.name}}</a>\n    </li>\n\n  </ul>\n</div>\n\n<nav class=\"navbar fixed-bottom\">\n  <div class=\"container-fluid\">\n    <a class=\"ml-auto\">\n      <i class=\"fas fa-user\"></i>\n    </a>\n  </div>\n</nav>\n\n"
+module.exports = "<nav class=\"navbar fixed-top\">\n  <div class=\"container-fluid\">\n    <div class=\"float-left\">\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-angle-left\"></i></a>\n      <a class=\"navbar-brand\" href=\"#\">Websites</a>\n    </div>\n    <a class=\"navbar-brand float-right\">\n      <i class=\"fas fa-plus\"></i>\n    </a>\n  </div>\n</nav>\n\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-sm-10 col-9\">Address Book App</div>\n    <div class=\"col-sm-2 col-3\"><i class=\"fas fa-cog\"></i></div>\n  </div>\n\n  <ul class=\"list-group cl-list-group-borderless\">\n    <li class=\"list-group-item cl-list-item-borderless\" *ngFor=\"let website of websites\">\n      <a routerLink=\"/user/{{userId}}/website/{{website._id}}\"><span class=\"fas fa-cog float-right\"></span></a>\n      <a routerLink=\"/user/{{userId}}/website/{{website._id}}/page\">{{website.name}}</a>\n    </li>\n  </ul>\n</div>\n\n<nav class=\"navbar fixed-bottom\">\n  <div class=\"container-fluid\">\n    <a class=\"ml-auto\">\n      <i class=\"fas fa-user\"></i>\n    </a>\n  </div>\n</nav>\n\n"
 
 /***/ }),
 
@@ -1106,7 +1147,10 @@ var WebsiteListComponent = /** @class */ (function () {
         this.activatedRoute.params.subscribe(function (params) {
             _this.userId = params.userId;
         });
-        // this.websites = this.websiteService.findWebsitesByUser(this.userId);
+        this.websiteService.findWebsitesByUser(this.userId)
+            .subscribe(function (websites) {
+            _this.websites = websites;
+        });
     };
     WebsiteListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1141,7 +1185,7 @@ module.exports = ".navbar {\r\n  background: steelblue;\r\n}\r\n\r\n.fas {\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<body>\n<div class=\"ib\" id=\"page1\">\n  <nav class=\"navbar\">\n    <div>\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-angle-left\"></i></a>\n      <a class=\"navbar-brand\" href=\"#\">Websites</a>\n    </div>\n    <ul class=\"navbar-nav ml-auto mt-lg-0\">\n      <i class=\"fas fa-plus\"></i>\n    </ul>\n  </nav>\n\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-sm-10 col-9\">Address Book App</div>\n      <div class=\"col-sm-2 col-3\"><i class=\"fas fa-cog\"></i></div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-sm-10 col-9\">Blogger</div>\n      <div class=\"col-sm-2 col-3\"><i class=\"fas fa-cog\"></i></div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-sm-10 col-9\">Blogging App</div>\n      <div class=\"col-sm-2 col-3\"><i class=\"fas fa-cog\"></i></div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-sm-10 col-9\">Script Testing App</div>\n      <div class=\"col-sm-2 col-3\"><i class=\"fas fa-cog\"></i></div>\n    </div>\n  </div>\n\n  <nav class=\"navbar fixed-bottom\">\n    <ul class=\"navbar-nav ml-auto mt-lg-0\">\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-user\"></i></a>\n    </ul>\n  </nav>\n</div>\n\n<div class=\"ib\" id=\"page2\">\n  <nav class=\"navbar\">\n    <div>\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-angle-left\" id=\"w-left\"></i></a>\n      <a class=\"navbar-brand\" href=\"#\">New Websites</a>\n    </div>\n    <ul class=\"navbar-nav ml-auto mt-lg-0\">\n      <i class=\"fas fa-check\" id=\"w-check\"></i>\n    </ul>\n  </nav>\n\n  <div class=\"container\">\n    <form>\n      <div class=\"form-group\">\n        <label for=\"name\"><b>Name</b></label>\n        <input type=\"text\"\n               class=\"form-control\"\n               id=\"name\"\n               placeholder=\"Name\"/>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"Description\"><b>Description</b></label>\n        <textarea class=\"form-control\" id=\"Description\" placeholder=\"Description\" rows=\"6\"></textarea>\n      </div>\n    </form>\n  </div>\n\n  <nav class=\"navbar fixed-bottom\">\n    <ul class=\"navbar-nav ml-auto mt-lg-0\">\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-user\"></i></a>\n    </ul>\n  </nav>\n</div>\n\n"
+module.exports = "<body>\n<div class=\"ib\" id=\"page1\">\n  <nav class=\"navbar\">\n    <div>\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-angle-left\"></i></a>\n      <a class=\"navbar-brand\" href=\"#\">Websites</a>\n    </div>\n    <a class=\"navbar-nav ml-auto mt-lg-0\">\n      <i class=\"fas fa-plus\"></i>\n    </a>\n  </nav>\n\n  <div class=\"container\">\n    <ul class=\"list-group cl-list-group-borderless\">\n      <li class=\"list-group-item cl-list-item-borderless\" *ngFor=\"let website of websites\">\n        <a routerLink=\"/user/{{userId}}/website/{{website._id}}\"><span class=\"fas fa-cog float-right\"></span></a>\n        <a routerLink=\"/user/{{userId}}/website/{{website._id}}/page\">{{website.name}}</a>\n      </li>\n    </ul>\n  </div>\n\n  <nav class=\"navbar fixed-bottom\">\n    <ul class=\"navbar-nav ml-auto mt-lg-0\">\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-user\"></i></a>\n    </ul>\n  </nav>\n</div>\n\n<div class=\"ib\" id=\"page2\">\n  <nav class=\"navbar\">\n    <div>\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-angle-left\" id=\"w-left\"></i></a>\n      <a class=\"navbar-brand\" href=\"#\">New Websites</a>\n    </div>\n    <a class=\"navbar-nav ml-auto mt-lg-0\">\n      <i class=\"fas fa-check\" id=\"w-check\"></i>\n    </a>\n  </nav>\n\n  <div class=\"container\">\n    <form #f=\"ngForm\">\n      <div class=\"form-group\">\n        <label for=\"name\"><b>Name</b></label>\n        <input type=\"text\" class=\"form-control\" name=\"name\" id=\"name\" placeholder=\"Name\" ngModel required\n               #name=\"ngModel\"/>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"Description\"><b>Description</b></label>\n        <textarea class=\"form-control\" name=\"description\" id=\"Description\" placeholder=\"Description\" rows=\"6\"\n                  ngModel required #description=\"ngModel\"></textarea>\n      </div>\n    </form>\n  </div>\n\n  <nav class=\"navbar fixed-bottom\">\n    <ul class=\"navbar-nav ml-auto mt-lg-0\">\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-user\"></i></a>\n    </ul>\n  </nav>\n</div>\n\n"
 
 /***/ }),
 
@@ -1157,20 +1201,52 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WebsiteNewComponent", function() { return WebsiteNewComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_website_service_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/website.service.client */ "./src/app/services/website.service.client.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+
+
+
 
 
 var WebsiteNewComponent = /** @class */ (function () {
-    function WebsiteNewComponent() {
+    function WebsiteNewComponent(webService, router, activatedRoute) {
+        this.webService = webService;
+        this.router = router;
+        this.activatedRoute = activatedRoute;
+        this.websites = [{}];
     }
-    WebsiteNewComponent.prototype.ngOnInit = function () {
+    WebsiteNewComponent.prototype.create = function () {
+        var _this = this;
+        var name = this.webForm.value.name;
+        var description = this.webForm.value.description;
+        var website = { name: name, description: description };
+        this.webService.createWebsite(this.userId, website)
+            .subscribe(function (site) {
+            _this.router.navigateByUrl('/user/' + _this.userId + '/website');
+        });
     };
+    WebsiteNewComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            _this.userId = params['uid'];
+        });
+        this.webService.findWebsitesByUser(this.userId)
+            .subscribe(function (websites) {
+            _this.websites = websites;
+        });
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('f'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgForm"])
+    ], WebsiteNewComponent.prototype, "webForm", void 0);
     WebsiteNewComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-website-new',
             template: __webpack_require__(/*! ./website-new.component.html */ "./src/app/views/website/website-new/website-new.component.html"),
             styles: [__webpack_require__(/*! ./website-new.component.css */ "./src/app/views/website/website-new/website-new.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_website_service_client__WEBPACK_IMPORTED_MODULE_2__["WebsiteService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
     ], WebsiteNewComponent);
     return WebsiteNewComponent;
 }());

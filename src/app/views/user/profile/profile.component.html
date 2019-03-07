@@ -30,7 +30,7 @@
     <input [(ngModel)]="user.lastName" type="text" class="form-control" id="lastname"
            placeholder="last name"/>
   </div>
-  <a routerLink="/user/:uid/website" class="btn btn-primary btn-block">Websites</a>
+  <a routerLink="/user/{{user._id}}/website" class="btn btn-primary btn-block">Websites</a>
   <a routerLink="/login" class="btn btn-danger btn-block">Logout</a>
 
 </div>

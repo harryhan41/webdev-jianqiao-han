@@ -10,17 +10,17 @@ export class WebsiteService {
 
   baseUrl = environment.baseUrl;
 
-  createWebsite(userId: string, website: Website) {
+  createWebsite(userId: string, website: any) {
     return this._http.post<Website>(this.baseUrl + '/api/user/' + userId + '/website', website);
   }
 
 
   findWebsitesByUser(userId: string) {
-    return this._http.get(this.baseUrl + '/api/user/' + userId + '/website');
+    return this._http.get<[Website]>(this.baseUrl + '/api/user/' + userId + '/website');
   }
 
   findWebsiteById(websiteId: string) {
-
+    return this._http.get<Website>(this.baseUrl + '/api/website' + websiteId);
   }
 
 

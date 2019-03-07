@@ -1,7 +1,7 @@
 module.exports = function (app) {
   app.post("/api/user/:userId/website", createWebsite);
   app.get("/api/user/:userId/website", findAllWebsitesForUser);
-  // app.get("/api/website/:websiteId", findWebsiteById);
+  app.get("/api/website/:websiteId", findWebsiteById);
   // app.put("/api/website/:websiteId", updateWebsite);
   // app.delete("/api/website/:websiteId", deleteWebsite);
 
@@ -32,6 +32,16 @@ module.exports = function (app) {
       }
     }
     res.send(list);
+  }
 
+  function findWebsiteById(req, res) {
+    console.log('find website by id');
+    let web_id = req.param.websiteId;
+    for (var i in websites) {
+      if (websites[i]._id === web_id) {
+        res.send(websites[i]);
+      }
+    }
+    res.send({});
   }
 };
