@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {WebsiteService} from '../../../services/website.service.client';
 import {ActivatedRoute} from '@angular/router';
-import {__param} from 'tslib';
+
 
 @Component({
   selector: 'app-website-list',
   templateUrl: './website-list.component.html',
-  styleUrls: ['./website-list.component.css']
+  styleUrls: ['./website-list.component.css'],
 })
 export class WebsiteListComponent implements OnInit {
 
@@ -22,7 +22,7 @@ export class WebsiteListComponent implements OnInit {
     this.activatedRoute.params.subscribe(
       (params: any) => {
         this.userId = params.userId;
-      }
+      },
     );
     // this.websites = this.websiteService.findWebsitesByUser(this.userId);
   }

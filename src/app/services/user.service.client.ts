@@ -11,7 +11,6 @@ export class UserService {
   baseUrl = environment.baseUrl;
 
   createUser(user: any) {
-    console.log('this is running');
     return this._http.post<User>(this.baseUrl + '/api/user/', user);
   }
 

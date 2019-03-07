@@ -21,6 +21,6 @@ export class WebsiteEditComponent implements OnInit {
         this.website._id = params[':wid'];
       },
     );
-    this.website = this.websiteService.findWebsiteById(this.website._id);
+    // this.website = this.websiteService.findWebsiteById(this.website._id);
   }
 }

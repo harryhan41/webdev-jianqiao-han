@@ -285,30 +285,6 @@ var User = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/models/website.model.client.ts":
-/*!************************************************!*\
-  !*** ./src/app/models/website.model.client.ts ***!
-  \************************************************/
-/*! exports provided: Website */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Website", function() { return Website; });
-var Website = /** @class */ (function () {
-    function Website(_id, name, developerId, description) {
-        this._id = _id;
-        this.name = name;
-        this.developerId = developerId;
-        this.description = description;
-    }
-    return Website;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/models/widget.model.client.ts":
 /*!***********************************************!*\
   !*** ./src/app/models/widget.model.client.ts ***!
@@ -434,7 +410,6 @@ var UserService = /** @class */ (function () {
         this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].baseUrl;
     }
     UserService.prototype.createUser = function (user) {
-        console.log('this is running');
         return this._http.post(this.baseUrl + '/api/user/', user);
     };
     UserService.prototype.findUserById = function (userId) {
@@ -473,60 +448,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WebsiteService", function() { return WebsiteService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _models_website_model_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../models/website.model.client */ "./src/app/models/website.model.client.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+
 
 
 
 var WebsiteService = /** @class */ (function () {
-    function WebsiteService() {
-        this.websites = [
-            new _models_website_model_client__WEBPACK_IMPORTED_MODULE_2__["Website"]('123', 'Facebook', '456', 'Lorem'),
-            new _models_website_model_client__WEBPACK_IMPORTED_MODULE_2__["Website"]('234', 'Google', '239', 'Lorem'),
-            new _models_website_model_client__WEBPACK_IMPORTED_MODULE_2__["Website"]('345', 'Twitter', '123', 'Lorem'),
-            new _models_website_model_client__WEBPACK_IMPORTED_MODULE_2__["Website"]('456', 'Tictok', '434', 'Lorem'),
-            new _models_website_model_client__WEBPACK_IMPORTED_MODULE_2__["Website"]('567', 'Instagram', '498', 'Lorem'),
-        ];
+    function WebsiteService(_http) {
+        this._http = _http;
+        this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].baseUrl;
     }
     WebsiteService.prototype.createWebsite = function (userId, website) {
-        var new_website = {
-            _id: (new Date()).getTime() + '',
-            name: website.name,
-            developerId: website.developerId,
-            description: website.description
-        };
-        this.websites.push(new_website);
+        return this._http.post(this.baseUrl + '/api/user/' + userId + '/website', website);
     };
     WebsiteService.prototype.findWebsitesByUser = function (userId) {
-        for (var i in this.websites) {
-            if (this.websites[i].developerId === userId) {
-                return this.websites[i];
-            }
-        }
+        return this._http.get(this.baseUrl + '/api/user/' + userId + '/website');
     };
     WebsiteService.prototype.findWebsiteById = function (websiteId) {
-        for (var i in this.websites) {
-            if (this.websites[i]._id === websiteId) {
-                return this.websites[i];
-            }
-        }
     };
     WebsiteService.prototype.updateWebsite = function (websiteId, website) {
-        for (var i = 0; i < this.websites.length; i++) {
-            if (this.websites[i]._id === websiteId) {
-                return this.websites[i] = website;
-            }
-        }
     };
     WebsiteService.prototype.deleteWebsite = function (websiteId) {
-        for (var i = 0; i < this.websites.length; i++) {
-            if (this.websites[i]._id === websiteId) {
-                this.websites.splice(i, 1);
-            }
-        }
     };
     WebsiteService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], WebsiteService);
     return WebsiteService;
 }());
@@ -1091,7 +1038,7 @@ var WebsiteEditComponent = /** @class */ (function () {
         this.router.params.subscribe(function (params) {
             _this.website._id = params[':wid'];
         });
-        this.website = this.websiteService.findWebsiteById(this.website._id);
+        // this.website = this.websiteService.findWebsiteById(this.website._id);
     };
     WebsiteEditComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1115,7 +1062,7 @@ var WebsiteEditComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".navbar {\r\n  background: steelblue;\r\n}\r\n\r\n.col-sm-10 {\r\n  color: steelblue;\r\n  font-weight: bold;\r\n}\r\n\r\n.fas {\r\n  color: white;\r\n}\r\n\r\n.fa-cog {\r\n  color: steelblue;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.row {\r\n  padding-top: 30px;\r\n}\r\n\r\n@media (orientation: landscape) {\r\n  .fa-plus {\r\n    visibility: hidden;\r\n  }\r\n\r\n  .fa-cog {\r\n    visibility: hidden;\r\n  }\r\n\r\n  .fa-user {\r\n    visibility: hidden;\r\n  }\r\n}\r\n\r\n@media (orientation: portrait) {\r\n\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3Mvd2Vic2l0ZS93ZWJzaXRlLWxpc3Qvd2Vic2l0ZS1saXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxxQkFBcUI7QUFDdkI7O0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsWUFBWTtBQUNkOztBQUVBO0VBQ0UsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsWUFBWTtFQUNaLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFO0lBQ0Usa0JBQWtCO0VBQ3BCOztFQUVBO0lBQ0Usa0JBQWtCO0VBQ3BCOztFQUVBO0lBQ0Usa0JBQWtCO0VBQ3BCO0FBQ0Y7O0FBRUE7O0FBRUEiLCJmaWxlIjoic3JjL2FwcC92aWV3cy93ZWJzaXRlL3dlYnNpdGUtbGlzdC93ZWJzaXRlLWxpc3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5uYXZiYXIge1xyXG4gIGJhY2tncm91bmQ6IHN0ZWVsYmx1ZTtcclxufVxyXG5cclxuLmNvbC1zbS0xMCB7XHJcbiAgY29sb3I6IHN0ZWVsYmx1ZTtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG5cclxuLmZhcyB7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcblxyXG4uZmEtY29nIHtcclxuICBjb2xvcjogc3RlZWxibHVlO1xyXG59XHJcblxyXG4ubmF2YmFyLWJyYW5kIHtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcbi5yb3cge1xyXG4gIHBhZGRpbmctdG9wOiAzMHB4O1xyXG59XHJcblxyXG5AbWVkaWEgKG9yaWVudGF0aW9uOiBsYW5kc2NhcGUpIHtcclxuICAuZmEtcGx1cyB7XHJcbiAgICB2aXNpYmlsaXR5OiBoaWRkZW47XHJcbiAgfVxyXG5cclxuICAuZmEtY29nIHtcclxuICAgIHZpc2liaWxpdHk6IGhpZGRlbjtcclxuICB9XHJcblxyXG4gIC5mYS11c2VyIHtcclxuICAgIHZpc2liaWxpdHk6IGhpZGRlbjtcclxuICB9XHJcbn1cclxuXHJcbkBtZWRpYSAob3JpZW50YXRpb246IHBvcnRyYWl0KSB7XHJcblxyXG59XHJcbiJdfQ== */"
+module.exports = ".navbar {\r\n  background: steelblue;\r\n  font-weight: bold;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.fa-plus {\r\n  color: white;\r\n}\r\n\r\n.fa-user {\r\n  color: white;\r\n}\r\n\r\n.row {\r\n  padding-top: 30px;\r\n}\r\n\r\n@media (orientation: landscape) {\r\n  .fa-plus {\r\n    visibility: hidden;\r\n  }\r\n\r\n  .fa-cog {\r\n    visibility: hidden;\r\n  }\r\n}\r\n\r\n@media (orientation: portrait) {\r\n\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3Mvd2Vic2l0ZS93ZWJzaXRlLWxpc3Qvd2Vic2l0ZS1saXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxxQkFBcUI7RUFDckIsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsWUFBWTtFQUNaLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLFlBQVk7QUFDZDs7QUFFQTtFQUNFLFlBQVk7QUFDZDs7QUFFQTtFQUNFLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFO0lBQ0Usa0JBQWtCO0VBQ3BCOztFQUVBO0lBQ0Usa0JBQWtCO0VBQ3BCO0FBQ0Y7O0FBRUE7O0FBRUEiLCJmaWxlIjoic3JjL2FwcC92aWV3cy93ZWJzaXRlL3dlYnNpdGUtbGlzdC93ZWJzaXRlLWxpc3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5uYXZiYXIge1xyXG4gIGJhY2tncm91bmQ6IHN0ZWVsYmx1ZTtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG5cclxuLm5hdmJhci1icmFuZCB7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG4uZmEtcGx1cyB7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcblxyXG4uZmEtdXNlciB7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcblxyXG4ucm93IHtcclxuICBwYWRkaW5nLXRvcDogMzBweDtcclxufVxyXG5cclxuQG1lZGlhIChvcmllbnRhdGlvbjogbGFuZHNjYXBlKSB7XHJcbiAgLmZhLXBsdXMge1xyXG4gICAgdmlzaWJpbGl0eTogaGlkZGVuO1xyXG4gIH1cclxuXHJcbiAgLmZhLWNvZyB7XHJcbiAgICB2aXNpYmlsaXR5OiBoaWRkZW47XHJcbiAgfVxyXG59XHJcblxyXG5AbWVkaWEgKG9yaWVudGF0aW9uOiBwb3J0cmFpdCkge1xyXG5cclxufVxyXG4iXX0= */"
 
 /***/ }),
 
@@ -1126,7 +1073,7 @@ module.exports = ".navbar {\r\n  background: steelblue;\r\n}\r\n\r\n.col-sm-10 {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg\">\n  <div>\n    <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-angle-left\"></i></a>\n    <a class=\"navbar-brand\" href=\"#\">Websites</a>\n  </div>\n  <ul class=\"navbar-nav ml-auto mt-lg-0\">\n    <i class=\"fas fa-plus\"></i>\n  </ul>\n</nav>\n\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-sm-10 col-9\">Address Book App</div>\n    <div class=\"col-sm-2 col-3\"><i class=\"fas fa-cog\"></i></div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-sm-10 col-9\">Blogger</div>\n    <div class=\"col-sm-2 col-3\"><i class=\"fas fa-cog\"></i></div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-sm-10 col-9\">Blogging App</div>\n    <div class=\"col-sm-2 col-3\"><i class=\"fas fa-cog\"></i></div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-sm-10 col-9\">Script Testing App</div>\n    <div class=\"col-sm-2 col-3\"><i class=\"fas fa-cog\"></i></div>\n  </div>\n  <div class=\"row\" *ngFor=\"let website of websites\">\n    {{website.name}}\n  </div>\n</div>\n\n<nav class=\"navbar navbar-default fixed-bottom\">\n  <ul class=\"navbar-nav ml-auto mt-lg-0\">\n    <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-user\"></i></a>\n  </ul>\n</nav>\n"
+module.exports = "<nav class=\"navbar fixed-top\">\n  <div class=\"container-fluid\">\n    <div class=\"float-left\">\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-angle-left\"></i></a>\n      <a class=\"navbar-brand\" href=\"#\">Websites</a>\n    </div>\n    <a class=\"navbar-brand float-right\">\n      <i class=\"fas fa-plus\"></i>\n    </a>\n  </div>\n</nav>\n\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-sm-10 col-9\">Address Book App</div>\n    <div class=\"col-sm-2 col-3\"><i class=\"fas fa-cog\"></i></div>\n  </div>\n\n  <ul class=\"list-group cl-list-group-borderless\">\n\n    <li class=\"list-group-item cl-list-item-borderless\" *ngFor=\"let website of websites\">\n      <a routerLink=\"/user/{{userId}}/website/{{website._id}}\"><span class=\"fas fa-cog float-right\"></span></a>\n      <a routerLink=\"/user/{{userId}}/website/{{website._id}}/page\">{{website.name}}</a>\n    </li>\n\n  </ul>\n</div>\n\n<nav class=\"navbar fixed-bottom\">\n  <div class=\"container-fluid\">\n    <a class=\"ml-auto\">\n      <i class=\"fas fa-user\"></i>\n    </a>\n  </div>\n</nav>\n\n"
 
 /***/ }),
 
