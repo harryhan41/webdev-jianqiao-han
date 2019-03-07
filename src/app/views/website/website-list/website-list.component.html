@@ -4,18 +4,13 @@
       <a class="navbar-brand" href="#"><i class="fas fa-angle-left"></i></a>
       <a class="navbar-brand" href="#">Websites</a>
     </div>
-    <a class="navbar-brand float-right">
+    <a class="navbar-brand float-right" routerLink="/user/{{userId}}/website/new">
       <i class="fas fa-plus"></i>
     </a>
   </div>
 </nav>
 
 <div class="container">
-  <div class="row">
-    <div class="col-sm-10 col-9">Address Book App</div>
-    <div class="col-sm-2 col-3"><i class="fas fa-cog"></i></div>
-  </div>
-
   <ul class="list-group cl-list-group-borderless">
     <li class="list-group-item cl-list-item-borderless" *ngFor="let website of websites">
       <a routerLink="/user/{{userId}}/website/{{website._id}}"><span class="fas fa-cog float-right"></span></a>
