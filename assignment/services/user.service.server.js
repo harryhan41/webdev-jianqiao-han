@@ -65,10 +65,33 @@ module.exports = function (app) {
     res.send({});
   }
 
-  function updateUser() {
+  function updateUser(req, res) {
+    console.log("update user");
+
+    let userId = req.params._id;
+    let index;
+    for (let i = 0; i < users.length; i++) {
+      if (users[i]._id === userId) {
+        index = i;
+      }
+    }
+    let user = req.body;
+    users[index] = user;
+    res.send(user);
   }
 
-  function deleteUser() {
-  }
+  function deleteUser(req, res) {
+    console.log("delete user");
 
+    let userId = req.params.userId;
+    let index;
+    for (let i = 0; i < users.length; i++) {
+      if (users[i]._id === userId) {
+        index = i;
+      }
+    }
+    let user = users[index];
+    users.splice(i, 1);
+    res.send(user);
+  }
 };

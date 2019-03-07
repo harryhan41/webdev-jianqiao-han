@@ -24,10 +24,10 @@ export class UserService {
   }
 
   updateUser(user: User) {
-    return this._http.put<User>(this.baseUrl + '/api/user' + user._id, user);
+    return this._http.put<User>(this.baseUrl + '/api/user/' + user._id, user);
   }
 
   deleteUserById(userId: string) {
-    return this._http.delete<User>(this.baseUrl + '/api/user' + userId);
+    return this._http.delete<User>(this.baseUrl + '/api/user/' + userId);
   }
 }

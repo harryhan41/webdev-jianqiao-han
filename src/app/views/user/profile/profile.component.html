@@ -1,9 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand cl-text-white" routerLink="">Profile</a>
-    <a (click)="UpdateUser()" class="btn-primary navbar-text pull-right"><span>
-      <i class="fas fa-check"></i>
-    </span></a>
+    <a (click)="UpdateUser()" class="navbar-link navbar-text float-right">
+      <i class="fas fa-check"></i></a>
   </div>
 </nav>
 
@@ -32,10 +31,12 @@
   </div>
   <a routerLink="/user/{{user._id}}/website" class="btn btn-primary btn-block">Websites</a>
   <a routerLink="/login" class="btn btn-danger btn-block">Logout</a>
-
 </div>
+
 <nav class="navbar fixed-bottom">
-  <ul class="navbar-nav ml-auto mt-lg-0">
-    <a class="navbar-brand" href="#"><i class="fas fa-user"></i></a>
-  </ul>
+  <div class="container-fluid">
+    <a class="ml-auto">
+      <i class="fas fa-user"></i>
+    </a>
+  </div>
 </nav>
