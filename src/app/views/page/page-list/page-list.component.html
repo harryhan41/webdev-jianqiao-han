@@ -3,34 +3,16 @@
     <a class="navbar-brand" href="#"><i class="fas fa-angle-left"></i></a>
     <a class="navbar-brand" href="#">Pages</a>
   </div>
-  <ul class="navbar-nav ml-auto mt-lg-0">
+  <a class="navbar-nav ml-auto mt-lg-0">
     <i class="fas fa-plus"></i>
-  </ul>
+  </a>
 </nav>
 
 <div class="container">
-  <div class="row">
-    <div class="col-sm-10">Blog Post</div>
-    <div class="col-sm-2"><i class="fas fa-cog"></i></div>
-  </div>
-  <div class="row">
-    <div class="col-sm-10">Blogs</div>
-    <div class="col-sm-2"><i class="fas fa-cog"></i></div>
-  </div>
-  <div class="row">
-    <div class="col-sm-10">Home</div>
-    <div class="col-sm-2"><i class="fas fa-cog"></i></div>
-  </div>
-  <div class="row">
-    <div class="col-sm-10">About</div>
-    <div class="col-sm-2"><i class="fas fa-cog"></i></div>
-  </div>
-  <div class="row">
-    <div class="col-sm-10">Contact Us</div>
-    <div class="col-sm-2"><i class="fas fa-cog"></i></div>
-  </div>
-  <div class="row" *ngFor="let page of page">
-    {{page.name}}
+  <div class="list-group cl-list-group-borderless" *ngFor="let page of page">
+    <a routerLink="/user/{{userId}}/website/{{website._id}}/page/{{page._id}}"><span
+      class="fas fa-cog float-right"></span></a>
+    <a routerLink="/user/{{userId}}/website/{{website._id}}/page/{{page._id}}/widget">{{page.name}}</a>
   </div>
 </div>
 

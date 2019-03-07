@@ -5,12 +5,12 @@ import {ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'app-page-list',
   templateUrl: './page-list.component.html',
-  styleUrls: ['./page-list.component.css']
+  styleUrls: ['./page-list.component.css'],
 })
 export class PageListComponent implements OnInit {
 
-  pageId: string;
-  page = [{}];
+  web_Id: string;
+  pages = [{}];
 
   constructor(private pageService: PageService, private activateRoute: ActivatedRoute) {
   }
@@ -18,10 +18,14 @@ export class PageListComponent implements OnInit {
   ngOnInit() {
     this.activateRoute.params.subscribe(
       (params: any) => {
-        this.pageId = params._id;
-      }
+        this.web_Id = params.websiteId;
+      },
     );
-    // this.page = this.pageService.findPageById(this.pageId);
+
+    this.pageService.findPageByWebsiteId(this.web_Id)
+      .subscribe(pages => {
+        this.pages = pages;
+      });
 
   }
 
