@@ -41,7 +41,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet>\n  <div class=\"container\">\n    <ul><a routerLink=\"/login\">Login</a></ul>\n    <!--<ul><a routerLink=\"/register\">Register</a></ul>-->\n    <!--<ul><a routerLink=\"/user/:uid\">Profile</a></ul>-->\n\n    <!--<ul><a routerLink=\"/user/:uid/website\"> WebSiteList </a></ul>-->\n    <!--<ul><a routerLink=\"/user/:uid/website/new\"> WebsiteNewComponent </a></ul>-->\n    <!--<ul><a routerLink=\"/user/:uid/website/:wid/edit\"> WebSiteEdit </a></ul>-->\n\n    <!--<ul><a routerLink=\"/user/:uid/website/:wid/page\"> PageListComponent </a></ul>-->\n    <!--<ul><a routerLink=\"/user/:uid/website/:wid/page/new\"> PageNewComponent </a></ul>-->\n    <!--<ul><a routerLink=\"/user/:uid/website/:wid/page/:pid\"> PageEditComponent </a></ul>-->\n\n    <!--<ul><a routerLink=\"/user/:uid/website/:wid/page/:pid/widget\"> WidgetListComponent </a></ul>-->\n    <!--<ul><a routerLink=\"/user/:uid/website/:wid/page/:pid/widget/new\"> WidgetChooserComponent </a></ul>-->\n    <!--<ul><a routerLink=\"/user/:uid/website/:wid/page/:pid/widget/:wgid\"> WidgetEditComponentWithId </a></ul>-->\n  </div>\n</router-outlet>\n"
+module.exports = "<router-outlet>\n  <div class=\"container\">\n    <ul><a routerLink=\"/login\">Login</a></ul>\n  </div>\n</router-outlet>\n"
 
 /***/ }),
 
@@ -948,7 +948,7 @@ var ProfileComponent = /** @class */ (function () {
         });
         this.userService.findUserById(this.user._id.toString())
             .subscribe(function (data) {
-            console.log('in login comp...');
+            console.log('login...');
             console.log(data);
             _this.user = data;
         });
