@@ -1,10 +1,10 @@
 <div class="ib" id="page1">
   <nav class="navbar">
     <div>
-      <a class="navbar-brand" href="#"><i class="fas fa-angle-left"></i></a>
+      <a routerLink="/user/{{userId}}" class="navbar-brand" href="#"><i class="fas fa-angle-left"></i></a>
       <a class="navbar-brand" href="#">Websites</a>
     </div>
-    <a class="navbar-nav ml-auto mt-lg-0">
+    <a routerLink="/user/{{userId}}/website/new" class="navbar-nav ml-auto mt-lg-0">
       <i class="fas fa-plus"></i>
     </a>
   </nav>
@@ -20,7 +20,7 @@
 
   <nav class="navbar fixed-bottom">
     <ul class="navbar-nav ml-auto mt-lg-0">
-      <a class="navbar-brand" href="#"><i class="fas fa-user"></i></a>
+      <a routerLink="/user/{{userId}}" class="navbar-brand" href="#"><i class="fas fa-user"></i></a>
     </ul>
   </nav>
 
@@ -31,7 +31,7 @@
       <a class="navbar-brand" href="#"><i class="fas fa-angle-left" id="w-left"></i></a>
       <a class="navbar-brand" href="#">Edit Websites</a>
     </div>
-    <a class="navbar-nav ml-auto mt-lg-0">
+    <a (click)="update()" class="navbar-nav ml-auto mt-lg-0">
       <i class="fas fa-check" id="w-check"></i>
     </a>
   </nav>
@@ -46,14 +46,14 @@
         <textarea [(ngModel)]="website.description" class="form-control" id="Description" placeholder="Description"
                   rows="6"></textarea>
       </div>
-      <a routerLink="/register" class="btn btn-danger btn-block">
+      <a (click)="delete()" class="btn btn-danger btn-block">
         Delete
       </a>
     </form>
   </div>
   <nav class="navbar fixed-bottom">
     <ul class="navbar-nav ml-auto mt-lg-0">
-      <a class="navbar-brand" href="#"><i class="fas fa-user"></i></a>
+      <a routerLink="/user/{{userId}}" class="navbar-brand" href="#"><i class="fas fa-user"></i></a>
     </ul>
   </nav>
 </div>

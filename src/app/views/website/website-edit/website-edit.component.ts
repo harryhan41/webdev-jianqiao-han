@@ -18,6 +18,16 @@ export class WebsiteEditComponent implements OnInit {
     this.website = new Website('1', 'website', '0', 'temp');
   }
 
+  update() {
+    this.webService.updateWebsite(this.website._id, this.website).subscribe();
+  }
+
+  delete() {
+    this.webService.deleteWebsite(this.website._id).subscribe(website => {
+      this.router.navigateByUrl('/user/' + this.userId + '/website');
+    });
+  }
+
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: any) => {
       this.userId = params['uid'];

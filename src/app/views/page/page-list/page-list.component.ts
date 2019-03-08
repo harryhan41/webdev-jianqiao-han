@@ -9,6 +9,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class PageListComponent implements OnInit {
 
+  user_Id: string;
   web_Id: string;
   pages = [{}];
 
@@ -18,7 +19,8 @@ export class PageListComponent implements OnInit {
   ngOnInit() {
     this.activateRoute.params.subscribe(
       (params: any) => {
-        this.web_Id = params.websiteId;
+        this.web_Id = params['wid'];
+        this.user_Id = params['uid'];
       },
     );
 

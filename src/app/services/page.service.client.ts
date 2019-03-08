@@ -24,9 +24,10 @@ export class PageService {
 
 
   updatePage(pageId, page) {
-
+    return this._http.put<Page>(this.baseUrl + '/api/page/' + pageId, page);
   }
 
   deletePage(pageId) {
+    return this._http.delete<Page>(this.baseUrl + '/api/page/' + pageId);
   }
 }

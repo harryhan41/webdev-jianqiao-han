@@ -20,18 +20,15 @@ export class WebsiteService {
   }
 
   findWebsiteById(websiteId: string) {
-    return this._http.get<Website>(this.baseUrl + '/api/website' + websiteId);
+    return this._http.get<Website>(this.baseUrl + '/api/website/' + websiteId);
   }
 
 
   updateWebsite(websiteId: string, website: Website) {
-
-
+    return this._http.put<Website>(this.baseUrl + '/api/website/' + websiteId, website);
   }
 
   deleteWebsite(websiteId: string) {
-
+    return this._http.delete<Website>(this.baseUrl + '/api/website/' + websiteId);
   }
-
-
 }

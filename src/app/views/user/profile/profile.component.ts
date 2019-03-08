@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
 
     this.userService.findUserById(this.user._id.toString())
       .subscribe(data => {
-        console.log('in login comp...');
+        console.log('login...');
         console.log(data);
         this.user = data;
       });

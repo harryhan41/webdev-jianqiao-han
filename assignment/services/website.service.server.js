@@ -2,8 +2,8 @@ module.exports = function (app) {
   app.post("/api/user/:userId/website", createWebsite);
   app.get("/api/user/:userId/website", findAllWebsitesForUser);
   app.get("/api/website/:websiteId", findWebsiteById);
-  // app.put("/api/website/:websiteId", updateWebsite);
-  // app.delete("/api/website/:websiteId", deleteWebsite);
+  app.put("/api/website/:websiteId", updateWebsite);
+  app.delete("/api/website/:websiteId", deleteWebsite);
 
   var websites = [
     {_id: "123", name: "Facebook", developerId: "456", description: "Lorem"},
@@ -43,5 +43,33 @@ module.exports = function (app) {
       }
     }
     res.send({});
+  }
+
+  function updateWebsite(req, res) {
+    console.log('update website');
+    let web_id = req.param.websiteId;
+    let website = req.body;
+    for (var i in websites) {
+      if (websites[i]._id === web_id) {
+        websites[i] = website;
+      }
+    }
+
+    res.send(website);
+  }
+
+  function deleteWebsite(req, res) {
+    console.log('delete website');
+    let web_id = req.param.websiteId;
+    let index;
+    for (var i in websites) {
+      if (websites[i]._id === web_id) {
+        index = i;
+        break;
+      }
+    }
+    let website = websites[index];
+    websites.splice(index, 1);
+    res.send(website);
   }
 };

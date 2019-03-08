@@ -2,8 +2,8 @@ module.exports = function (app) {
   app.post("/api/website/:websiteId/page", createPage);
   app.get("/api/website/:websiteId/page", findAllPagesForWebsite);
   app.get("/api/page/:pageId", findPageById);
-  // app.put("/api/page/:pageId", updatePage);
-  // app.delete("/api/page/:pageId", deletePage);
+  app.put("/api/page/:pageId", updatePage);
+  app.delete("/api/page/:pageId", deletePage);
 
   var pages = [
     {_id: '123', name: 'page123', websiteId: '123', description: 'test page 123'},
@@ -43,5 +43,33 @@ module.exports = function (app) {
       }
     }
     res.send({});
+  }
+
+  function updatePage(req, res) {
+    console.log('update page');
+    let page_id = req.param._id;
+    let page = req.body;
+    for (var i in pages) {
+      if (pages[i]._id === page_id) {
+        pages[i] = page;
+      }
+    }
+
+    res.send(page);
+  }
+
+  function deletePage(req, res) {
+    console.log('delete page');
+    let page_id = req.param._id;
+    let index;
+    for (var i in pages) {
+      if (pages[i]._id === page_id) {
+        index = i;
+        break;
+      }
+    }
+    let page = pages[index];
+    pages.splice(index, 1);
+    res.send(page);
   }
 };
