@@ -6,6 +6,10 @@
   color: white;
 }
 
+.fa-check {
+  cursor: pointer;
+}
+
 .fa-cog {
   color: steelblue;
 }

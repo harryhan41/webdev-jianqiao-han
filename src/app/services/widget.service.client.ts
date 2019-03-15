@@ -1,55 +1,33 @@
 import {Injectable} from '@angular/core';
 import {Widget} from '../models/widget.model.client';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class WidgetService {
-  constructor() {
+  constructor(private _http: HttpClient) {
   }
 
-  widgets: Widget[] = [
-    new Widget('123', 'HEADER', '321', '2', 'GIZMODO', null, null),
-    new Widget('123', 'IMAGE', '321', '2', 'text', '100%', 'http://lorempixel.com/400/200/'),
-    new Widget('123', 'HTML', '321', '2', '<p>blalbla</p>', null, null),
-    new Widget('123', 'YOUTUBE', '321', '2', 'text', '100%', 'https://youtube.com/token'),
-  ];
+  baseUrl = environment.baseUrl;
 
-  createWidget(pageId: string, widget: Widget) {
-    widget._id = Math.random().toString();
-    widget.pageId = pageId;
-    this.widgets.push(widget);
-    return widget;
+  createWidget(pageId: string, widget: any) {
+    return this._http.post<Widget>(this.baseUrl + '/api/page/' + pageId + '/widget', widget);
   }
 
   findWidgetsByPageId(pageId: string) {
-    for (const widget of this.widgets) {
-      if (widget.pageId === pageId) {
-        return widget;
-      }
-    }
+    return this._http.get<[Widget]>(this.baseUrl + '/api/page/' + pageId + '/widget');
   }
 
   findWidgetById(widgetId: string) {
-    for (const widget of this.widgets) {
-      if (widget._id === widgetId) {
-        return widget;
-      }
-    }
+    return this._http.get<Widget>(this.baseUrl + '/api/widget/' + widgetId);
   }
 
   updateWidget(widgetId, widget) {
-    for (let i = 0; i < this.widgets.length; i++) {
-      if (this.widgets[i]._id === widgetId) {
-        return this.widgets[i] = widget;
-      }
-    }
+    return this._http.put<Widget>(this.baseUrl + '/api/widget/' + widgetId, widget);
   }
 
   deleteWidget(widgetId) {
-    for (let i = 0; i < this.widgets.length; i++) {
-      if (this.widgets[i]._id === widgetId) {
-        this.widgets.splice(i, 1);
-      }
-    }
+    return this._http.delete<Widget>(this.baseUrl + '/api/widget/' + widgetId);
   }
 
 

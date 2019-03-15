@@ -15,16 +15,19 @@ module.exports = function (app) {
 
   function createWebsite(req, res) {
     console.log('create website');
+
     let website = req.body;
     website._id = Math.round(Math.random() * 1000).toString();
-    website.developerId = req.param.userId;
-    website.push(website);
+    website.developerId = req.params.userId;
+    websites.push(website);
     res.send(website);
   }
 
   function findAllWebsitesForUser(req, res) {
     console.log('find websites for user');
-    let dev_id = req.param.userId;
+
+    let dev_id = req.params.userId;
+    console.log('developer id is ' + dev_id);
     let list = [];
     for (var i in websites) {
       if (websites[i].developerId === dev_id) {
@@ -36,18 +39,24 @@ module.exports = function (app) {
 
   function findWebsiteById(req, res) {
     console.log('find website by id');
-    let web_id = req.param.websiteId;
+
+    let web_id = req.params.websiteId;
+
+    console.log('website id is ' + web_id);
     for (var i in websites) {
       if (websites[i]._id === web_id) {
         res.send(websites[i]);
       }
     }
-    res.send({});
+    // res.send({});
   }
 
   function updateWebsite(req, res) {
     console.log('update website');
-    let web_id = req.param.websiteId;
+
+    console.log("req params are " + req.params.toString());
+
+    let web_id = req.params.websiteId;
     let website = req.body;
     for (var i in websites) {
       if (websites[i]._id === web_id) {
@@ -60,7 +69,7 @@ module.exports = function (app) {
 
   function deleteWebsite(req, res) {
     console.log('delete website');
-    let web_id = req.param.websiteId;
+    let web_id = req.params.websiteId;
     let index;
     for (var i in websites) {
       if (websites[i]._id === web_id) {

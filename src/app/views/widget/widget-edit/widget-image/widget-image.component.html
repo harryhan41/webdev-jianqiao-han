@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div>
-    <a class="navbar-brand" href="#"><i class="fas fa-angle-left"></i></a>
+    <a routerLink="../" class="navbar-brand" href="#"><i class="fas fa-angle-left"></i></a>
     <a class="navbar-brand" href="#">Widget Edit</a>
   </div>
-  <ul class="navbar-nav ml-auto mt-lg-0">
+  <a (click)="updateWidget()" class="navbar-nav ml-auto mt-lg-0">
     <i class="fas fa-check"></i>
-  </ul>
+  </a>
 </nav>
 <div class="container">
   <form>
@@ -41,16 +41,20 @@
              id="width"
              placeholder="100%"/>
     </div>
-    <div class="form-group">
-      <label for="exampleFormControlFile1"><b>Upload</b></label>
-      <input type="file" class="form-control-file" id="exampleFormControlFile1">
-    </div>
-    <a routerLink="/register" class="btn btn-primary btn-block">Upload Image</a>
-    <a routerLink="/register" class="btn btn-danger btn-block">Delete</a>
   </form>
+  <form ngNoForm action="{{baseUrl}}/api/upload" method="post" enctype="multipart/form-data">
+    <input name=" " type="file" class="form-control"/>
+    <input name="widgetId" value="{{widget._id}}" style="display: none"/>
+    <input name="websiteId" value="{{websiteId}}" style="display: none"/>
+    <input name="pageId" value="{{pageId}}" style="display: none"/>
+    <input name="userId" value="{{userId}}" style="display: none"/>
+    <button type="submit" class="btn btn-block btn-primary">Upload Image</button>
+  </form>
+  <a class="btn btn-danger  btn-block" (click)="deleteWidget()">Delete</a>
+
 </div>
 <nav class="navbar fixed-bottom navbar-light bg-light">
-  <ul class="navbar-nav ml-auto mt-lg-0">
+  <ul routerLink="/user/{{userId}}" class="navbar-nav ml-auto mt-lg-0">
     <a class="navbar-brand" href="#"><i class="fas fa-user"></i></a>
   </ul>
 </nav>

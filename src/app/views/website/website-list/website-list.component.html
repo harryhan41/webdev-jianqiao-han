@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="float-left">
       <a routerLink="/user/{{userId}}" class="navbar-brand" href="#"><i class="fas fa-angle-left"></i></a>
-      <a class="navbar-brand" href="#">Websites</a>
+      <a class="navbar-brand text-white">Websites</a>
     </div>
     <a class="navbar-brand float-right" routerLink="/user/{{userId}}/website/new">
       <i class="fas fa-plus"></i>
@@ -13,7 +13,7 @@
 <div class="container">
   <ul class="list-group cl-list-group-borderless">
     <li class="list-group-item cl-list-item-borderless" *ngFor="let website of websites">
-      <a routerLink="/user/{{userId}}/website/{{website._id}}"><span class="fas fa-cog float-right"></span></a>
+      <a routerLink="/user/{{userId}}/website/{{website._id}}/edit"><span class="fas fa-cog float-right"></span></a>
       <a routerLink="/user/{{userId}}/website/{{website._id}}/page">{{website.name}}</a>
     </li>
   </ul>

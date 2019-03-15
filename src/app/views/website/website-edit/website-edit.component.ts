@@ -38,13 +38,14 @@ export class WebsiteEditComponent implements OnInit {
     this.webService.findWebsitesByUser(this.userId)
       .subscribe(websites => {
         this.websites = websites;
-        console.log('websites: ' + websites);
+        // console.log('websites: ' + websites);
       });
 
     this.webService.findWebsiteById(this.website._id)
       .subscribe(website => {
         this.website = website;
-        console.log('website: ' + website);
+        console.log('website: ' + website.name);
+        console.log('website: ' + website.description);
       });
   }
 }

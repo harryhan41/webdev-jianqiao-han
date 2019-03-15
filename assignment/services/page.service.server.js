@@ -14,17 +14,17 @@ module.exports = function (app) {
   ];
 
   function createPage(req, res) {
-    console.log('create website');
+    console.log('create page');
     let page = req.body;
     page._id = Math.round(Math.random() * 1000).toString();
-    page.websiteId = req.param.websiteId;
+    page.websiteId = req.params.websiteId;
     pages.push(page);
     res.send(page);
   }
 
   function findAllPagesForWebsite(req, res) {
     console.log('find pages for website');
-    let websiteId = req.param.websiteId;
+    let websiteId = req.params.websiteId;
     let list = [];
     for (var i in pages) {
       if (pages[i].websiteId === websiteId) {
@@ -36,18 +36,18 @@ module.exports = function (app) {
 
   function findPageById(req, res) {
     console.log('find website by id');
-    let page_id = req.param._id;
+    let page_id = req.params.pageId;
     for (var i in pages) {
       if (pages[i]._id === page_id) {
-        res.send(page[i]);
+        res.send(pages[i]);
       }
     }
-    res.send({});
+    // res.send({});
   }
 
   function updatePage(req, res) {
     console.log('update page');
-    let page_id = req.param._id;
+    let page_id = req.params.pageId;
     let page = req.body;
     for (var i in pages) {
       if (pages[i]._id === page_id) {
@@ -60,7 +60,7 @@ module.exports = function (app) {
 
   function deletePage(req, res) {
     console.log('delete page');
-    let page_id = req.param._id;
+    let page_id = req.params.pageId;
     let index;
     for (var i in pages) {
       if (pages[i]._id === page_id) {

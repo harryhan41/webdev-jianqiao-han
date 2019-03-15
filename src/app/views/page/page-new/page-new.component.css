@@ -2,6 +2,10 @@
   color: black;
 }
 
+.fa-check {
+  cursor: pointer;
+}
+
 .fa-user {
   color: steelblue;
 }

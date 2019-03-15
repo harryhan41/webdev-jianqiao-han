@@ -2,8 +2,8 @@
 <div class="ib" id="page1">
   <nav class="navbar">
     <div>
-      <a class="navbar-brand" href="#"><i class="fas fa-angle-left"></i></a>
-      <a class="navbar-brand" href="#">Websites</a>
+      <a routerLink="/user/{{userId}}" class="navbar-brand" href="#"><i class="fas fa-angle-left"></i></a>
+      <a class="navbar-brand text-white">Websites</a>
     </div>
     <a class="navbar-brand float-right" routerLink="/user/{{userId}}/website/new">
       <i class="fas fa-plus"></i>
@@ -51,11 +51,12 @@
       </div>
     </form>
   </div>
-
-  <nav class="navbar fixed-bottom">
-    <ul class="navbar-nav ml-auto mt-lg-0">
-      <a routerLink="/user/{{userId}}" class="navbar-brand" href="#"><i class="fas fa-user"></i></a>
-    </ul>
-  </nav>
 </div>
+
+<nav class="navbar fixed-bottom">
+  <div class="container-fulid">
+    <a routerLink="/user/{{userId}}" class="ml-auto">
+      <i class="fas fa-user"></i></a>
+  </div>
+</nav>
 

@@ -24,9 +24,9 @@ module.exports = function (app) {
 
   function findUserById(req, res) {
 
-    console.log("hit find user by id...");
-
     var id = req.params.userId;
+
+    console.log("hit find user by id..." + id);
 
     for (var i in users) {
       if (users[i]._id === id) {
@@ -52,7 +52,7 @@ module.exports = function (app) {
   }
 
   function findUserByUsername(req, res) {
-    console.log("hit find user by name...");
+    console.log("find user by name...");
 
     var username = req.query['username'];
 
@@ -68,7 +68,7 @@ module.exports = function (app) {
   function updateUser(req, res) {
     console.log("update user");
 
-    let userId = req.params._id;
+    let userId = req.params.userId;
     let index;
     for (let i = 0; i < users.length; i++) {
       if (users[i]._id === userId) {

@@ -9,8 +9,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class PageListComponent implements OnInit {
 
-  user_Id: string;
-  web_Id: string;
+  userId: string;
+  websiteId: string;
   pages = [{}];
 
   constructor(private pageService: PageService, private activateRoute: ActivatedRoute) {
@@ -19,12 +19,12 @@ export class PageListComponent implements OnInit {
   ngOnInit() {
     this.activateRoute.params.subscribe(
       (params: any) => {
-        this.web_Id = params['wid'];
-        this.user_Id = params['uid'];
+        this.userId = params['uid'];
+        this.websiteId = params['wid'];
       },
     );
 
-    this.pageService.findPageByWebsiteId(this.web_Id)
+    this.pageService.findPageByWebsiteId(this.websiteId)
       .subscribe(pages => {
         this.pages = pages;
       });

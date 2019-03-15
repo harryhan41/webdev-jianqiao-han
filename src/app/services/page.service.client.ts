@@ -15,7 +15,7 @@ export class PageService {
   }
 
   findPageByWebsiteId(websiteId: string) {
-    return this._http.get<[Page]>(this.baseUrl + '/api/website/' + websiteId);
+    return this._http.get<[Page]>(this.baseUrl + '/api/website/' + websiteId + '/page');
   }
 
   findPageById(pageId: string) {

@@ -13,7 +13,7 @@ export class ProfileComponent implements OnInit {
   // properties
   user: User;
 
-  constructor(private userService: UserService, private router: ActivatedRoute, private acRouter: ActivatedRoute) {
+  constructor(private userService: UserService, private acRouter: ActivatedRoute) {
     this.user = new User('000', 'alias', 'alias', 'alias', 'alias', 'alias@alias');
   }
 
@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.router.params.subscribe(params => {
+    this.acRouter.params.subscribe(params => {
       this.user._id = params['uid'];
       console.log('user id: ' + this.user._id);
     });
