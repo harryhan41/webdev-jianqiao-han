@@ -4,7 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {SafePipe} from './views/widget/widget-list/safe-pipe.pipe';
 import {OrderByPipe} from './views/widget/widget-list/order-by-pipe.pipe';
-
+import {QuillModule} from 'ngx-quill';
 import {routing} from './app.routing';
 
 import {AppComponent} from './app.component';
@@ -67,6 +67,7 @@ import {SortableDirective} from '../../assignment/directives/sortable.directive'
     FormsModule,
     HttpClientModule,
     routing,
+    QuillModule,
   ],
   providers: [UserService, WebsiteService, PageService, WidgetService, SharedService, FlickrService],
   bootstrap: [AppComponent],

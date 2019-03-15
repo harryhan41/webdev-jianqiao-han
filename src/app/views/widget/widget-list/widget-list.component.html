@@ -24,12 +24,11 @@
       </div>
       <div *ngSwitchCase="'HTML'" [innerHTML]="widget.text"></div>
       <div *ngSwitchCase="'Text'">
-        <!--<div *ngIf="widget.formatted">-->
-        <!--<quill-editor [(ngModel)]="widget.text" name="text"></quill-editor>-->
-        <!--</div>-->
-
-        <!--<input *ngIf="!widget.formatted && (!widget.row || widget.row === 1)"-->
-        <!--placeholder="{{widget.placeholder}}" class="form-control"/>-->
+        <div *ngIf="widget.formatted">
+          <quill-editor [(ngModel)]="widget.text" name="text"></quill-editor>
+        </div>
+        <input *ngIf="!widget.formatted && (!widget.row || widget.row === 1)"
+               placeholder="{{widget.placeholder}}" class="form-control"/>
 
         <textarea *ngIf="!widget.formatted && (widget.row > 1)"
                   rows="{{widget.row}}" placeholder="{{widget.placeholder}}"
