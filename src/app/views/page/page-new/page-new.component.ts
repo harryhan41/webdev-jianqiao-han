@@ -22,7 +22,7 @@ export class PageNewComponent implements OnInit {
   create() {
     const name = this.pageForm.value.name;
     const title = this.pageForm.value.title;
-    const page = {name: name, title: title};
+    const page = {name: name, description: title};
 
     this.pageService.createPage(this.websiteId, page)
       .subscribe(site => {

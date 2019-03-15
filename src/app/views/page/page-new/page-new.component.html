@@ -2,7 +2,7 @@
   <div>
     <a routerLink="/user/{{userId}}/website/{{websiteId}}/page" class="navbar-brand" href="#"><i
       class="fas fa-angle-left"></i></a>
-    <a class="navbar-brand text-black" href="#">New Pages</a>
+    <a class="navbar-brand text-black">New Pages</a>
   </div>
   <a (click)="create()" class="navbar-nav ml-auto mt-lg-0">
     <i class="fas fa-check"></i>
@@ -23,7 +23,5 @@
   </form>
 </div>
 <nav class="navbar fixed-bottom">
-  <ul class="navbar-nav ml-auto mt-lg-0">
-    <a routerLink="/user/{{userId}}" href="#"><i class="fas fa-user"></i></a>
-  </ul>
+  <a routerLink="/user/{{userId}}" href="#" class="ml-auto mt-lg-0"><i class="fas fa-user"></i></a>
 </nav>

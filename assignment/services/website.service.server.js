@@ -7,10 +7,10 @@ module.exports = function (app) {
 
   var websites = [
     {_id: "123", name: "Facebook", developerId: "456", description: "Lorem"},
-    {_id: "234", name: "Tweeter", developerId: "456", description: "Lorem"},
-    {_id: "456", name: "Instagram", developerId: "456", description: "Lorem"},
-    {_id: "890", name: "Google", developerId: "123", description: "Lorem"},
-    {_id: "567", name: "Tic Tac Toe", developerId: "123", description: "Lorem"},
+    {_id: "123", name: "Tweeter", developerId: "456", description: "Lorem"},
+    {_id: "123", name: "Instagram", developerId: "456", description: "Lorem"},
+    {_id: "234", name: "Google", developerId: "123", description: "Lorem"},
+    {_id: "235", name: "Tic Tac Toe", developerId: "123", description: "Lorem"},
   ];
 
   function createWebsite(req, res) {

@@ -6,6 +6,10 @@
   color: steelblue;
 }
 
+.fa-check{
+  cursor: pointer;
+}
+
 .form-group {
   padding-top: 30px;
 }

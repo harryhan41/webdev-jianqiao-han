@@ -2,7 +2,7 @@
   <div>
     <a routerLink="/user/{{userId}}/website/{{websiteId}}/page" class="navbar-brand" href="#"><i
       class="fas fa-angle-left"></i></a>
-    <a class="navbar-brand" href="#">Widget</a>
+    <a class="navbar-brand text-black">Widget</a>
   </div>
   <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget/new" class="navbar-nav ml-auto mt-lg-0">
     <i class="fas fa-plus"></i>
@@ -11,22 +11,19 @@
 
 <div class="container" *ngFor="let widget of widgets">
   <div [ngSwitch]="widget.widgetType">
-    <div class="float-right">
-      <a routerLink="./{{widget._id}}">
-        <span class="fas fa-plus"></span>
-      </a>
-      <div *ngSwitchCase="'HEADING'">{{widget.text}} </div>
-      <div *ngSwitchCase="'YOUTUBE'">
-        <iframe width="480" height="315" [src]="byPass(widget.url)"></iframe>
-      </div>
-      <div *ngSwitchCase="'IMAGE'"><img class="img-responsive img-rounded widget-images" src="{{widget.url}}"></div>
+    <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget', widget._id]">
+      <span class="fas fa-cog float-right"></span>
+    </a>
+    <div *ngSwitchCase="'Header'">{{widget.text}} </div>
+    <div *ngSwitchCase="'YouTube'">
+      <iframe width="560" height="315" [src]="byPass(widget.url)" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
+    <div *ngSwitchCase="'Image'"><img class="img-responsive img-rounded widget-images" [src]="widget.url" alt=""></div>
   </div>
 </div>
 
 
 <nav class="navbar fixed-bottom navbar-light bg-light">
-  <ul class="navbar-nav ml-auto mt-lg-0">
-    <a class="navbar-brand" href="#"><i class="fas fa-user"></i></a>
-  </ul>
+  <a routerLink="/user/{{userId}}" class="ml-auto" href="#"><i class="fas fa-user"></i></a>
 </nav>

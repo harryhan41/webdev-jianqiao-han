@@ -6,41 +6,51 @@ module.exports = function (app) {
   app.delete("/api/widget/:widgetId", deleteWidget);
 
   var widgets = [
-    {_id: '123', type: 'HEADER', pageId: '321', size: '2', text: 'GIZMODO'},
+    {_id: '1', widgetType: 'Header', pageId: '123', size: '2', text: 'GIZMODO'},
+    // {
+    //   _id: '3',
+    //   widgetType: 'Image',
+    //   pageId: '321',
+    //   size: '2',
+    //   text: 'text',
+    //   width: '100%',
+    //   url: 'http://lorempixel.com/400/200/'
+    // },
+    // {_id: '2', widgetType: 'HTML', pageId: '123', size: '2', text: '<p>blalbla</p>'},
     {
-      _id: '123',
-      type: 'IMAGE',
-      pageId: '321',
+      _id: '2',
+      widgetType: 'YouTube',
+      pageId: '123',
       size: '2',
       text: 'text',
       width: '100%',
-      url: 'http://lorempixel.com/400/200/'
-    },
-    {_id: '123', type: 'HTML', pageId: '321', size: '2', text: '<p>blalbla</p>'},
-    {
-      _id: '123',
-      type: 'YOUTUBE',
-      pageId: '321',
-      size: '2',
-      text: 'text',
-      width: '100%',
-      url: 'https://youtube.com/token'
+      url: 'https://www.youtube.com/embed/Q97K6CDje3w'
     }
   ];
 
+  function createWidget(req, res) {
+    console.log("create widget");
+    let pageId = req.params.pageId;
+    let widget = req.body;
+    widget._id = Math.round(Math.random() * 1000).toString();
+    widget.pageId = pageId;
+    widgets.push(widget);
+    res.send(widget);
+  }
+
+
   function findWidgetById(req, res) {
 
-    console.log("find widget by id...");
-
     let id = req.params.widgetId;
+
+    console.log("find widget by id " + id);
 
     for (var i in widgets) {
       if (widgets[i]._id === id) {
         res.send(widgets[i]);
-        return;
       }
     }
-    res.send({});
+    // res.send({});
   }
 
   function findAllWidgetsForPage(req, res) {
@@ -52,17 +62,6 @@ module.exports = function (app) {
       }
     }
     res.send(list);
-  }
-
-
-  function createWidget(req, res) {
-    console.log("create widget");
-    let pageId = req.params.pageId;
-    let widget = req.body;
-    widget._id = Math.round(Math.random() * 1000).toString();
-    widget.pageId = pageId;
-    widgets.push(widget);
-    res.send(widget);
   }
 
   function updateWidget(req, res) {

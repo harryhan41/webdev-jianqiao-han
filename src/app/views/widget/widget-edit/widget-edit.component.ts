@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {WidgetService} from '../../../services/widget.service.client';
-import {Widget} from '../../../models/widget.model.client';
 
 @Component({
   selector: 'app-widget-edit',
@@ -10,23 +9,28 @@ import {Widget} from '../../../models/widget.model.client';
 })
 export class WidgetEditComponent implements OnInit {
 
-  widget: Widget;
+  widgetId: string;
+  widget = {widgetType: ''};
+  header = 'Header';
+  youtube = 'YouTube';
+  text = 'Text';
+  html = 'HTML';
+  image = 'Image';
 
   constructor(private widgetService: WidgetService, private activeRouter: ActivatedRoute) {
-    this.widget = new Widget('123', 'HEADING', '321');
   }
 
   ngOnInit() {
     this.activeRouter.params.subscribe(params => {
-      this.widget._id = params['wgid'];
-      console.log('widget id: ' + this.widget._id);
+      this.widgetId = params['wgid'];
+      console.log('widget id: ' + this.widgetId);
     });
-    this.widgetService.findWidgetById(this.widget._id)
+    this.widgetService.findWidgetById(this.widgetId)
       .subscribe(data => {
-        console.log('in widget-edit comp...');
-        console.log(data);
-        this.widget = data;
+        console.log('widget-edit comp...');
+        this.widget.widgetType = data.widgetType;
+        console.log('widget ' + data.widgetType);
+        console.log('widget type ' + this.widget.widgetType);
       });
   }
-
 }
