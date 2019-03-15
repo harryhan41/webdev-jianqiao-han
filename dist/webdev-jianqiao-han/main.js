@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi8uLi8uLi9hcHAuY29tcG9uZW50LmNzcyJ9 */"
 
 /***/ }),
 
@@ -109,10 +109,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_widget_widget_edit_widget_image_widget_image_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./views/widget/widget-edit/widget-image/widget-image.component */ "./src/app/views/widget/widget-edit/widget-image/widget-image.component.ts");
 /* harmony import */ var _views_widget_widget_edit_widget_youtube_widget_youtube_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./views/widget/widget-edit/widget-youtube/widget-youtube.component */ "./src/app/views/widget/widget-edit/widget-youtube/widget-youtube.component.ts");
 /* harmony import */ var _views_widget_widget_list_widget_list_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./views/widget/widget-list/widget-list.component */ "./src/app/views/widget/widget-list/widget-list.component.ts");
-/* harmony import */ var _services_page_service_client__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./services/page.service.client */ "./src/app/services/page.service.client.ts");
-/* harmony import */ var _services_user_service_client__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./services/user.service.client */ "./src/app/services/user.service.client.ts");
-/* harmony import */ var _services_website_service_client__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./services/website.service.client */ "./src/app/services/website.service.client.ts");
-/* harmony import */ var _services_widget_service_client__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./services/widget.service.client */ "./src/app/services/widget.service.client.ts");
+/* harmony import */ var _views_widget_widget_edit_widget_html_widget_html_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./views/widget/widget-edit/widget-html/widget-html.component */ "./src/app/views/widget/widget-edit/widget-html/widget-html.component.ts");
+/* harmony import */ var _views_widget_widget_edit_widget_text_widget_text_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./views/widget/widget-edit/widget-text/widget-text.component */ "./src/app/views/widget/widget-edit/widget-text/widget-text.component.ts");
+/* harmony import */ var _services_page_service_client__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./services/page.service.client */ "./src/app/services/page.service.client.ts");
+/* harmony import */ var _services_user_service_client__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./services/user.service.client */ "./src/app/services/user.service.client.ts");
+/* harmony import */ var _services_website_service_client__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./services/website.service.client */ "./src/app/services/website.service.client.ts");
+/* harmony import */ var _services_widget_service_client__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./services/widget.service.client */ "./src/app/services/widget.service.client.ts");
+
+
 
 
 
@@ -162,6 +166,8 @@ var AppModule = /** @class */ (function () {
                 _views_widget_widget_edit_widget_header_widget_header_component__WEBPACK_IMPORTED_MODULE_18__["WidgetHeaderComponent"],
                 _views_widget_widget_edit_widget_image_widget_image_component__WEBPACK_IMPORTED_MODULE_19__["WidgetImageComponent"],
                 _views_widget_widget_edit_widget_youtube_widget_youtube_component__WEBPACK_IMPORTED_MODULE_20__["WidgetYoutubeComponent"],
+                _views_widget_widget_edit_widget_html_widget_html_component__WEBPACK_IMPORTED_MODULE_22__["WidgetHtmlComponent"],
+                _views_widget_widget_edit_widget_text_widget_text_component__WEBPACK_IMPORTED_MODULE_23__["WidgetTextComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["BrowserModule"],
@@ -169,7 +175,7 @@ var AppModule = /** @class */ (function () {
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
                 _app_routing__WEBPACK_IMPORTED_MODULE_5__["routing"],
             ],
-            providers: [_services_user_service_client__WEBPACK_IMPORTED_MODULE_23__["UserService"], _services_website_service_client__WEBPACK_IMPORTED_MODULE_24__["WebsiteService"], _services_page_service_client__WEBPACK_IMPORTED_MODULE_22__["PageService"], _services_widget_service_client__WEBPACK_IMPORTED_MODULE_25__["WidgetService"]],
+            providers: [_services_user_service_client__WEBPACK_IMPORTED_MODULE_25__["UserService"], _services_website_service_client__WEBPACK_IMPORTED_MODULE_26__["WebsiteService"], _services_page_service_client__WEBPACK_IMPORTED_MODULE_24__["PageService"], _services_widget_service_client__WEBPACK_IMPORTED_MODULE_27__["WidgetService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]],
         })
     ], AppModule);
@@ -536,7 +542,7 @@ var WidgetService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".fas {\r\n  color: black;\r\n}\r\n\r\n.fa-user {\r\n  color: steelblue;\r\n}\r\n\r\n.fa-check{\r\n  cursor: pointer;\r\n}\r\n\r\n.form-group {\r\n  padding-top: 30px;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.row {\r\n  padding-top: 30px;\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3MvcGFnZS9wYWdlLWVkaXQvcGFnZS1lZGl0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxlQUFlO0FBQ2pCOztBQUVBO0VBQ0UsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsWUFBWTtFQUNaLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLGlCQUFpQjtBQUNuQiIsImZpbGUiOiJzcmMvYXBwL3ZpZXdzL3BhZ2UvcGFnZS1lZGl0L3BhZ2UtZWRpdC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmZhcyB7XHJcbiAgY29sb3I6IGJsYWNrO1xyXG59XHJcblxyXG4uZmEtdXNlciB7XHJcbiAgY29sb3I6IHN0ZWVsYmx1ZTtcclxufVxyXG5cclxuLmZhLWNoZWNre1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuLmZvcm0tZ3JvdXAge1xyXG4gIHBhZGRpbmctdG9wOiAzMHB4O1xyXG59XHJcblxyXG4ubmF2YmFyLWJyYW5kIHtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcbi5yb3cge1xyXG4gIHBhZGRpbmctdG9wOiAzMHB4O1xyXG59XHJcblxyXG4iXX0= */"
+module.exports = ".fas {\r\n  color: black;\r\n}\r\n\r\n.fa-user {\r\n  color: steelblue;\r\n}\r\n\r\n.fa-check{\r\n  cursor: pointer;\r\n}\r\n\r\n.form-group {\r\n  padding-top: 30px;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.row {\r\n  padding-top: 30px;\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3BhZ2UvcGFnZS1lZGl0L3BhZ2UtZWRpdC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBWTtBQUNkOztBQUVBO0VBQ0UsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsZUFBZTtBQUNqQjs7QUFFQTtFQUNFLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkIiLCJmaWxlIjoiLi4vLi4vcGFnZS9wYWdlLWVkaXQvcGFnZS1lZGl0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZmFzIHtcclxuICBjb2xvcjogYmxhY2s7XHJcbn1cclxuXHJcbi5mYS11c2VyIHtcclxuICBjb2xvcjogc3RlZWxibHVlO1xyXG59XHJcblxyXG4uZmEtY2hlY2t7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4uZm9ybS1ncm91cCB7XHJcbiAgcGFkZGluZy10b3A6IDMwcHg7XHJcbn1cclxuXHJcbi5uYXZiYXItYnJhbmQge1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG5cclxuLnJvdyB7XHJcbiAgcGFkZGluZy10b3A6IDMwcHg7XHJcbn1cclxuXHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -627,7 +633,7 @@ var PageEditComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".col-sm-10 {\r\n  color: steelblue;\r\n  font-weight: bold;\r\n}\r\n\r\n.fas {\r\n  color: black;\r\n}\r\n\r\n.fa-user {\r\n  color: steelblue;\r\n  float: right;\r\n}\r\n\r\n.fa-cog {\r\n  color: steelblue;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.row {\r\n  padding-top: 30px;\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3MvcGFnZS9wYWdlLWxpc3QvcGFnZS1saXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBZ0I7RUFDaEIsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsWUFBWTtBQUNkOztBQUVBO0VBQ0UsZ0JBQWdCO0VBQ2hCLFlBQVk7QUFDZDs7QUFFQTtFQUNFLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkIiLCJmaWxlIjoic3JjL2FwcC92aWV3cy9wYWdlL3BhZ2UtbGlzdC9wYWdlLWxpc3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb2wtc20tMTAge1xyXG4gIGNvbG9yOiBzdGVlbGJsdWU7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcbi5mYXMge1xyXG4gIGNvbG9yOiBibGFjaztcclxufVxyXG5cclxuLmZhLXVzZXIge1xyXG4gIGNvbG9yOiBzdGVlbGJsdWU7XHJcbiAgZmxvYXQ6IHJpZ2h0O1xyXG59XHJcblxyXG4uZmEtY29nIHtcclxuICBjb2xvcjogc3RlZWxibHVlO1xyXG59XHJcblxyXG4ubmF2YmFyLWJyYW5kIHtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcbi5yb3cge1xyXG4gIHBhZGRpbmctdG9wOiAzMHB4O1xyXG59XHJcblxyXG4iXX0= */"
+module.exports = ".col-sm-10 {\r\n  color: steelblue;\r\n  font-weight: bold;\r\n}\r\n\r\n.fas {\r\n  color: black;\r\n}\r\n\r\n.fa-user {\r\n  color: steelblue;\r\n  float: right;\r\n}\r\n\r\n.fa-cog {\r\n  color: steelblue;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.row {\r\n  padding-top: 30px;\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3BhZ2UvcGFnZS1saXN0L3BhZ2UtbGlzdC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLFlBQVk7QUFDZDs7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxZQUFZO0VBQ1osaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsaUJBQWlCO0FBQ25CIiwiZmlsZSI6Ii4uLy4uL3BhZ2UvcGFnZS1saXN0L3BhZ2UtbGlzdC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvbC1zbS0xMCB7XHJcbiAgY29sb3I6IHN0ZWVsYmx1ZTtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG5cclxuLmZhcyB7XHJcbiAgY29sb3I6IGJsYWNrO1xyXG59XHJcblxyXG4uZmEtdXNlciB7XHJcbiAgY29sb3I6IHN0ZWVsYmx1ZTtcclxuICBmbG9hdDogcmlnaHQ7XHJcbn1cclxuXHJcbi5mYS1jb2cge1xyXG4gIGNvbG9yOiBzdGVlbGJsdWU7XHJcbn1cclxuXHJcbi5uYXZiYXItYnJhbmQge1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG5cclxuLnJvdyB7XHJcbiAgcGFkZGluZy10b3A6IDMwcHg7XHJcbn1cclxuXHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -699,7 +705,7 @@ var PageListComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".fas {\r\n  color: black;\r\n}\r\n\r\n.fa-check {\r\n  cursor: pointer;\r\n}\r\n\r\n.fa-user {\r\n  color: steelblue;\r\n}\r\n\r\n.form-group {\r\n  padding-top: 30px;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.row {\r\n  padding-top: 30px;\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3MvcGFnZS9wYWdlLW5ldy9wYWdlLW5ldy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBWTtBQUNkOztBQUVBO0VBQ0UsZUFBZTtBQUNqQjs7QUFFQTtFQUNFLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkIiLCJmaWxlIjoic3JjL2FwcC92aWV3cy9wYWdlL3BhZ2UtbmV3L3BhZ2UtbmV3LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZmFzIHtcclxuICBjb2xvcjogYmxhY2s7XHJcbn1cclxuXHJcbi5mYS1jaGVjayB7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4uZmEtdXNlciB7XHJcbiAgY29sb3I6IHN0ZWVsYmx1ZTtcclxufVxyXG5cclxuLmZvcm0tZ3JvdXAge1xyXG4gIHBhZGRpbmctdG9wOiAzMHB4O1xyXG59XHJcblxyXG4ubmF2YmFyLWJyYW5kIHtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcbi5yb3cge1xyXG4gIHBhZGRpbmctdG9wOiAzMHB4O1xyXG59XHJcblxyXG4iXX0= */"
+module.exports = ".fas {\r\n  color: black;\r\n}\r\n\r\n.fa-check {\r\n  cursor: pointer;\r\n}\r\n\r\n.fa-user {\r\n  color: steelblue;\r\n}\r\n\r\n.form-group {\r\n  padding-top: 30px;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.row {\r\n  padding-top: 30px;\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3BhZ2UvcGFnZS1uZXcvcGFnZS1uZXcuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFlBQVk7QUFDZDs7QUFFQTtFQUNFLGVBQWU7QUFDakI7O0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxZQUFZO0VBQ1osaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsaUJBQWlCO0FBQ25CIiwiZmlsZSI6Ii4uLy4uL3BhZ2UvcGFnZS1uZXcvcGFnZS1uZXcuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5mYXMge1xyXG4gIGNvbG9yOiBibGFjaztcclxufVxyXG5cclxuLmZhLWNoZWNrIHtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuXHJcbi5mYS11c2VyIHtcclxuICBjb2xvcjogc3RlZWxibHVlO1xyXG59XHJcblxyXG4uZm9ybS1ncm91cCB7XHJcbiAgcGFkZGluZy10b3A6IDMwcHg7XHJcbn1cclxuXHJcbi5uYXZiYXItYnJhbmQge1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG5cclxuLnJvdyB7XHJcbiAgcGFkZGluZy10b3A6IDMwcHg7XHJcbn1cclxuXHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -788,7 +794,7 @@ var PageNewComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\r\n  padding-top: 5%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3MvdXNlci9sb2dpbi9sb2dpbi5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBZTtBQUNqQiIsImZpbGUiOiJzcmMvYXBwL3ZpZXdzL3VzZXIvbG9naW4vbG9naW4uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb250YWluZXIge1xyXG4gIHBhZGRpbmctdG9wOiA1JTtcclxufVxyXG4iXX0= */"
+module.exports = ".container {\r\n  padding-top: 5%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3VzZXIvbG9naW4vbG9naW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGVBQWU7QUFDakIiLCJmaWxlIjoiLi4vLi4vdXNlci9sb2dpbi9sb2dpbi5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvbnRhaW5lciB7XHJcbiAgcGFkZGluZy10b3A6IDUlO1xyXG59XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -869,7 +875,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".navbar {\r\n  background: steelblue;\r\n}\r\n\r\n.fas {\r\n  color: white;\r\n}\r\n\r\n.fa-check {\r\n  cursor: pointer;\r\n}\r\n\r\n.container {\r\n  padding-top: 20px;\r\n}\r\n\r\n.form-group {\r\n  padding-top: 5px;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3MvdXNlci9wcm9maWxlL3Byb2ZpbGUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLFlBQVk7QUFDZDs7QUFFQTtFQUNFLGVBQWU7QUFDakI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxZQUFZO0VBQ1osaUJBQWlCO0FBQ25CIiwiZmlsZSI6InNyYy9hcHAvdmlld3MvdXNlci9wcm9maWxlL3Byb2ZpbGUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5uYXZiYXIge1xyXG4gIGJhY2tncm91bmQ6IHN0ZWVsYmx1ZTtcclxufVxyXG5cclxuLmZhcyB7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcblxyXG4uZmEtY2hlY2sge1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuLmNvbnRhaW5lciB7XHJcbiAgcGFkZGluZy10b3A6IDIwcHg7XHJcbn1cclxuXHJcbi5mb3JtLWdyb3VwIHtcclxuICBwYWRkaW5nLXRvcDogNXB4O1xyXG59XHJcblxyXG4ubmF2YmFyLWJyYW5kIHtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcblxyXG5cclxuIl19 */"
+module.exports = ".navbar {\r\n  background: steelblue;\r\n}\r\n\r\n.fas {\r\n  color: white;\r\n}\r\n\r\n.fa-check {\r\n  cursor: pointer;\r\n}\r\n\r\n.container {\r\n  padding-top: 20px;\r\n}\r\n\r\n.form-group {\r\n  padding-top: 5px;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3VzZXIvcHJvZmlsZS9wcm9maWxlLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxxQkFBcUI7QUFDdkI7O0FBRUE7RUFDRSxZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxlQUFlO0FBQ2pCOztBQUVBO0VBQ0UsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsWUFBWTtFQUNaLGlCQUFpQjtBQUNuQiIsImZpbGUiOiIuLi8uLi91c2VyL3Byb2ZpbGUvcHJvZmlsZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm5hdmJhciB7XHJcbiAgYmFja2dyb3VuZDogc3RlZWxibHVlO1xyXG59XHJcblxyXG4uZmFzIHtcclxuICBjb2xvcjogd2hpdGU7XHJcbn1cclxuXHJcbi5mYS1jaGVjayB7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4uY29udGFpbmVyIHtcclxuICBwYWRkaW5nLXRvcDogMjBweDtcclxufVxyXG5cclxuLmZvcm0tZ3JvdXAge1xyXG4gIHBhZGRpbmctdG9wOiA1cHg7XHJcbn1cclxuXHJcbi5uYXZiYXItYnJhbmQge1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG5cclxuXHJcblxyXG4iXX0= */"
 
 /***/ }),
 
@@ -948,7 +954,7 @@ var ProfileComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\r\n  padding-top: 5%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3MvdXNlci9yZWdpc3Rlci9yZWdpc3Rlci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBZTtBQUNqQiIsImZpbGUiOiJzcmMvYXBwL3ZpZXdzL3VzZXIvcmVnaXN0ZXIvcmVnaXN0ZXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb250YWluZXIge1xyXG4gIHBhZGRpbmctdG9wOiA1JTtcclxufVxyXG4iXX0= */"
+module.exports = ".container {\r\n  padding-top: 5%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3VzZXIvcmVnaXN0ZXIvcmVnaXN0ZXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGVBQWU7QUFDakIiLCJmaWxlIjoiLi4vLi4vdXNlci9yZWdpc3Rlci9yZWdpc3Rlci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvbnRhaW5lciB7XHJcbiAgcGFkZGluZy10b3A6IDUlO1xyXG59XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -1029,7 +1035,7 @@ var RegisterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".navbar {\r\n  background: steelblue;\r\n}\r\n\r\n.fas {\r\n  color: white;\r\n}\r\n\r\n.fa-check {\r\n  cursor: pointer;\r\n}\r\n\r\n.fa-cog {\r\n  color: steelblue;\r\n}\r\n\r\n.form-group {\r\n  padding-top: 30px;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.row {\r\n  padding-top: 30px;\r\n}\r\n\r\n@media (orientation: landscape) {\r\n  .ib {\r\n    float: left;\r\n    width: 50%;\r\n  }\r\n\r\n  .fa-user {\r\n    visibility: hidden;\r\n  }\r\n\r\n  #w-left {\r\n    visibility: hidden;\r\n  }\r\n\r\n  #w-check {\r\n    visibility: hidden;\r\n  }\r\n}\r\n\r\n@media (orientation: portrait) {\r\n  #page1 {\r\n    display: none !important;\r\n  }\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3Mvd2Vic2l0ZS93ZWJzaXRlLWVkaXQvd2Vic2l0ZS1lZGl0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxxQkFBcUI7QUFDdkI7O0FBRUE7RUFDRSxZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxlQUFlO0FBQ2pCOztBQUVBO0VBQ0UsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsWUFBWTtFQUNaLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFO0lBQ0UsV0FBVztJQUNYLFVBQVU7RUFDWjs7RUFFQTtJQUNFLGtCQUFrQjtFQUNwQjs7RUFFQTtJQUNFLGtCQUFrQjtFQUNwQjs7RUFFQTtJQUNFLGtCQUFrQjtFQUNwQjtBQUNGOztBQUVBO0VBQ0U7SUFDRSx3QkFBd0I7RUFDMUI7QUFDRiIsImZpbGUiOiJzcmMvYXBwL3ZpZXdzL3dlYnNpdGUvd2Vic2l0ZS1lZGl0L3dlYnNpdGUtZWRpdC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm5hdmJhciB7XHJcbiAgYmFja2dyb3VuZDogc3RlZWxibHVlO1xyXG59XHJcblxyXG4uZmFzIHtcclxuICBjb2xvcjogd2hpdGU7XHJcbn1cclxuXHJcbi5mYS1jaGVjayB7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4uZmEtY29nIHtcclxuICBjb2xvcjogc3RlZWxibHVlO1xyXG59XHJcblxyXG4uZm9ybS1ncm91cCB7XHJcbiAgcGFkZGluZy10b3A6IDMwcHg7XHJcbn1cclxuXHJcbi5uYXZiYXItYnJhbmQge1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG5cclxuLnJvdyB7XHJcbiAgcGFkZGluZy10b3A6IDMwcHg7XHJcbn1cclxuXHJcbkBtZWRpYSAob3JpZW50YXRpb246IGxhbmRzY2FwZSkge1xyXG4gIC5pYiB7XHJcbiAgICBmbG9hdDogbGVmdDtcclxuICAgIHdpZHRoOiA1MCU7XHJcbiAgfVxyXG5cclxuICAuZmEtdXNlciB7XHJcbiAgICB2aXNpYmlsaXR5OiBoaWRkZW47XHJcbiAgfVxyXG5cclxuICAjdy1sZWZ0IHtcclxuICAgIHZpc2liaWxpdHk6IGhpZGRlbjtcclxuICB9XHJcblxyXG4gICN3LWNoZWNrIHtcclxuICAgIHZpc2liaWxpdHk6IGhpZGRlbjtcclxuICB9XHJcbn1cclxuXHJcbkBtZWRpYSAob3JpZW50YXRpb246IHBvcnRyYWl0KSB7XHJcbiAgI3BhZ2UxIHtcclxuICAgIGRpc3BsYXk6IG5vbmUgIWltcG9ydGFudDtcclxuICB9XHJcbn1cclxuXHJcbiJdfQ== */"
+module.exports = ".navbar {\r\n  background: steelblue;\r\n}\r\n\r\n.fas {\r\n  color: white;\r\n}\r\n\r\n.fa-check {\r\n  cursor: pointer;\r\n}\r\n\r\n.fa-cog {\r\n  color: steelblue;\r\n}\r\n\r\n.form-group {\r\n  padding-top: 30px;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.row {\r\n  padding-top: 30px;\r\n}\r\n\r\n@media (orientation: landscape) {\r\n  .ib {\r\n    float: left;\r\n    width: 50%;\r\n  }\r\n\r\n  .fa-user {\r\n    visibility: hidden;\r\n  }\r\n\r\n  #w-left {\r\n    visibility: hidden;\r\n  }\r\n\r\n  #w-check {\r\n    visibility: hidden;\r\n  }\r\n}\r\n\r\n@media (orientation: portrait) {\r\n  #page1 {\r\n    display: none !important;\r\n  }\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3dlYnNpdGUvd2Vic2l0ZS1lZGl0L3dlYnNpdGUtZWRpdC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UscUJBQXFCO0FBQ3ZCOztBQUVBO0VBQ0UsWUFBWTtBQUNkOztBQUVBO0VBQ0UsZUFBZTtBQUNqQjs7QUFFQTtFQUNFLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRTtJQUNFLFdBQVc7SUFDWCxVQUFVO0VBQ1o7O0VBRUE7SUFDRSxrQkFBa0I7RUFDcEI7O0VBRUE7SUFDRSxrQkFBa0I7RUFDcEI7O0VBRUE7SUFDRSxrQkFBa0I7RUFDcEI7QUFDRjs7QUFFQTtFQUNFO0lBQ0Usd0JBQXdCO0VBQzFCO0FBQ0YiLCJmaWxlIjoiLi4vLi4vd2Vic2l0ZS93ZWJzaXRlLWVkaXQvd2Vic2l0ZS1lZGl0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubmF2YmFyIHtcclxuICBiYWNrZ3JvdW5kOiBzdGVlbGJsdWU7XHJcbn1cclxuXHJcbi5mYXMge1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxufVxyXG5cclxuLmZhLWNoZWNrIHtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuXHJcbi5mYS1jb2cge1xyXG4gIGNvbG9yOiBzdGVlbGJsdWU7XHJcbn1cclxuXHJcbi5mb3JtLWdyb3VwIHtcclxuICBwYWRkaW5nLXRvcDogMzBweDtcclxufVxyXG5cclxuLm5hdmJhci1icmFuZCB7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG4ucm93IHtcclxuICBwYWRkaW5nLXRvcDogMzBweDtcclxufVxyXG5cclxuQG1lZGlhIChvcmllbnRhdGlvbjogbGFuZHNjYXBlKSB7XHJcbiAgLmliIHtcclxuICAgIGZsb2F0OiBsZWZ0O1xyXG4gICAgd2lkdGg6IDUwJTtcclxuICB9XHJcblxyXG4gIC5mYS11c2VyIHtcclxuICAgIHZpc2liaWxpdHk6IGhpZGRlbjtcclxuICB9XHJcblxyXG4gICN3LWxlZnQge1xyXG4gICAgdmlzaWJpbGl0eTogaGlkZGVuO1xyXG4gIH1cclxuXHJcbiAgI3ctY2hlY2sge1xyXG4gICAgdmlzaWJpbGl0eTogaGlkZGVuO1xyXG4gIH1cclxufVxyXG5cclxuQG1lZGlhIChvcmllbnRhdGlvbjogcG9ydHJhaXQpIHtcclxuICAjcGFnZTEge1xyXG4gICAgZGlzcGxheTogbm9uZSAhaW1wb3J0YW50O1xyXG4gIH1cclxufVxyXG5cclxuIl19 */"
 
 /***/ }),
 
@@ -1122,7 +1128,7 @@ var WebsiteEditComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".navbar {\r\n  background: steelblue;\r\n  font-weight: bold;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.fa-plus {\r\n  color: white;\r\n}\r\n\r\n.fa-user {\r\n  color: white;\r\n}\r\n\r\n.row {\r\n  padding-top: 30px;\r\n}\r\n\r\n@media (orientation: landscape) {\r\n  .fa-plus {\r\n    visibility: hidden;\r\n  }\r\n\r\n  .fa-cog {\r\n    visibility: hidden;\r\n  }\r\n}\r\n\r\n@media (orientation: portrait) {\r\n\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3Mvd2Vic2l0ZS93ZWJzaXRlLWxpc3Qvd2Vic2l0ZS1saXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxxQkFBcUI7RUFDckIsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsWUFBWTtFQUNaLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLFlBQVk7QUFDZDs7QUFFQTtFQUNFLFlBQVk7QUFDZDs7QUFFQTtFQUNFLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFO0lBQ0Usa0JBQWtCO0VBQ3BCOztFQUVBO0lBQ0Usa0JBQWtCO0VBQ3BCO0FBQ0Y7O0FBRUE7O0FBRUEiLCJmaWxlIjoic3JjL2FwcC92aWV3cy93ZWJzaXRlL3dlYnNpdGUtbGlzdC93ZWJzaXRlLWxpc3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5uYXZiYXIge1xyXG4gIGJhY2tncm91bmQ6IHN0ZWVsYmx1ZTtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG5cclxuLm5hdmJhci1icmFuZCB7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG4uZmEtcGx1cyB7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcblxyXG4uZmEtdXNlciB7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcblxyXG4ucm93IHtcclxuICBwYWRkaW5nLXRvcDogMzBweDtcclxufVxyXG5cclxuQG1lZGlhIChvcmllbnRhdGlvbjogbGFuZHNjYXBlKSB7XHJcbiAgLmZhLXBsdXMge1xyXG4gICAgdmlzaWJpbGl0eTogaGlkZGVuO1xyXG4gIH1cclxuXHJcbiAgLmZhLWNvZyB7XHJcbiAgICB2aXNpYmlsaXR5OiBoaWRkZW47XHJcbiAgfVxyXG59XHJcblxyXG5AbWVkaWEgKG9yaWVudGF0aW9uOiBwb3J0cmFpdCkge1xyXG5cclxufVxyXG4iXX0= */"
+module.exports = ".navbar {\r\n  background: steelblue;\r\n  font-weight: bold;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.fa-plus {\r\n  color: white;\r\n}\r\n\r\n.fa-user {\r\n  color: white;\r\n}\r\n\r\n.row {\r\n  padding-top: 30px;\r\n}\r\n\r\n@media (orientation: landscape) {\r\n  .fa-plus {\r\n    visibility: hidden;\r\n  }\r\n\r\n  .fa-cog {\r\n    visibility: hidden;\r\n  }\r\n}\r\n\r\n@media (orientation: portrait) {\r\n\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3dlYnNpdGUvd2Vic2l0ZS1saXN0L3dlYnNpdGUtbGlzdC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UscUJBQXFCO0VBQ3JCLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRTtJQUNFLGtCQUFrQjtFQUNwQjs7RUFFQTtJQUNFLGtCQUFrQjtFQUNwQjtBQUNGOztBQUVBOztBQUVBIiwiZmlsZSI6Ii4uLy4uL3dlYnNpdGUvd2Vic2l0ZS1saXN0L3dlYnNpdGUtbGlzdC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm5hdmJhciB7XHJcbiAgYmFja2dyb3VuZDogc3RlZWxibHVlO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG4ubmF2YmFyLWJyYW5kIHtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcbi5mYS1wbHVzIHtcclxuICBjb2xvcjogd2hpdGU7XHJcbn1cclxuXHJcbi5mYS11c2VyIHtcclxuICBjb2xvcjogd2hpdGU7XHJcbn1cclxuXHJcbi5yb3cge1xyXG4gIHBhZGRpbmctdG9wOiAzMHB4O1xyXG59XHJcblxyXG5AbWVkaWEgKG9yaWVudGF0aW9uOiBsYW5kc2NhcGUpIHtcclxuICAuZmEtcGx1cyB7XHJcbiAgICB2aXNpYmlsaXR5OiBoaWRkZW47XHJcbiAgfVxyXG5cclxuICAuZmEtY29nIHtcclxuICAgIHZpc2liaWxpdHk6IGhpZGRlbjtcclxuICB9XHJcbn1cclxuXHJcbkBtZWRpYSAob3JpZW50YXRpb246IHBvcnRyYWl0KSB7XHJcblxyXG59XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -1193,7 +1199,7 @@ var WebsiteListComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".navbar {\r\n  background: steelblue;\r\n}\r\n\r\n.fas {\r\n  color: white;\r\n}\r\n\r\n.fa-check {\r\n  cursor: pointer;\r\n}\r\n\r\n.fa-cog {\r\n  color: steelblue;\r\n}\r\n\r\n.form-group {\r\n  padding-top: 30px;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.row {\r\n  padding-top: 30px;\r\n}\r\n\r\n@media (orientation: landscape) {\r\n  .ib {\r\n    float: left;\r\n    width: 50%;\r\n  }\r\n\r\n  .fa-user {\r\n    visibility: hidden;\r\n  }\r\n\r\n  #w-left {\r\n    visibility: hidden;\r\n  }\r\n\r\n  #w-check {\r\n    visibility: hidden;\r\n  }\r\n}\r\n\r\n@media (orientation: portrait) {\r\n  #page1 {\r\n    display: none !important;\r\n  }\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3Mvd2Vic2l0ZS93ZWJzaXRlLW5ldy93ZWJzaXRlLW5ldy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UscUJBQXFCO0FBQ3ZCOztBQUVBO0VBQ0UsWUFBWTtBQUNkOztBQUVBO0VBQ0UsZUFBZTtBQUNqQjs7QUFFQTtFQUNFLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRTtJQUNFLFdBQVc7SUFDWCxVQUFVO0VBQ1o7O0VBRUE7SUFDRSxrQkFBa0I7RUFDcEI7O0VBRUE7SUFDRSxrQkFBa0I7RUFDcEI7O0VBRUE7SUFDRSxrQkFBa0I7RUFDcEI7QUFDRjs7QUFFQTtFQUNFO0lBQ0Usd0JBQXdCO0VBQzFCO0FBQ0YiLCJmaWxlIjoic3JjL2FwcC92aWV3cy93ZWJzaXRlL3dlYnNpdGUtbmV3L3dlYnNpdGUtbmV3LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubmF2YmFyIHtcclxuICBiYWNrZ3JvdW5kOiBzdGVlbGJsdWU7XHJcbn1cclxuXHJcbi5mYXMge1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxufVxyXG5cclxuLmZhLWNoZWNrIHtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuXHJcbi5mYS1jb2cge1xyXG4gIGNvbG9yOiBzdGVlbGJsdWU7XHJcbn1cclxuXHJcbi5mb3JtLWdyb3VwIHtcclxuICBwYWRkaW5nLXRvcDogMzBweDtcclxufVxyXG5cclxuLm5hdmJhci1icmFuZCB7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG4ucm93IHtcclxuICBwYWRkaW5nLXRvcDogMzBweDtcclxufVxyXG5cclxuQG1lZGlhIChvcmllbnRhdGlvbjogbGFuZHNjYXBlKSB7XHJcbiAgLmliIHtcclxuICAgIGZsb2F0OiBsZWZ0O1xyXG4gICAgd2lkdGg6IDUwJTtcclxuICB9XHJcblxyXG4gIC5mYS11c2VyIHtcclxuICAgIHZpc2liaWxpdHk6IGhpZGRlbjtcclxuICB9XHJcblxyXG4gICN3LWxlZnQge1xyXG4gICAgdmlzaWJpbGl0eTogaGlkZGVuO1xyXG4gIH1cclxuXHJcbiAgI3ctY2hlY2sge1xyXG4gICAgdmlzaWJpbGl0eTogaGlkZGVuO1xyXG4gIH1cclxufVxyXG5cclxuQG1lZGlhIChvcmllbnRhdGlvbjogcG9ydHJhaXQpIHtcclxuICAjcGFnZTEge1xyXG4gICAgZGlzcGxheTogbm9uZSAhaW1wb3J0YW50O1xyXG4gIH1cclxufVxyXG4iXX0= */"
+module.exports = ".navbar {\r\n  background: steelblue;\r\n}\r\n\r\n.fas {\r\n  color: white;\r\n}\r\n\r\n.fa-check {\r\n  cursor: pointer;\r\n}\r\n\r\n.fa-cog {\r\n  color: steelblue;\r\n}\r\n\r\n.form-group {\r\n  padding-top: 30px;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.row {\r\n  padding-top: 30px;\r\n}\r\n\r\n@media (orientation: landscape) {\r\n  .ib {\r\n    float: left;\r\n    width: 50%;\r\n  }\r\n\r\n  .fa-user {\r\n    visibility: hidden;\r\n  }\r\n\r\n  #w-left {\r\n    visibility: hidden;\r\n  }\r\n\r\n  #w-check {\r\n    visibility: hidden;\r\n  }\r\n}\r\n\r\n@media (orientation: portrait) {\r\n  #page1 {\r\n    display: none !important;\r\n  }\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3dlYnNpdGUvd2Vic2l0ZS1uZXcvd2Vic2l0ZS1uZXcuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLFlBQVk7QUFDZDs7QUFFQTtFQUNFLGVBQWU7QUFDakI7O0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxZQUFZO0VBQ1osaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0U7SUFDRSxXQUFXO0lBQ1gsVUFBVTtFQUNaOztFQUVBO0lBQ0Usa0JBQWtCO0VBQ3BCOztFQUVBO0lBQ0Usa0JBQWtCO0VBQ3BCOztFQUVBO0lBQ0Usa0JBQWtCO0VBQ3BCO0FBQ0Y7O0FBRUE7RUFDRTtJQUNFLHdCQUF3QjtFQUMxQjtBQUNGIiwiZmlsZSI6Ii4uLy4uL3dlYnNpdGUvd2Vic2l0ZS1uZXcvd2Vic2l0ZS1uZXcuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5uYXZiYXIge1xyXG4gIGJhY2tncm91bmQ6IHN0ZWVsYmx1ZTtcclxufVxyXG5cclxuLmZhcyB7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcblxyXG4uZmEtY2hlY2sge1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuLmZhLWNvZyB7XHJcbiAgY29sb3I6IHN0ZWVsYmx1ZTtcclxufVxyXG5cclxuLmZvcm0tZ3JvdXAge1xyXG4gIHBhZGRpbmctdG9wOiAzMHB4O1xyXG59XHJcblxyXG4ubmF2YmFyLWJyYW5kIHtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcbi5yb3cge1xyXG4gIHBhZGRpbmctdG9wOiAzMHB4O1xyXG59XHJcblxyXG5AbWVkaWEgKG9yaWVudGF0aW9uOiBsYW5kc2NhcGUpIHtcclxuICAuaWIge1xyXG4gICAgZmxvYXQ6IGxlZnQ7XHJcbiAgICB3aWR0aDogNTAlO1xyXG4gIH1cclxuXHJcbiAgLmZhLXVzZXIge1xyXG4gICAgdmlzaWJpbGl0eTogaGlkZGVuO1xyXG4gIH1cclxuXHJcbiAgI3ctbGVmdCB7XHJcbiAgICB2aXNpYmlsaXR5OiBoaWRkZW47XHJcbiAgfVxyXG5cclxuICAjdy1jaGVjayB7XHJcbiAgICB2aXNpYmlsaXR5OiBoaWRkZW47XHJcbiAgfVxyXG59XHJcblxyXG5AbWVkaWEgKG9yaWVudGF0aW9uOiBwb3J0cmFpdCkge1xyXG4gICNwYWdlMSB7XHJcbiAgICBkaXNwbGF5OiBub25lICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG59XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -1281,7 +1287,7 @@ var WebsiteNewComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".col-sm-10 {\r\n  color: steelblue;\r\n  font-weight: bold;\r\n}\r\n\r\n.fas {\r\n  color: black;\r\n}\r\n\r\n.fa-user {\r\n  color: steelblue;\r\n  float: right;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.row {\r\n  padding-top: 20px;\r\n}\r\n\r\n.col-lg-12 {\r\n  cursor: pointer;\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3Mvd2lkZ2V0L3dpZGdldC1jaG9vc2VyL3dpZGdldC1jaG9vc2VyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBZ0I7RUFDaEIsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsWUFBWTtBQUNkOztBQUVBO0VBQ0UsZ0JBQWdCO0VBQ2hCLFlBQVk7QUFDZDs7QUFFQTtFQUNFLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxlQUFlO0FBQ2pCIiwiZmlsZSI6InNyYy9hcHAvdmlld3Mvd2lkZ2V0L3dpZGdldC1jaG9vc2VyL3dpZGdldC1jaG9vc2VyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29sLXNtLTEwIHtcclxuICBjb2xvcjogc3RlZWxibHVlO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG4uZmFzIHtcclxuICBjb2xvcjogYmxhY2s7XHJcbn1cclxuXHJcbi5mYS11c2VyIHtcclxuICBjb2xvcjogc3RlZWxibHVlO1xyXG4gIGZsb2F0OiByaWdodDtcclxufVxyXG5cclxuLm5hdmJhci1icmFuZCB7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG4ucm93IHtcclxuICBwYWRkaW5nLXRvcDogMjBweDtcclxufVxyXG5cclxuLmNvbC1sZy0xMiB7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4iXX0= */"
+module.exports = ".col-sm-10 {\r\n  color: steelblue;\r\n  font-weight: bold;\r\n}\r\n\r\n.fas {\r\n  color: black;\r\n}\r\n\r\n.fa-user {\r\n  color: steelblue;\r\n  float: right;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.row {\r\n  padding-top: 20px;\r\n}\r\n\r\n.col-lg-12 {\r\n  cursor: pointer;\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3dpZGdldC1jaG9vc2VyL3dpZGdldC1jaG9vc2VyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBZ0I7RUFDaEIsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsWUFBWTtBQUNkOztBQUVBO0VBQ0UsZ0JBQWdCO0VBQ2hCLFlBQVk7QUFDZDs7QUFFQTtFQUNFLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxlQUFlO0FBQ2pCIiwiZmlsZSI6Ii4uL3dpZGdldC1jaG9vc2VyL3dpZGdldC1jaG9vc2VyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29sLXNtLTEwIHtcclxuICBjb2xvcjogc3RlZWxibHVlO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG4uZmFzIHtcclxuICBjb2xvcjogYmxhY2s7XHJcbn1cclxuXHJcbi5mYS11c2VyIHtcclxuICBjb2xvcjogc3RlZWxibHVlO1xyXG4gIGZsb2F0OiByaWdodDtcclxufVxyXG5cclxuLm5hdmJhci1icmFuZCB7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG4ucm93IHtcclxuICBwYWRkaW5nLXRvcDogMjBweDtcclxufVxyXG5cclxuLmNvbC1sZy0xMiB7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4iXX0= */"
 
 /***/ }),
 
@@ -1369,7 +1375,7 @@ var WidgetChooserComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3ZpZXdzL3dpZGdldC93aWRnZXQtZWRpdC93aWRnZXQtZWRpdC5jb21wb25lbnQuY3NzIn0= */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJ3aWRnZXQtZWRpdC5jb21wb25lbnQuY3NzIn0= */"
 
 /***/ }),
 
@@ -1380,7 +1386,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div [ngSwitch]=\"widget.widgetType\">\n  <div *ngSwitchCase='header'>\n    <app-widget-header></app-widget-header>\n  </div>\n  <div *ngSwitchCase='image'>\n    <app-widget-image></app-widget-image>\n  </div>\n  <div *ngSwitchCase='youtube'>\n    <app-widget-youtube></app-widget-youtube>\n  </div>\n  <!--<div *ngSwitchCase='html'>-->\n  <!--<app-widget-html></app-widget-html>-->\n  <!--</div>-->\n\n  <!--<div *ngSwitchCase='text'>-->\n  <!--<app-widget-text></app-widget-text>-->\n  <!--</div>-->\n</div>\n"
+module.exports = "<div [ngSwitch]=\"widget.widgetType\">\n  <div *ngSwitchCase='header'>\n    <app-widget-header></app-widget-header>\n  </div>\n  <div *ngSwitchCase='image'>\n    <app-widget-image></app-widget-image>\n  </div>\n  <div *ngSwitchCase='youtube'>\n    <app-widget-youtube></app-widget-youtube>\n  </div>\n  <div *ngSwitchCase='html'>\n    <app-widget-html></app-widget-html>\n  </div>\n  <div *ngSwitchCase='text'>\n    <app-widget-text></app-widget-text>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1449,7 +1455,7 @@ var WidgetEditComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".fas {\r\n  color: black;\r\n  cursor: pointer;\r\n}\r\n\r\n.fa-user {\r\n  color: steelblue;\r\n}\r\n\r\n.container {\r\n  padding-top: 40px;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3Mvd2lkZ2V0L3dpZGdldC1lZGl0L3dpZGdldC1oZWFkZXIvd2lkZ2V0LWhlYWRlci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBWTtFQUNaLGVBQWU7QUFDakI7O0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxZQUFZO0VBQ1osaUJBQWlCO0FBQ25CIiwiZmlsZSI6InNyYy9hcHAvdmlld3Mvd2lkZ2V0L3dpZGdldC1lZGl0L3dpZGdldC1oZWFkZXIvd2lkZ2V0LWhlYWRlci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmZhcyB7XHJcbiAgY29sb3I6IGJsYWNrO1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuLmZhLXVzZXIge1xyXG4gIGNvbG9yOiBzdGVlbGJsdWU7XHJcbn1cclxuXHJcbi5jb250YWluZXIge1xyXG4gIHBhZGRpbmctdG9wOiA0MHB4O1xyXG59XHJcblxyXG4ubmF2YmFyLWJyYW5kIHtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuIl19 */"
+module.exports = ".fas {\r\n  color: black;\r\n  cursor: pointer;\r\n}\r\n\r\n.fa-user {\r\n  color: steelblue;\r\n}\r\n\r\n.container {\r\n  padding-top: 40px;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndpZGdldC1oZWFkZXIvd2lkZ2V0LWhlYWRlci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBWTtFQUNaLGVBQWU7QUFDakI7O0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxZQUFZO0VBQ1osaUJBQWlCO0FBQ25CIiwiZmlsZSI6IndpZGdldC1oZWFkZXIvd2lkZ2V0LWhlYWRlci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmZhcyB7XHJcbiAgY29sb3I6IGJsYWNrO1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuLmZhLXVzZXIge1xyXG4gIGNvbG9yOiBzdGVlbGJsdWU7XHJcbn1cclxuXHJcbi5jb250YWluZXIge1xyXG4gIHBhZGRpbmctdG9wOiA0MHB4O1xyXG59XHJcblxyXG4ubmF2YmFyLWJyYW5kIHtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuIl19 */"
 
 /***/ }),
 
@@ -1537,6 +1543,106 @@ var WidgetHeaderComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/views/widget/widget-edit/widget-html/widget-html.component.css":
+/*!********************************************************************************!*\
+  !*** ./src/app/views/widget/widget-edit/widget-html/widget-html.component.css ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJ3aWRnZXQtaHRtbC93aWRnZXQtaHRtbC5jb21wb25lbnQuY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/views/widget/widget-edit/widget-html/widget-html.component.html":
+/*!*********************************************************************************!*\
+  !*** ./src/app/views/widget/widget-edit/widget-html/widget-html.component.html ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\r\n  <div>\r\n    <a [routerLink]=\"['/user', userId, 'website', websiteId, 'page', pageId, 'widget']\" class=\"navbar-brand\" href=\"#\"><i\r\n      class=\"fas fa-angle-left\"></i></a>\r\n    <a class=\"navbar-brand text-black font-weight-bold\">Widget Edit</a>\r\n  </div>\r\n  <a (click)=\"updateWidget()\" class=\"navbar-nav ml-auto mt-lg-0\" href=\"#\">\r\n    <i class=\"fas fa-check\"></i>\r\n  </a>\r\n</nav>\r\n<div class=\"container\">\r\n  <form>\r\n    <div *ngIf=flag\r\n         class=\"alert alert-danger\">\r\n      {{error}}\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"name\"><b>Name</b></label>\r\n      <input [(ngModel)]=\"widget.name\"\r\n             name=\"name\"\r\n             type=\"text\"\r\n             class=\"form-control\"\r\n             id=\"name\"\r\n             placeholder=\"Widget Name\"/>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"Description\"><b>Text</b></label>\r\n      <input [(ngModel)]=\"widget.text\"\r\n             name=\"text\"\r\n             type=\"text\"\r\n             class=\"form-control\"\r\n             id=\"Description\"\r\n             placeholder=\"Widget Title\"/>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"number\"><b>Size</b></label>\r\n      <input [(ngModel)]=\"widget.size\"\r\n             name=\"size\"\r\n             type=\"number\"\r\n             class=\"form-control\"\r\n             id=\"number\"\r\n             placeholder=\"Widget Size\"/>\r\n    </div>\r\n    <a (click)=\"deleteWidget()\" class=\"btn btn-danger btn-block\"\r\n       [routerLink]=\"['/user', 'website', websiteId, 'page', pageId, 'widget']\"\r\n    >Delete</a>\r\n  </form>\r\n</div>\r\n<nav class=\"navbar fixed-bottom navbar-light bg-light\">\r\n  <a routerLink=\"/user/{{userId}}\" class=\"ml-auto mt-lg-0\">\r\n    <i class=\"fas fa-user\"></i>\r\n  </a>\r\n</nav>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/views/widget/widget-edit/widget-html/widget-html.component.ts":
+/*!*******************************************************************************!*\
+  !*** ./src/app/views/widget/widget-edit/widget-html/widget-html.component.ts ***!
+  \*******************************************************************************/
+/*! exports provided: WidgetHtmlComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WidgetHtmlComponent", function() { return WidgetHtmlComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_widget_service_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../services/widget.service.client */ "./src/app/services/widget.service.client.ts");
+
+
+
+
+var WidgetHtmlComponent = /** @class */ (function () {
+    function WidgetHtmlComponent(activatedRoute, widgetService, router) {
+        this.activatedRoute = activatedRoute;
+        this.widgetService = widgetService;
+        this.router = router;
+        this.widgetNew = { name: '', text: '' };
+        this.flag = false;
+        this.widget = {};
+    }
+    WidgetHtmlComponent.prototype.updateWidget = function () {
+        var _this = this;
+        // if name field is undefined then set error 'flag' to true making 'error' and 'alert' message visible
+        if (this.widget['name'] === '') {
+            this.flag = true;
+        }
+        else {
+            this.widgetService.updateWidget(this.widgetId, this.widget)
+                .subscribe(function (data) { return _this.router.navigate(['/user', 'website', _this.websiteId, 'page', _this.pageId, 'widget']); }, function (error) { return console.log(error); });
+        }
+    };
+    WidgetHtmlComponent.prototype.deleteWidget = function () {
+        var _this = this;
+        // call delete widget function from widget client service
+        this.widgetService.deleteWidget(this.widgetId)
+            .subscribe(function (data) { return _this.router.navigate(['/user', 'website', _this.websiteId, 'page', _this.pageId, 'widget']); }, function (error) { return console.log(error); });
+    };
+    WidgetHtmlComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // initialize error and alert text
+        this.error = 'Enter the name of the widget';
+        this.alert = '* Enter the widget name';
+        // fetch ids from current url
+        this.activatedRoute.params
+            .subscribe(function (params) {
+            _this.websiteId = params['wid'];
+            _this.pageId = params['pid'];
+            _this.widgetId = params['wgid'];
+        });
+        this.widgetService.findWidgetById(this.widgetId)
+            .subscribe(function (data) {
+            _this.widget = data;
+            _this.widget = tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, _this.widgetNew, _this.widget);
+            console.log(_this.widget);
+        }, function (error) { return console.log(error); });
+    };
+    WidgetHtmlComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-widget-html',
+            template: __webpack_require__(/*! ./widget-html.component.html */ "./src/app/views/widget/widget-edit/widget-html/widget-html.component.html"),
+            styles: [__webpack_require__(/*! ./widget-html.component.css */ "./src/app/views/widget/widget-edit/widget-html/widget-html.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _services_widget_service_client__WEBPACK_IMPORTED_MODULE_3__["WidgetService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], WidgetHtmlComponent);
+    return WidgetHtmlComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/views/widget/widget-edit/widget-image/widget-image.component.css":
 /*!**********************************************************************************!*\
   !*** ./src/app/views/widget/widget-edit/widget-image/widget-image.component.css ***!
@@ -1544,7 +1650,7 @@ var WidgetHeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".fas {\r\n  color: black;\r\n}\r\n\r\n.fa-user {\r\n  color: steelblue;\r\n}\r\n\r\n.container {\r\n  padding-top: 40px;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3Mvd2lkZ2V0L3dpZGdldC1lZGl0L3dpZGdldC1pbWFnZS93aWRnZXQtaW1hZ2UuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFlBQVk7QUFDZDs7QUFFQTtFQUNFLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLFlBQVk7RUFDWixpQkFBaUI7QUFDbkIiLCJmaWxlIjoic3JjL2FwcC92aWV3cy93aWRnZXQvd2lkZ2V0LWVkaXQvd2lkZ2V0LWltYWdlL3dpZGdldC1pbWFnZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmZhcyB7XHJcbiAgY29sb3I6IGJsYWNrO1xyXG59XHJcblxyXG4uZmEtdXNlciB7XHJcbiAgY29sb3I6IHN0ZWVsYmx1ZTtcclxufVxyXG5cclxuLmNvbnRhaW5lciB7XHJcbiAgcGFkZGluZy10b3A6IDQwcHg7XHJcbn1cclxuXHJcbi5uYXZiYXItYnJhbmQge1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG4iXX0= */"
+module.exports = ".fas {\r\n  color: black;\r\n  cursor: pointer;\r\n}\r\n\r\n.fa-user {\r\n  color: steelblue;\r\n}\r\n\r\n.container {\r\n  padding-top: 40px;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndpZGdldC1pbWFnZS93aWRnZXQtaW1hZ2UuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFlBQVk7RUFDWixlQUFlO0FBQ2pCOztBQUVBO0VBQ0UsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsWUFBWTtFQUNaLGlCQUFpQjtBQUNuQiIsImZpbGUiOiJ3aWRnZXQtaW1hZ2Uvd2lkZ2V0LWltYWdlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZmFzIHtcclxuICBjb2xvcjogYmxhY2s7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4uZmEtdXNlciB7XHJcbiAgY29sb3I6IHN0ZWVsYmx1ZTtcclxufVxyXG5cclxuLmNvbnRhaW5lciB7XHJcbiAgcGFkZGluZy10b3A6IDQwcHg7XHJcbn1cclxuXHJcbi5uYXZiYXItYnJhbmQge1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG4iXX0= */"
 
 /***/ }),
 
@@ -1555,7 +1661,7 @@ module.exports = ".fas {\r\n  color: black;\r\n}\r\n\r\n.fa-user {\r\n  color: s
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <div>\n    <a routerLink=\"../\" class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-angle-left\"></i></a>\n    <a class=\"navbar-brand\" href=\"#\">Widget Edit</a>\n  </div>\n  <a (click)=\"updateWidget()\" class=\"navbar-nav ml-auto mt-lg-0\">\n    <i class=\"fas fa-check\"></i>\n  </a>\n</nav>\n<div class=\"container\">\n  <form>\n    <div class=\"form-group\">\n      <label for=\"name\"><b>Name</b></label>\n      <input [(ngModel)]=\"name\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"name\"\n             placeholder=\"Page Name\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"Description\"><b>Text</b></label>\n      <input [(ngModel)]=\"Description\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"Description\"\n             placeholder=\"Page Title\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"url\"><b>URL</b></label>\n      <input [(ngModel)]=\"url\"\n             type=\"url\"\n             class=\"form-control\"\n             id=\"url\"\n             placeholder=\"http://google.com\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"width\"><b>Width</b></label>\n      <input [(ngModel)]=\"width\"\n             type=\"number\"\n             class=\"form-control\"\n             id=\"width\"\n             placeholder=\"100%\"/>\n    </div>\n  </form>\n  <form ngNoForm action=\"{{baseUrl}}/api/upload\" method=\"post\" enctype=\"multipart/form-data\">\n    <input name=\" \" type=\"file\" class=\"form-control\"/>\n    <input name=\"widgetId\" value=\"{{widget._id}}\" style=\"display: none\"/>\n    <input name=\"websiteId\" value=\"{{websiteId}}\" style=\"display: none\"/>\n    <input name=\"pageId\" value=\"{{pageId}}\" style=\"display: none\"/>\n    <input name=\"userId\" value=\"{{userId}}\" style=\"display: none\"/>\n    <button type=\"submit\" class=\"btn btn-block btn-primary\">Upload Image</button>\n  </form>\n  <a class=\"btn btn-danger  btn-block\" (click)=\"deleteWidget()\">Delete</a>\n\n</div>\n<nav class=\"navbar fixed-bottom navbar-light bg-light\">\n  <ul routerLink=\"/user/{{userId}}\" class=\"navbar-nav ml-auto mt-lg-0\">\n    <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-user\"></i></a>\n  </ul>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <div>\n    <a routerLink=\"../\" class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-angle-left\"></i></a>\n    <a class=\"navbar-brand text-black font-weight-bold\">Widget Edit</a>\n  </div>\n  <a (click)=\"updateWidget()\" class=\"navbar-nav ml-auto mt-lg-0\">\n    <i class=\"fas fa-check\"></i>\n  </a>\n</nav>\n<div class=\"container\">\n  <form>\n    <div class=\"form-group\">\n      <label for=\"name\"><b>Name</b></label>\n      <input [(ngModel)]=\"widget.name\"\n             name=\"name\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"name\"\n             placeholder=\"Page Name\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"Description\"><b>Text</b></label>\n      <input [(ngModel)]=\"widget.text\"\n             name=\"text\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"Description\"\n             placeholder=\"Page Title\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"url\"><b>URL</b></label>\n      <input [(ngModel)]=\"widget.url\"\n             name=\"url\"\n             type=\"url\"\n             class=\"form-control\"\n             id=\"url\"\n             placeholder=\"http://google.com\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"width\"><b>Width</b></label>\n      <input [(ngModel)]=\"widget.width\"\n             name=\"width\"\n             type=\"number\"\n             class=\"form-control\"\n             id=\"width\"\n             placeholder=\"100%\"/>\n    </div>\n  </form>\n  <form ngNoForm action=\"{{baseUrl}}/api/upload\" method=\"post\" enctype=\"multipart/form-data\">\n    <input name=\"myFile\" type=\"file\" class=\"form-control\"/>\n    <input name=\"widgetId\" value=\"{{widgetId}}\" style=\"display: none\"/>\n    <input name=\"websiteId\" value=\"{{websiteId}}\" style=\"display: none\"/>\n    <input name=\"pageId\" value=\"{{pageId}}\" style=\"display: none\"/>\n    <input name=\"userId\" value=\"{{userId}}\" style=\"display: none\"/>\n    <button type=\"submit\" class=\"btn btn-block btn-primary\">Upload Image</button>\n  </form>\n  <div>\n    <a class=\"btn btn-danger  btn-block text-white\" (click)=\"deleteWidget()\">Delete</a>\n  </div>\n\n</div>\n<nav class=\"navbar fixed-bottom navbar-light bg-light\">\n  <a routerLink=\"/user/{{userId}}\" class=\"navbar-brand ml-auto\" href=\"#\"><i class=\"fas fa-user\"></i></a>\n</nav>\n"
 
 /***/ }),
 
@@ -1573,7 +1679,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_widget_service_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../services/widget.service.client */ "./src/app/services/widget.service.client.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _models_widget_model_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../models/widget.model.client */ "./src/app/models/widget.model.client.ts");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../environments/environment */ "./src/environments/environment.ts");
 
 
 
@@ -1584,26 +1690,31 @@ var WidgetImageComponent = /** @class */ (function () {
         this.widgetService = widgetService;
         this.router = router;
         this.activatedRoute = activatedRoute;
-        this.widget = new _models_widget_model_client__WEBPACK_IMPORTED_MODULE_4__["Widget"]('123', 'HEADING', '321');
+        this.flag = false;
+        this.widget = {};
     }
     WidgetImageComponent.prototype.updateWidget = function () {
-        this.widgetService.updateWidget(this.widget._id, this.widget).subscribe();
+        var _this = this;
+        this.widgetService.updateWidget(this.widgetId, this.widget).subscribe(function (widget) {
+            _this.router.navigateByUrl('/user/' + _this.userId + '/website/' + _this.websiteId + '/page/' + _this.pageId + '/widget');
+        });
     };
     WidgetImageComponent.prototype.deleteWidget = function () {
         var _this = this;
-        this.widgetService.deleteWidget(this.widget._id).subscribe(function (widget) {
+        this.widgetService.deleteWidget(this.widgetId).subscribe(function (widget) {
             _this.router.navigateByUrl('/user/' + _this.userId + '/website/' + _this.websiteId + '/page/' + _this.pageId + '/widget');
         });
     };
     WidgetImageComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].baseUrl;
         this.activatedRoute.params.subscribe(function (params) {
             _this.userId = params['uid'];
             _this.pageId = params['pid'];
             _this.websiteId = params['wid'];
-            _this.widget._id = params['wgid'];
+            _this.widgetId = params['wgid'];
         });
-        this.widgetService.findWidgetById(this.widget._id)
+        this.widgetService.findWidgetById(this.widgetId)
             .subscribe(function (data) {
             console.log('in widget-header-edit comp...');
             console.log(data);
@@ -1625,6 +1736,102 @@ var WidgetImageComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/views/widget/widget-edit/widget-text/widget-text.component.css":
+/*!********************************************************************************!*\
+  !*** ./src/app/views/widget/widget-edit/widget-text/widget-text.component.css ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".fas {\r\n  cursor: pointer;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndpZGdldC10ZXh0L3dpZGdldC10ZXh0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxlQUFlO0FBQ2pCIiwiZmlsZSI6IndpZGdldC10ZXh0L3dpZGdldC10ZXh0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZmFzIHtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuIl19 */"
+
+/***/ }),
+
+/***/ "./src/app/views/widget/widget-edit/widget-text/widget-text.component.html":
+/*!*********************************************************************************!*\
+  !*** ./src/app/views/widget/widget-edit/widget-text/widget-text.component.html ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <div>\n    <a [routerLink]=\"['/user', userId, 'website', websiteId, 'page', pageId, 'widget']\" class=\"navbar-brand\" href=\"#\"><i\n      class=\"fas fa-angle-left\"></i></a>\n    <a class=\"navbar-brand text-black font-weight-bold\">Widget Edit</a>\n  </div>\n  <a (click)=\"updateWidget()\" class=\"navbar-nav ml-auto mt-lg-0\">\n    <i class=\"fas fa-check\"></i>\n  </a>\n</nav>\n<div class=\"container\">\n  <form>\n    <div *ngIf=flag\n         class=\"alert alert-danger\">\n      {{error}}\n    </div>\n    <div class=\"form-group\">\n      <label for=\"name\"><b>Name</b></label>\n      <input [(ngModel)]=\"widget.name\"\n             name=\"name\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"name\"\n             placeholder=\"Widget Name\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"Description\"><b>Text</b></label>\n      <input [(ngModel)]=\"widget.text\"\n             name=\"text\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"Description\"\n             placeholder=\"Widget Title\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"number\"><b>Row</b></label>\n      <input [(ngModel)]=\"widget.row\"\n             name=\"row\"\n             type=\"number\"\n             class=\"form-control\"\n             id=\"number\"\n             placeholder=\"Widget Size\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"place\"><b>Placeholder</b></label>\n      <input [(ngModel)]=\"widget.placeholder\"\n             name=\"placeholder\"\n             type=\"number\"\n             class=\"form-control\"\n             id=\"place\"\n             placeholder=\"Widget Size\"/>\n    </div>\n    <a (click)=\"deleteWidget()\" class=\"btn btn-danger btn-block\"\n       [routerLink]=\"['/user', 'website', websiteId, 'page', pageId, 'widget']\"\n    >Delete</a>\n  </form>\n</div>\n<nav class=\"navbar fixed-bottom navbar-light bg-light\">\n  <a routerLink=\"/user/{{userId}}\" class=\"ml-auto mt-lg-0\">\n    <i class=\"fas fa-user\"></i>\n  </a>\n</nav>\n"
+
+/***/ }),
+
+/***/ "./src/app/views/widget/widget-edit/widget-text/widget-text.component.ts":
+/*!*******************************************************************************!*\
+  !*** ./src/app/views/widget/widget-edit/widget-text/widget-text.component.ts ***!
+  \*******************************************************************************/
+/*! exports provided: WidgetTextComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WidgetTextComponent", function() { return WidgetTextComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_widget_service_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../services/widget.service.client */ "./src/app/services/widget.service.client.ts");
+
+
+
+
+var WidgetTextComponent = /** @class */ (function () {
+    function WidgetTextComponent(widgetService, router, activatedRoute) {
+        this.widgetService = widgetService;
+        this.router = router;
+        this.activatedRoute = activatedRoute;
+        this.flag = false; // setting error flag as false by default
+        this.widget = { placeholder: '' };
+    }
+    WidgetTextComponent.prototype.updateWidget = function () {
+        var _this = this;
+        // if name field is undefined then set error 'flag' to true making 'error' and 'alert' message visible
+        if (this.widget['name'] === undefined) {
+            this.flag = true;
+        }
+        else {
+            this.widgetService.updateWidget(this.widgetId, this.widget)
+                .subscribe(function (data) { return _this.router.navigate(['/user', 'website', _this.websiteId, 'page', _this.pageId, 'widget']); }, function (error) { return console.log(error); });
+        }
+    };
+    WidgetTextComponent.prototype.deleteWidget = function () {
+        var _this = this;
+        // call delete widget function from widget client service
+        this.widgetService.deleteWidget(this.widgetId)
+            .subscribe(function (data) { return _this.router.navigate(['/user', 'website', _this.websiteId, 'page', _this.pageId, 'widget']); }, function (error) { return console.log(error); });
+    };
+    WidgetTextComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // initialize error and alert text
+        this.error = 'Enter the required field';
+        this.alert = '* Enter the required fields';
+        // fetch ids from current url
+        this.activatedRoute.params
+            .subscribe(function (params) {
+            _this.websiteId = params['wid'];
+            _this.pageId = params['pid'];
+            _this.widgetId = params['wgid'];
+        });
+        // fetch widget values as created on widget-new component
+        this.widgetService.findWidgetById(this.widgetId)
+            .subscribe(function (data) { return _this.widget = data; }, function (error) { return console.log(error); });
+    };
+    WidgetTextComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-widget-text',
+            template: __webpack_require__(/*! ./widget-text.component.html */ "./src/app/views/widget/widget-edit/widget-text/widget-text.component.html"),
+            styles: [__webpack_require__(/*! ./widget-text.component.css */ "./src/app/views/widget/widget-edit/widget-text/widget-text.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_widget_service_client__WEBPACK_IMPORTED_MODULE_3__["WidgetService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+    ], WidgetTextComponent);
+    return WidgetTextComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/views/widget/widget-edit/widget-youtube/widget-youtube.component.css":
 /*!**************************************************************************************!*\
   !*** ./src/app/views/widget/widget-edit/widget-youtube/widget-youtube.component.css ***!
@@ -1632,7 +1839,7 @@ var WidgetImageComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".fas {\r\n  color: black;\r\n}\r\n\r\n.fa-user {\r\n  color: steelblue;\r\n}\r\n\r\n.container {\r\n  padding-top: 40px;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3Mvd2lkZ2V0L3dpZGdldC1lZGl0L3dpZGdldC15b3V0dWJlL3dpZGdldC15b3V0dWJlLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxZQUFZO0VBQ1osaUJBQWlCO0FBQ25CIiwiZmlsZSI6InNyYy9hcHAvdmlld3Mvd2lkZ2V0L3dpZGdldC1lZGl0L3dpZGdldC15b3V0dWJlL3dpZGdldC15b3V0dWJlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZmFzIHtcclxuICBjb2xvcjogYmxhY2s7XHJcbn1cclxuXHJcbi5mYS11c2VyIHtcclxuICBjb2xvcjogc3RlZWxibHVlO1xyXG59XHJcblxyXG4uY29udGFpbmVyIHtcclxuICBwYWRkaW5nLXRvcDogNDBweDtcclxufVxyXG5cclxuLm5hdmJhci1icmFuZCB7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcbiJdfQ== */"
+module.exports = ".fas {\r\n  color: black;\r\n  cursor: pointer;\r\n}\r\n\r\n.fa-user {\r\n  color: steelblue;\r\n}\r\n\r\n.container {\r\n  padding-top: 40px;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndpZGdldC15b3V0dWJlL3dpZGdldC15b3V0dWJlLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFZO0VBQ1osZUFBZTtBQUNqQjs7QUFFQTtFQUNFLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLFlBQVk7RUFDWixpQkFBaUI7QUFDbkIiLCJmaWxlIjoid2lkZ2V0LXlvdXR1YmUvd2lkZ2V0LXlvdXR1YmUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5mYXMge1xyXG4gIGNvbG9yOiBibGFjaztcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuXHJcbi5mYS11c2VyIHtcclxuICBjb2xvcjogc3RlZWxibHVlO1xyXG59XHJcblxyXG4uY29udGFpbmVyIHtcclxuICBwYWRkaW5nLXRvcDogNDBweDtcclxufVxyXG5cclxuLm5hdmJhci1icmFuZCB7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -1725,7 +1932,7 @@ var WidgetYoutubeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\r\n  padding-top: 10px;\r\n  padding-bottom: 50px;\r\n}\r\n\r\n.col-sm-10 {\r\n  color: black;\r\n  font-weight: bold;\r\n}\r\n\r\np {\r\n  font-weight: normal;\r\n}\r\n\r\n.fas {\r\n  color: black;\r\n}\r\n\r\n.fa-user {\r\n  color: steelblue;\r\n  float: right;\r\n}\r\n\r\n.fa-cog {\r\n  color: steelblue;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.row {\r\n  padding-top: 10px;\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3Mvd2lkZ2V0L3dpZGdldC1saXN0L3dpZGdldC1saXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxpQkFBaUI7RUFDakIsb0JBQW9CO0FBQ3RCOztBQUVBO0VBQ0UsWUFBWTtFQUNaLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLG1CQUFtQjtBQUNyQjs7QUFFQTtFQUNFLFlBQVk7QUFDZDs7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxZQUFZO0VBQ1osaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsaUJBQWlCO0FBQ25CIiwiZmlsZSI6InNyYy9hcHAvdmlld3Mvd2lkZ2V0L3dpZGdldC1saXN0L3dpZGdldC1saXN0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFpbmVyIHtcclxuICBwYWRkaW5nLXRvcDogMTBweDtcclxuICBwYWRkaW5nLWJvdHRvbTogNTBweDtcclxufVxyXG5cclxuLmNvbC1zbS0xMCB7XHJcbiAgY29sb3I6IGJsYWNrO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG5wIHtcclxuICBmb250LXdlaWdodDogbm9ybWFsO1xyXG59XHJcblxyXG4uZmFzIHtcclxuICBjb2xvcjogYmxhY2s7XHJcbn1cclxuXHJcbi5mYS11c2VyIHtcclxuICBjb2xvcjogc3RlZWxibHVlO1xyXG4gIGZsb2F0OiByaWdodDtcclxufVxyXG5cclxuLmZhLWNvZyB7XHJcbiAgY29sb3I6IHN0ZWVsYmx1ZTtcclxufVxyXG5cclxuLm5hdmJhci1icmFuZCB7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG4ucm93IHtcclxuICBwYWRkaW5nLXRvcDogMTBweDtcclxufVxyXG5cclxuIl19 */"
+module.exports = ".container {\r\n  padding-top: 10px;\r\n  padding-bottom: 50px;\r\n}\r\n\r\n.col-sm-10 {\r\n  color: black;\r\n  font-weight: bold;\r\n}\r\n\r\np {\r\n  font-weight: normal;\r\n}\r\n\r\n.fas {\r\n  color: black;\r\n}\r\n\r\n.fa-user {\r\n  color: steelblue;\r\n  float: right;\r\n}\r\n\r\n.fa-cog {\r\n  color: steelblue;\r\n}\r\n\r\n.navbar-brand {\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.row {\r\n  padding-top: 10px;\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3dpZGdldC1saXN0L3dpZGdldC1saXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxpQkFBaUI7RUFDakIsb0JBQW9CO0FBQ3RCOztBQUVBO0VBQ0UsWUFBWTtFQUNaLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLG1CQUFtQjtBQUNyQjs7QUFFQTtFQUNFLFlBQVk7QUFDZDs7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxZQUFZO0VBQ1osaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsaUJBQWlCO0FBQ25CIiwiZmlsZSI6Ii4uL3dpZGdldC1saXN0L3dpZGdldC1saXN0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFpbmVyIHtcclxuICBwYWRkaW5nLXRvcDogMTBweDtcclxuICBwYWRkaW5nLWJvdHRvbTogNTBweDtcclxufVxyXG5cclxuLmNvbC1zbS0xMCB7XHJcbiAgY29sb3I6IGJsYWNrO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG5wIHtcclxuICBmb250LXdlaWdodDogbm9ybWFsO1xyXG59XHJcblxyXG4uZmFzIHtcclxuICBjb2xvcjogYmxhY2s7XHJcbn1cclxuXHJcbi5mYS11c2VyIHtcclxuICBjb2xvcjogc3RlZWxibHVlO1xyXG4gIGZsb2F0OiByaWdodDtcclxufVxyXG5cclxuLmZhLWNvZyB7XHJcbiAgY29sb3I6IHN0ZWVsYmx1ZTtcclxufVxyXG5cclxuLm5hdmJhci1icmFuZCB7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG4ucm93IHtcclxuICBwYWRkaW5nLXRvcDogMTBweDtcclxufVxyXG5cclxuIl19 */"
 
 /***/ }),
 
@@ -1736,7 +1943,7 @@ module.exports = ".container {\r\n  padding-top: 10px;\r\n  padding-bottom: 50px
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <div>\n    <a routerLink=\"/user/{{userId}}/website/{{websiteId}}/page\" class=\"navbar-brand\" href=\"#\"><i\n      class=\"fas fa-angle-left\"></i></a>\n    <a class=\"navbar-brand text-black\">Widget</a>\n  </div>\n  <a routerLink=\"/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget/new\" class=\"navbar-nav ml-auto mt-lg-0\">\n    <i class=\"fas fa-plus\"></i>\n  </a>\n</nav>\n\n<div class=\"container\" *ngFor=\"let widget of widgets\">\n  <div [ngSwitch]=\"widget.widgetType\">\n    <a [routerLink]=\"['/user', userId, 'website', websiteId, 'page', pageId, 'widget', widget._id]\">\n      <span class=\"fas fa-cog float-right\"></span>\n    </a>\n    <div *ngSwitchCase=\"'Header'\">{{widget.text}} </div>\n    <div *ngSwitchCase=\"'YouTube'\">\n      <iframe width=\"560\" height=\"315\" [src]=\"byPass(widget.url)\" frameborder=\"0\"\n              allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n    </div>\n    <div *ngSwitchCase=\"'Image'\"><img class=\"img-responsive img-rounded widget-images\" [src]=\"widget.url\" alt=\"\"></div>\n  </div>\n</div>\n\n\n<nav class=\"navbar fixed-bottom navbar-light bg-light\">\n  <a routerLink=\"/user/{{userId}}\" class=\"ml-auto\" href=\"#\"><i class=\"fas fa-user\"></i></a>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <div>\n    <a routerLink=\"/user/{{userId}}/website/{{websiteId}}/page\" class=\"navbar-brand\" href=\"#\"><i\n      class=\"fas fa-angle-left\"></i></a>\n    <a class=\"navbar-brand text-black\">Widget</a>\n  </div>\n  <a routerLink=\"/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget/new\" class=\"navbar-nav ml-auto mt-lg-0\">\n    <i class=\"fas fa-plus\"></i>\n  </a>\n</nav>\n\n<div class=\"container\" *ngFor=\"let widget of widgets\">\n  <div [ngSwitch]=\"widget.widgetType\">\n    <a [routerLink]=\"['/user', userId, 'website', websiteId, 'page', pageId, 'widget', widget._id]\">\n      <span class=\"fas fa-cog float-right\"></span>\n    </a>\n    <div *ngSwitchCase=\"'Header'\">{{widget.text}} </div>\n    <div *ngSwitchCase=\"'YouTube'\">\n      <iframe width=\"560\" height=\"315\" [src]=\"byPass(widget.url)\" frameborder=\"0\"\n              allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n    </div>\n    <div *ngSwitchCase=\"'Image'\"><img class=\"img-responsive img-rounded widget-images\" [src]=\"widget.url\" alt=\"\"></div>\n    <div *ngSwitchCase=\"'HTML'\" [innerHTML]=\"widget.text\"></div>\n    <div *ngSwitchCase=\"'Text'\">\n      <!--<div *ngIf=\"widget.formatted\">-->\n        <!--<quill-editor [(ngModel)]=\"widget.text\" name=\"text\"></quill-editor>-->\n      <!--</div>-->\n\n      <!--<input *ngIf=\"!widget.formatted && (!widget.row || widget.row === 1)\"-->\n             <!--placeholder=\"{{widget.placeholder}}\" class=\"form-control\"/>-->\n\n      <textarea *ngIf=\"!widget.formatted && (widget.row > 1)\"\n                rows=\"{{widget.row}}\" placeholder=\"{{widget.placeholder}}\"\n                class=\"form-control\">{{widget.text}}</textarea>\n    </div>\n  </div>\n</div>\n\n\n<nav class=\"navbar fixed-bottom navbar-light bg-light\">\n  <a routerLink=\"/user/{{userId}}\" class=\"ml-auto\" href=\"#\"><i class=\"fas fa-user\"></i></a>\n</nav>\n"
 
 /***/ }),
 

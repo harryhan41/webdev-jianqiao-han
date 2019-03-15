@@ -11,33 +11,40 @@ import {environment} from '../../../../../environments/environment';
 })
 export class WidgetImageComponent implements OnInit {
 
-  widget;
+  flag = false;
+  widget = {};
   userId: string;
   websiteId: string;
   pageId: string;
+  widgetId: string;
+  baseUrl: string;
 
   constructor(private widgetService: WidgetService, private router: Router, private activatedRoute: ActivatedRoute) {
-    this.widget = new Widget('123', 'HEADING', '321');
   }
 
   updateWidget() {
-    this.widgetService.updateWidget(this.widget._id, this.widget).subscribe();
+    this.widgetService.updateWidget(this.widgetId, this.widget).subscribe(widget => {
+      this.router.navigateByUrl('/user/' + this.userId + '/website/' + this.websiteId + '/page/' + this.pageId + '/widget');
+    });
   }
 
   deleteWidget() {
-    this.widgetService.deleteWidget(this.widget._id).subscribe(widget => {
+    this.widgetService.deleteWidget(this.widgetId).subscribe(widget => {
       this.router.navigateByUrl('/user/' + this.userId + '/website/' + this.websiteId + '/page/' + this.pageId + '/widget');
     });
   }
 
   ngOnInit() {
+
+    this.baseUrl = environment.baseUrl;
+
     this.activatedRoute.params.subscribe(params => {
       this.userId = params['uid'];
       this.pageId = params['pid'];
       this.websiteId = params['wid'];
-      this.widget._id = params['wgid'];
+      this.widgetId = params['wgid'];
     });
-    this.widgetService.findWidgetById(this.widget._id)
+    this.widgetService.findWidgetById(this.widgetId)
       .subscribe(data => {
         console.log('in widget-header-edit comp...');
         console.log(data);

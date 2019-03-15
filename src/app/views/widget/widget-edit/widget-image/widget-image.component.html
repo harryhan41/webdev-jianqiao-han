@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div>
     <a routerLink="../" class="navbar-brand" href="#"><i class="fas fa-angle-left"></i></a>
-    <a class="navbar-brand" href="#">Widget Edit</a>
+    <a class="navbar-brand text-black font-weight-bold">Widget Edit</a>
   </div>
   <a (click)="updateWidget()" class="navbar-nav ml-auto mt-lg-0">
     <i class="fas fa-check"></i>
@@ -11,7 +11,8 @@
   <form>
     <div class="form-group">
       <label for="name"><b>Name</b></label>
-      <input [(ngModel)]="name"
+      <input [(ngModel)]="widget.name"
+             name="name"
              type="text"
              class="form-control"
              id="name"
@@ -19,7 +20,8 @@
     </div>
     <div class="form-group">
       <label for="Description"><b>Text</b></label>
-      <input [(ngModel)]="Description"
+      <input [(ngModel)]="widget.text"
+             name="text"
              type="text"
              class="form-control"
              id="Description"
@@ -27,7 +29,8 @@
     </div>
     <div class="form-group">
       <label for="url"><b>URL</b></label>
-      <input [(ngModel)]="url"
+      <input [(ngModel)]="widget.url"
+             name="url"
              type="url"
              class="form-control"
              id="url"
@@ -35,7 +38,8 @@
     </div>
     <div class="form-group">
       <label for="width"><b>Width</b></label>
-      <input [(ngModel)]="width"
+      <input [(ngModel)]="widget.width"
+             name="width"
              type="number"
              class="form-control"
              id="width"
@@ -43,18 +47,18 @@
     </div>
   </form>
   <form ngNoForm action="{{baseUrl}}/api/upload" method="post" enctype="multipart/form-data">
-    <input name=" " type="file" class="form-control"/>
-    <input name="widgetId" value="{{widget._id}}" style="display: none"/>
+    <input name="myFile" type="file" class="form-control"/>
+    <input name="widgetId" value="{{widgetId}}" style="display: none"/>
     <input name="websiteId" value="{{websiteId}}" style="display: none"/>
     <input name="pageId" value="{{pageId}}" style="display: none"/>
     <input name="userId" value="{{userId}}" style="display: none"/>
     <button type="submit" class="btn btn-block btn-primary">Upload Image</button>
   </form>
-  <a class="btn btn-danger  btn-block" (click)="deleteWidget()">Delete</a>
+  <div>
+    <a class="btn btn-danger  btn-block text-white" (click)="deleteWidget()">Delete</a>
+  </div>
 
 </div>
 <nav class="navbar fixed-bottom navbar-light bg-light">
-  <ul routerLink="/user/{{userId}}" class="navbar-nav ml-auto mt-lg-0">
-    <a class="navbar-brand" href="#"><i class="fas fa-user"></i></a>
-  </ul>
+  <a routerLink="/user/{{userId}}" class="navbar-brand ml-auto" href="#"><i class="fas fa-user"></i></a>
 </nav>

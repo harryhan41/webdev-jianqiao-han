@@ -21,12 +21,15 @@ import {WidgetHeaderComponent} from './views/widget/widget-edit/widget-header/wi
 import {WidgetImageComponent} from './views/widget/widget-edit/widget-image/widget-image.component';
 import {WidgetYoutubeComponent} from './views/widget/widget-edit/widget-youtube/widget-youtube.component';
 import {WidgetListComponent} from './views/widget/widget-list/widget-list.component';
+import {WidgetHtmlComponent} from './views/widget/widget-edit/widget-html/widget-html.component';
+import {WidgetTextComponent} from './views/widget/widget-edit/widget-text/widget-text.component';
 
 // client services
 import {PageService} from './services/page.service.client';
 import {UserService} from './services/user.service.client';
 import {WebsiteService} from './services/website.service.client';
 import {WidgetService} from './services/widget.service.client';
+
 
 
 @NgModule({
@@ -47,6 +50,8 @@ import {WidgetService} from './services/widget.service.client';
     WidgetHeaderComponent,
     WidgetImageComponent,
     WidgetYoutubeComponent,
+    WidgetHtmlComponent,
+    WidgetTextComponent,
   ],
   imports: [
     BrowserModule,
