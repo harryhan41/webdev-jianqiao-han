@@ -2,6 +2,8 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
+import {SafePipe} from './views/widget/widget-list/safe-pipe.pipe';
+import {OrderByPipe} from './views/widget/widget-list/order-by-pipe.pipe';
 
 import {routing} from './app.routing';
 
@@ -23,14 +25,17 @@ import {WidgetYoutubeComponent} from './views/widget/widget-edit/widget-youtube/
 import {WidgetListComponent} from './views/widget/widget-list/widget-list.component';
 import {WidgetHtmlComponent} from './views/widget/widget-edit/widget-html/widget-html.component';
 import {WidgetTextComponent} from './views/widget/widget-edit/widget-text/widget-text.component';
+import {FlickrImageSearchComponent} from './views/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
+
 
 // client services
 import {PageService} from './services/page.service.client';
 import {UserService} from './services/user.service.client';
 import {WebsiteService} from './services/website.service.client';
 import {WidgetService} from './services/widget.service.client';
-
-
+import {SharedService} from './services/shared.service';
+import {FlickrService} from './services/flickr.service';
+import {SortableDirective} from '../../assignment/directives/sortable.directive';
 
 @NgModule({
   declarations: [
@@ -52,6 +57,10 @@ import {WidgetService} from './services/widget.service.client';
     WidgetYoutubeComponent,
     WidgetHtmlComponent,
     WidgetTextComponent,
+    FlickrImageSearchComponent,
+    SafePipe,
+    OrderByPipe,
+    SortableDirective,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +68,7 @@ import {WidgetService} from './services/widget.service.client';
     HttpClientModule,
     routing,
   ],
-  providers: [UserService, WebsiteService, PageService, WidgetService],
+  providers: [UserService, WebsiteService, PageService, WidgetService, SharedService, FlickrService],
   bootstrap: [AppComponent],
 })
 export class AppModule {
