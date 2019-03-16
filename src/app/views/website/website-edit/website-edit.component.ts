@@ -13,9 +13,9 @@ export class WebsiteEditComponent implements OnInit {
   website: Website;
   userId: string;
   websites = [{}];
+  websiteId: string;
 
   constructor(private webService: WebsiteService, private router: Router, private activatedRoute: ActivatedRoute) {
-    this.website = new Website('1', 'website', '0', 'temp');
   }
 
   update() {
@@ -33,8 +33,8 @@ export class WebsiteEditComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: any) => {
       this.userId = params['uid'];
-      this.website._id = params['wid'];
-      console.log('website id: ' + this.website._id);
+      this.websiteId = params['wid'];
+      console.log('website id: ' + this.websiteId);
     });
 
     this.webService.findWebsitesByUser(this.userId)
@@ -43,11 +43,11 @@ export class WebsiteEditComponent implements OnInit {
         // console.log('websites: ' + websites);
       });
 
-    this.webService.findWebsiteById(this.website._id)
+    this.webService.findWebsiteById(this.websiteId)
       .subscribe(website => {
         this.website = website;
-        console.log('website: ' + website.name);
-        console.log('website: ' + website.description);
+        console.log('website: ' + this.website.name);
+        console.log('website: ' + this.website.description);
       });
   }
 }

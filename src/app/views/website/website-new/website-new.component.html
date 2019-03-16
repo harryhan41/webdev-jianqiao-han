@@ -13,16 +13,13 @@
   <div class="container">
     <ul class="list-group cl-list-group-borderless">
       <li class="list-group-item cl-list-item-borderless" *ngFor="let website of websites">
-        <a routerLink="/user/{{userId}}/website/{{website._id}}"><span class="fas fa-cog float-right"></span></a>
+        <a routerLink="/user/{{userId}}/website/{{website._id}}/edit"><span class="fas fa-cog float-right"></span></a>
         <a routerLink="/user/{{userId}}/website/{{website._id}}/page">{{website.name}}</a>
       </li>
     </ul>
   </div>
 
   <nav class="navbar fixed-bottom">
-    <ul class="navbar-nav ml-auto mt-lg-0">
-      <a class="navbar-brand" href="#"><i class="fas fa-user"></i></a>
-    </ul>
   </nav>
 </div>
 
@@ -54,9 +51,7 @@
 </div>
 
 <nav class="navbar fixed-bottom">
-  <div class="container-fulid">
     <a routerLink="/user/{{userId}}" class="ml-auto">
       <i class="fas fa-user"></i></a>
-  </div>
 </nav>
 

@@ -14,16 +14,16 @@
       <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget', widget._id]">
         <span class="fas fa-cog float-right"></span>
       </a>
-      <div *ngSwitchCase="'Header'">{{widget.text}} </div>
-      <div *ngSwitchCase="'YouTube'">
+      <div class=form-group *ngSwitchCase="'Header'">{{widget.text}} </div>
+      <div class=form-group *ngSwitchCase="'YouTube'">
         <iframe width="560" height="315" [src]="byPass(widget.url)" frameborder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
       </div>
-      <div *ngSwitchCase="'Image'"><img class="img-responsive img-rounded widget-images" [src]="widget.url" alt="">
+      <div class=form-group *ngSwitchCase="'Image'"><img class="img-responsive img-rounded widget-images" [src]="widget.url" alt="">
       </div>
-      <div *ngSwitchCase="'HTML'" [innerHTML]="widget.text"></div>
-      <div *ngSwitchCase="'Text'">
+      <div class=form-group *ngSwitchCase="'HTML'" [innerHTML]="widget.text"></div>
+      <div class=form-group *ngSwitchCase="'Text'">
         <div *ngIf="widget.formatted">
           <quill-editor [(ngModel)]="widget.text" name="text"></quill-editor>
         </div>
