@@ -16,6 +16,7 @@ export class WebsiteEditComponent implements OnInit {
   websiteId: string;
 
   constructor(private webService: WebsiteService, private router: Router, private activatedRoute: ActivatedRoute) {
+    this.website = new Website('1', '2', '3', '4');
   }
 
   update() {
@@ -40,12 +41,12 @@ export class WebsiteEditComponent implements OnInit {
     this.webService.findWebsitesByUser(this.userId)
       .subscribe(websites => {
         this.websites = websites;
-        // console.log('websites: ' + websites);
       });
 
     this.webService.findWebsiteById(this.websiteId)
       .subscribe(website => {
         this.website = website;
+        console.log('find website by id is running ');
         console.log('website: ' + this.website.name);
         console.log('website: ' + this.website.description);
       });
