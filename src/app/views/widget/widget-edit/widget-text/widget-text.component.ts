@@ -13,6 +13,7 @@ export class WidgetTextComponent implements OnInit {
   error: string;
   alert: string;
   websiteId: string;
+  userId: string;
   pageId: string;
   widgetId: string;
   widget = {placeholder: ''};
@@ -34,12 +35,9 @@ export class WidgetTextComponent implements OnInit {
   }
 
   deleteWidget() {
-    // call delete widget function from widget client service
-    this.widgetService.deleteWidget(this.widgetId)
-      .subscribe(
-        (data: any) => this.router.navigate(['/user', 'website', this.websiteId, 'page', this.pageId, 'widget']),
-        (error: any) => console.log(error),
-      );
+    this.widgetService.deleteWidget(this.widgetId).subscribe(widget => {
+      this.router.navigateByUrl('/user/' + this.userId + '/website/' + this.websiteId + '/page/' + this.pageId + '/widget');
+    });
   }
 
 
@@ -52,6 +50,7 @@ export class WidgetTextComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(
         (params: any) => {
+          this.userId = params['uid'];
           this.websiteId = params['wid'];
           this.pageId = params['pid'];
           this.widgetId = params['wgid'];

@@ -703,7 +703,7 @@ module.exports = ".fas {\r\n  color: black;\r\n}\r\n\r\n.fa-user {\r\n  color: s
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <div>\n    <a routerLink=\"/user/{{user_id}}/website/{{web_id}}/page\" class=\"navbar-brand\" href=\"#\"><i\n      class=\"fas fa-angle-left\"></i></a>\n    <a class=\"navbar-brand text-black\">Edit Pages</a>\n  </div>\n  <a (click)=\"updatePage()\" class=\"navbar-nav ml-auto mt-lg-0\">\n    <i class=\"fas fa-check\"></i>\n  </a>\n</nav>\n<div class=\"container\">\n  <form>\n    <div class=\"form-group\">\n      <label for=\"name\"><b>Name</b></label>\n      <input [(ngModel)]=\"page.name\"\n             name=\"name\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"name\"\n             placeholder=\"Blog Post\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"title\"><b>Title</b></label>\n      <input [(ngModel)]=\"page.description\"\n             name=\"description\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"title\"\n             placeholder=\"Page Title\"/>\n    </div>\n    <a (click)=\"deletePage()\" class=\"btn btn-danger btn-block\">\n      Delete\n    </a>\n  </form>\n</div>\n<nav class=\"navbar fixed-bottom navbar-light bg-light\">\n  <a routerLink=\"/user/{{user_id}}\" class=\"navbar-brand ml-auto\" href=\"#\"><i class=\"fas fa-user\"></i></a>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <div>\n    <a routerLink=\"/user/{{user_id}}/website/{{web_id}}/page\" class=\"navbar-brand\" href=\"#\"><i\n      class=\"fas fa-angle-left\"></i></a>\n    <a class=\"navbar-brand text-black\">Edit Pages</a>\n  </div>\n  <a (click)=\"updatePage()\" class=\"navbar-nav ml-auto mt-lg-0\">\n    <i class=\"fas fa-check\"></i>\n  </a>\n</nav>\n<div class=\"container\">\n  <form>\n    <div class=\"form-group\">\n      <label for=\"name\"><b>Name</b></label>\n      <input [(ngModel)]=\"page.name\"\n             name=\"name\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"name\"\n             placeholder=\"Blog Post\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"title\"><b>Title</b></label>\n      <input [(ngModel)]=\"page.description\"\n             name=\"description\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"title\"\n             placeholder=\"Page Title\"/>\n    </div>\n    <a (click)=\"deletePage()\" class=\"btn btn-danger btn-block text-white\">\n      Delete\n    </a>\n  </form>\n</div>\n<nav class=\"navbar fixed-bottom navbar-light bg-light\">\n  <a routerLink=\"/user/{{user_id}}\" class=\"navbar-brand ml-auto\" href=\"#\"><i class=\"fas fa-user\"></i></a>\n</nav>\n"
 
 /***/ }),
 
@@ -736,7 +736,10 @@ var PageEditComponent = /** @class */ (function () {
         this.page = new _models_page_model_client__WEBPACK_IMPORTED_MODULE_3__["Page"](112, 'abc', 283, 'what');
     }
     PageEditComponent.prototype.updatePage = function () {
-        this.pageService.updatePage(this.page._id, this.page).subscribe();
+        var _this = this;
+        this.pageService.updatePage(this.page._id, this.page).subscribe(function (page) {
+            _this.router.navigateByUrl('/user/' + _this.user_id + '/website/' + _this.web_id + '/page');
+        });
     };
     PageEditComponent.prototype.deletePage = function () {
         var _this = this;
@@ -1196,7 +1199,7 @@ module.exports = ".navbar {\r\n  background: steelblue;\r\n}\r\n\r\n.fas {\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ib\" id=\"page1\">\n  <nav class=\"navbar\">\n    <div>\n      <a routerLink=\"/user/{{userId}}\" class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-angle-left\"></i></a>\n      <a class=\"navbar-brand\" href=\"#\">Websites</a>\n    </div>\n    <a routerLink=\"/user/{{userId}}/website/new\" class=\"navbar-nav ml-auto mt-lg-0\">\n      <i class=\"fas fa-plus\"></i>\n    </a>\n  </nav>\n\n  <div class=\"container\">\n    <ul class=\"list-group cl-list-group-borderless\">\n      <li class=\"list-group-item cl-list-item-borderless\" *ngFor=\"let website of websites\">\n        <a routerLink=\"/user/{{userId}}/website/{{website._id}}\"><span class=\"fas fa-cog float-right\"></span></a>\n        <a routerLink=\"/user/{{userId}}/website/{{website._id}}/page\">{{website.name}}</a>\n      </li>\n    </ul>\n  </div>\n\n  <nav class=\"navbar fixed-bottom\">\n    <ul class=\"navbar-nav ml-auto mt-lg-0\">\n      <a routerLink=\"/user/{{userId}}\" class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-user\"></i></a>\n    </ul>\n  </nav>\n</div>\n\n<div class=\"ib\" id=\"page2\">\n  <nav class=\"navbar navbar-expand-lg\">\n    <div>\n      <a class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-angle-left\" id=\"w-left\"></i></a>\n      <a class=\"navbar-brand\" href=\"#\">Edit Websites</a>\n    </div>\n    <a (click)=\"update()\" class=\"navbar-nav ml-auto mt-lg-0\">\n      <i class=\"fas fa-check\" id=\"w-check\"></i>\n    </a>\n  </nav>\n  <div class=\"container\">\n    <form>\n      <div class=\"form-group\">\n        <label for=\"website-name\"><b>Website Name</b></label>\n        <input [(ngModel)]=\"website.name\" name=\"name\" type=\"text\" class=\"form-control\" id=\"website-name\"\n               placeholder=\"Name\"/>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"website-description\"><b>Website Description</b></label>\n        <textarea [(ngModel)]=\"website.description\" class=\"form-control\" name=\"description\" id=\"website-description\"\n                  placeholder=\"Description\"\n                  rows=\"6\"></textarea>\n      </div>\n      <a (click)=\"delete()\" class=\"btn btn-danger btn-block text-white\">\n        Delete\n      </a>\n    </form>\n  </div>\n</div>\n\n<nav class=\"navbar fixed-bottom\">\n  <a routerLink=\"/user/{{userId}}\" class=\"ml-auto\" href=\"#\"><i class=\"fas fa-user\"></i></a>\n</nav>\n"
+module.exports = "<div class=\"ib\" id=\"page1\">\n  <nav class=\"navbar\">\n    <div>\n      <a routerLink=\"/user/{{userId}}\" class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-angle-left\"></i></a>\n      <a class=\"navbar-brand\" href=\"#\">Websites</a>\n    </div>\n  </nav>\n\n  <div class=\"container\">\n    <ul class=\"list-group cl-list-group-borderless\">\n      <li class=\"list-group-item cl-list-item-borderless\" *ngFor=\"let website of websites\">\n        <a routerLink=\"/user/{{userId}}/website/{{website._id}}\"><span class=\"fas fa-cog float-right\"></span></a>\n        <a routerLink=\"/user/{{userId}}/website/{{website._id}}/page\">{{website.name}}</a>\n      </li>\n    </ul>\n  </div>\n\n  <nav class=\"navbar fixed-bottom\">\n    <ul class=\"navbar-nav ml-auto mt-lg-0\">\n      <a routerLink=\"/user/{{userId}}\" class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-user\"></i></a>\n    </ul>\n  </nav>\n</div>\n\n<div class=\"ib\" id=\"page2\">\n  <nav class=\"navbar navbar-expand-lg\">\n    <div>\n      <a routerLink=\"/user/{{userId}}\" class=\"navbar-brand\" href=\"#\"><i class=\"fas fa-angle-left\" id=\"w-left\"></i></a>\n      <a class=\"navbar-brand\" href=\"#\">Edit Websites</a>\n    </div>\n    <a (click)=\"update()\" class=\"navbar-nav ml-auto mt-lg-0\">\n      <i class=\"fas fa-check\" id=\"w-check\"></i>\n    </a>\n  </nav>\n  <div class=\"container\">\n    <form>\n      <div class=\"form-group\">\n        <label for=\"website-name\"><b>Website Name</b></label>\n        <input [(ngModel)]=\"website.name\" name=\"name\" type=\"text\" class=\"form-control\" id=\"website-name\"\n               placeholder=\"Name\"/>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"website-description\"><b>Website Description</b></label>\n        <textarea [(ngModel)]=\"website.description\" class=\"form-control\" name=\"description\" id=\"website-description\"\n                  placeholder=\"Description\"\n                  rows=\"6\"></textarea>\n      </div>\n      <a (click)=\"delete()\" class=\"btn btn-danger btn-block text-white\">\n        Delete\n      </a>\n    </form>\n  </div>\n</div>\n\n<nav class=\"navbar fixed-bottom\">\n  <a routerLink=\"/user/{{userId}}\" class=\"ml-auto text-white\"><i class=\"fas fa-user\"></i></a>\n</nav>\n"
 
 /***/ }),
 
@@ -1229,7 +1232,10 @@ var WebsiteEditComponent = /** @class */ (function () {
         this.website = new _models_website_model_client__WEBPACK_IMPORTED_MODULE_3__["Website"]('1', 'website', '0', 'temp');
     }
     WebsiteEditComponent.prototype.update = function () {
-        this.webService.updateWebsite(this.website._id, this.website).subscribe();
+        var _this = this;
+        this.webService.updateWebsite(this.website._id, this.website).subscribe(function (website) {
+            _this.router.navigateByUrl('/user/' + _this.userId + '/website');
+        });
     };
     WebsiteEditComponent.prototype.delete = function () {
         var _this = this;
@@ -1755,9 +1761,9 @@ var WidgetHtmlComponent = /** @class */ (function () {
     };
     WidgetHtmlComponent.prototype.deleteWidget = function () {
         var _this = this;
-        // call delete widget function from widget client service
-        this.widgetService.deleteWidget(this.widgetId)
-            .subscribe(function (data) { return _this.router.navigate(['/user', 'website', _this.websiteId, 'page', _this.pageId, 'widget']); }, function (error) { return console.log(error); });
+        this.widgetService.deleteWidget(this.widgetId).subscribe(function (widget) {
+            _this.router.navigateByUrl('/user/' + _this.userId + '/website/' + _this.websiteId + '/page/' + _this.pageId + '/widget');
+        });
     };
     WidgetHtmlComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -2063,9 +2069,9 @@ var WidgetTextComponent = /** @class */ (function () {
     };
     WidgetTextComponent.prototype.deleteWidget = function () {
         var _this = this;
-        // call delete widget function from widget client service
-        this.widgetService.deleteWidget(this.widgetId)
-            .subscribe(function (data) { return _this.router.navigate(['/user', 'website', _this.websiteId, 'page', _this.pageId, 'widget']); }, function (error) { return console.log(error); });
+        this.widgetService.deleteWidget(this.widgetId).subscribe(function (widget) {
+            _this.router.navigateByUrl('/user/' + _this.userId + '/website/' + _this.websiteId + '/page/' + _this.pageId + '/widget');
+        });
     };
     WidgetTextComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -2075,6 +2081,7 @@ var WidgetTextComponent = /** @class */ (function () {
         // fetch ids from current url
         this.activatedRoute.params
             .subscribe(function (params) {
+            _this.userId = params['uid'];
             _this.websiteId = params['wid'];
             _this.pageId = params['pid'];
             _this.widgetId = params['wgid'];
@@ -2116,7 +2123,7 @@ module.exports = ".fas {\r\n  color: black;\r\n  cursor: pointer;\r\n}\r\n\r\n.f
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <div>\n    <a [routerLink]=\"['/user', userId, 'website', websiteId, 'page', pageId, 'widget']\" class=\"navbar-brand\" href=\"#\"><i\n      class=\"fas fa-angle-left\"></i></a>\n    <a class=\"navbar-brand text-black\">Widget Edit</a>\n  </div>\n  <a (click)=\"updateWidget()\" class=\"navbar-nav ml-auto mt-lg-0\">\n    <i class=\"fas fa-check\"></i>\n  </a>\n</nav>\n<div class=\"container\">\n  <form>\n    <div *ngIf=flag\n         class=\"alert alert-danger\">\n      {{error}}\n    </div>\n    <div class=\"form-group\">\n      <label for=\"name\"><b>Name</b></label>\n      <input [(ngModel)]=\"widget.name\"\n             name=\"name\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"name\"\n             placeholder=\"Name\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"Description\"><b>Text</b></label>\n      <input [(ngModel)]=\"widget.text\"\n             name=\"text\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"Description\"\n             placeholder=\"Title\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"url\"><b>URL</b></label>\n      <input [(ngModel)]=\"widget.url\"\n             name=\"url\"\n             type=\"url\"\n             class=\"form-control\"\n             id=\"url\"\n             placeholder=\"http://google.com\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"width\"><b>Width</b></label>\n      <input [(ngModel)]=\"widget.width\"\n             name=\"width\"\n             type=\"number\"\n             class=\"form-control\"\n             id=\"width\"\n             placeholder=\"\"/>\n    </div>\n    <a (click)=\"deleteWidget()\" class=\"btn btn-danger btn-block\">Delete</a>\n  </form>\n</div>\n<nav class=\"navbar fixed-bottom navbar-light bg-light\">\n  <a routerLink=\"/user/{{userId}}\" class=\"ml-auto mt-lg-0\">\n    <i class=\"fas fa-user\"></i>\n  </a>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <div>\n    <a [routerLink]=\"['/user', userId, 'website', websiteId, 'page', pageId, 'widget']\" class=\"navbar-brand\" href=\"#\"><i\n      class=\"fas fa-angle-left\"></i></a>\n    <a class=\"navbar-brand text-black\">Widget Edit</a>\n  </div>\n  <a (click)=\"updateWidget()\" class=\"navbar-nav ml-auto mt-lg-0\">\n    <i class=\"fas fa-check\"></i>\n  </a>\n</nav>\n<div class=\"container\">\n  <form>\n    <div *ngIf=flag\n         class=\"alert alert-danger\">\n      {{error}}\n    </div>\n    <div class=\"form-group\">\n      <label for=\"name\"><b>Name</b></label>\n      <input [(ngModel)]=\"widget.name\"\n             name=\"name\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"name\"\n             placeholder=\"Name\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"Description\"><b>Text</b></label>\n      <input [(ngModel)]=\"widget.text\"\n             name=\"text\"\n             type=\"text\"\n             class=\"form-control\"\n             id=\"Description\"\n             placeholder=\"Title\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"url\"><b>URL</b></label>\n      <input [(ngModel)]=\"widget.url\"\n             name=\"url\"\n             type=\"url\"\n             class=\"form-control\"\n             id=\"url\"\n             placeholder=\"http://google.com\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"width\"><b>Width</b></label>\n      <input [(ngModel)]=\"widget.width\"\n             name=\"width\"\n             type=\"number\"\n             class=\"form-control\"\n             id=\"width\"\n             placeholder=\"\"/>\n    </div>\n    <a (click)=\"deleteWidget()\" class=\"btn btn-danger btn-block text-white\">Delete</a>\n  </form>\n</div>\n<nav class=\"navbar fixed-bottom navbar-light bg-light\">\n  <a routerLink=\"/user/{{userId}}\" class=\"ml-auto mt-lg-0\">\n    <i class=\"fas fa-user\"></i>\n  </a>\n</nav>\n"
 
 /***/ }),
 

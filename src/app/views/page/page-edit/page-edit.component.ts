@@ -21,7 +21,9 @@ export class PageEditComponent implements OnInit {
   }
 
   updatePage() {
-    this.pageService.updatePage(this.page._id, this.page).subscribe();
+    this.pageService.updatePage(this.page._id, this.page).subscribe(page => {
+      this.router.navigateByUrl('/user/' + this.user_id + '/website/' + this.web_id + '/page');
+    });
   }
 
   deletePage() {

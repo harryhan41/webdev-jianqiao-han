@@ -37,12 +37,9 @@ export class WidgetHtmlComponent implements OnInit {
   }
 
   deleteWidget() {
-    // call delete widget function from widget client service
-    this.widgetService.deleteWidget(this.widgetId)
-      .subscribe(
-        (data: any) => this.router.navigate(['/user', 'website', this.websiteId, 'page', this.pageId, 'widget']),
-        (error: any) => console.log(error),
-      );
+    this.widgetService.deleteWidget(this.widgetId).subscribe(widget => {
+      this.router.navigateByUrl('/user/' + this.userId + '/website/' + this.websiteId + '/page/' + this.pageId + '/widget');
+    });
   }
 
   ngOnInit() {

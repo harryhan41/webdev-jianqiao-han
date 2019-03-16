@@ -4,9 +4,6 @@
       <a routerLink="/user/{{userId}}" class="navbar-brand" href="#"><i class="fas fa-angle-left"></i></a>
       <a class="navbar-brand" href="#">Websites</a>
     </div>
-    <a routerLink="/user/{{userId}}/website/new" class="navbar-nav ml-auto mt-lg-0">
-      <i class="fas fa-plus"></i>
-    </a>
   </nav>
 
   <div class="container">
@@ -28,7 +25,7 @@
 <div class="ib" id="page2">
   <nav class="navbar navbar-expand-lg">
     <div>
-      <a class="navbar-brand" href="#"><i class="fas fa-angle-left" id="w-left"></i></a>
+      <a routerLink="/user/{{userId}}" class="navbar-brand" href="#"><i class="fas fa-angle-left" id="w-left"></i></a>
       <a class="navbar-brand" href="#">Edit Websites</a>
     </div>
     <a (click)="update()" class="navbar-nav ml-auto mt-lg-0">
@@ -56,5 +53,5 @@
 </div>
 
 <nav class="navbar fixed-bottom">
-  <a routerLink="/user/{{userId}}" class="ml-auto" href="#"><i class="fas fa-user"></i></a>
+  <a routerLink="/user/{{userId}}" class="ml-auto text-white"><i class="fas fa-user"></i></a>
 </nav>
