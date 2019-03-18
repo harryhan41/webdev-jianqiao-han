@@ -39,7 +39,7 @@ export class WidgetChooserComponent implements OnInit {
         (data: any) => {
           this.widgetId = data._id;
           console.log('the create widget method is running ' + this.widgetId);
-          this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
+          this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget', this.widgetId]);
         },
       );
   }
