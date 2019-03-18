@@ -16,7 +16,7 @@ export class WidgetHeaderComponent implements OnInit {
   pageId: string;
   widgetId: string;
   userId: string;
-  widget = {};
+  widget: Widget;
 
   constructor(private widgetService: WidgetService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.widget = new Widget('123', 'HEADING', '456');

@@ -12,7 +12,7 @@ import {environment} from '../../../../../environments/environment';
 export class WidgetImageComponent implements OnInit {
 
   flag = false;
-  widget = {};
+  widget: Widget;
   userId: string;
   websiteId: string;
   pageId: string;

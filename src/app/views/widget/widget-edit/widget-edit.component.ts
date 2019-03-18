@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {WidgetService} from '../../../services/widget.service.client';
+import {Widget} from '../../../models/widget.model.client';
 
 @Component({
   selector: 'app-widget-edit',
