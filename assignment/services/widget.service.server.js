@@ -12,6 +12,9 @@ module.exports = function (app) {
   //UPLOAD
   app.post("/api/upload", upload.single('myFile'), uploadImage);
 
+  //Recorder
+  app.put("/api/page/:pid/widget", reorderWidgets);
+
   var widgets = [
     {_id: '1', widgetType: 'Header', pageId: '123', size: '2', text: 'GIZMODO'},
     {

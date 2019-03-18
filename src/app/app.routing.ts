@@ -28,6 +28,7 @@ const appRoutes: Routes = [
   {path: 'user/:uid/website/:wid/page/:pid/widget/new', component: WidgetChooserComponent},
   {path: 'user/:uid/website/:wid/page/:pid/widget/:wgid', component: WidgetEditComponent},
   {path: 'user/:uid/website/:wid/page/:pid/widget/:wgid/flickr', component: FlickrImageSearchComponent},
+  { path: '**', redirectTo: 'login' },
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);
