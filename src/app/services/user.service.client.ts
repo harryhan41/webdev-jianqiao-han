@@ -5,6 +5,7 @@ import {User} from '../models/user.model.client';
 import {Router} from '@angular/router';
 import {SharedService} from './shared.service';
 
+
 @Injectable()
 export class UserService {
   constructor(private _http: HttpClient, private sharedService: SharedService, private router: Router) {
@@ -35,6 +36,7 @@ export class UserService {
 
   login(username: string, password: string) {
     const body = {username: username, password: password};
+
     return this._http.post(this.baseUrl + '/api/login', body, {withCredentials: true});
   }
 
