@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {User} from '../../../models/user.model.client';
 import {UserService} from '../../../services/user.service.client';
 
@@ -13,7 +13,7 @@ export class ProfileComponent implements OnInit {
   // properties
   user: User;
 
-  constructor(private userService: UserService, private acRouter: ActivatedRoute) {
+  constructor(private userService: UserService, private acRouter: ActivatedRoute, private router: Router) {
     this.user = new User('000', 'alias', 'alias', 'alias', 'alias', 'alias@alias');
   }
 
@@ -33,5 +33,9 @@ export class ProfileComponent implements OnInit {
         console.log(data);
         this.user = data;
       });
+  }
+
+  logout() {
+    this.userService.logout().subscribe((data: any) => this.router.navigate(['/login']));
   }
 }

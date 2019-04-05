@@ -36,6 +36,7 @@ import {WidgetService} from './services/widget.service.client';
 import {SharedService} from './services/shared.service';
 import {FlickrService} from './services/flickr.service';
 import {SortableDirective} from '../../assignment/directives/sortable.directive';
+import {AuthGuard} from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,7 @@ import {SortableDirective} from '../../assignment/directives/sortable.directive'
     routing,
     QuillModule,
   ],
-  providers: [UserService, WebsiteService, PageService, WidgetService, SharedService, FlickrService],
+  providers: [UserService, WebsiteService, PageService, WidgetService, SharedService, FlickrService, AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {

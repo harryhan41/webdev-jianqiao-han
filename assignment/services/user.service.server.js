@@ -1,10 +1,80 @@
-module.exports = function (app) {
+var userModel = require("../model/user/user.model.server");
+var passport = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
+var FacebookStrategy = require("passport-facebook").Strategy;
+var bcrypt = require("bcrypt-nodejs");
 
-  var users = [
-    {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonderland"},
-    {_id: "245", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley"},
-    {_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia"},
-    {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"}
+passport.serializeUser(serializeUser);
+
+function serializeUser(user, done) {
+  done(null, user);
+}
+
+passport.use(new LocalStrategy(localStrategy));
+var facebookConfig = {
+  clientID: process.env.FACEBOOK_CLIENT_ID,
+  clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+  callbackURL: process.env.FACEBOOK_CALLBACK_URL,
+};
+
+passport.deserializeUser(deserializeUser);
+
+function deserializeUser(user, done) {
+  userModel.findUserById(user._id).then(function(user) {
+    done(null, user);
+  }, function(err) {
+    done(err, null);
+  });
+}
+
+function localStrategy(username, password, done) {
+  userModel.findUserByCredential(username, password).then(function(user) {
+    if (user.username === username && user.password === password) {
+      return done(null, user);
+    } else {
+      return done(null, false);
+    }
+  }, function(err) {
+    if (err) {
+      return done(err);
+    }
+  });
+}
+
+function facebookStrategy(token, refreshToken, profile, done) {
+  userModel.findUserByFacebookId(profile.id).then(function(user) {
+    if (user) {
+      return done(null, user);
+    } else {
+      var names = profile.displayName.split(" ");
+      var newFacebookUser = {
+        lastName: names[1],
+        firstName: names[0],
+        email: profile.emails ? profile.emails[0].value : "",
+        facebook: {id: profile.id, token: token, displayName: profile.displayName},
+      };
+      return userModel.createUser(newFacebookUser);
+    }
+  }, function(err) {
+    if (err) {
+      return done(err);
+    }
+  }).then(function(user) {
+    return done(null, user);
+  }, function(err) {
+    if (err) {
+      return done(err);
+    }
+  });
+}
+
+module.exports = function(app) {
+
+  var users_pop = [
+    {username: "alice", password: "alice", firstName: "Alice", lastName: "Wonderland"},
+    {username: "bob", password: "bob", firstName: "Bob", lastName: "Marley"},
+    {username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia"},
+    {username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"},
   ];
 
   app.post("/api/user", createUser);
@@ -13,13 +83,54 @@ module.exports = function (app) {
   app.get("/api/user/:userId", findUserById);
   app.put("/api/user/:userId", updateUser);
   app.delete("/api/user/:userId", deleteUser);
+  app.post("/api/login", passport.authenticate("local"), login);
+  app.get("/facebook/login", passport.authenticate("facebook", {scope: "email"}, {failureRedirect: "/login"}),
+    function(req, res) {
+      // Successful authentication, redirect home.
+      res.redirect("/user/:uid");
+    });
+  app.post("/api/logout", logout);
+  app.post("/api/register", register);
+  app.get("/api/loggedin", loggedin);
+
+  //delete me when push to heroku
+  app.get("/api/populate", populateUsers);
 
   function createUser(req, res) {
     console.log("create user");
     let user = req.body;
-    user._id = Math.round(Math.random() * 1000).toString();
-    users.push(user);
-    res.send(user);
+    userModel
+      .createUser(user)
+      .then(
+        function(user) {
+          console.log("user created!");
+          res.json(user);
+        },
+        function(error) {
+          if (error) {
+            console.log(error);
+            res.statusCode(400).send(error);
+          }
+        },
+      );
+  }
+
+  function populateUsers(req, res) {
+    console.log("pop DB!");
+    //res.send("pop DB!");
+    userModel.populateUsers(users_pop)
+      .then(
+        function(users) {
+          console.log("users populated!");
+          res.json(users);
+        },
+        function(error) {
+          if (error) {
+            console.log(error);
+            res.statusCode(400).send(error);
+          }
+        },
+      );
   }
 
   function findUserById(req, res) {
@@ -28,70 +139,102 @@ module.exports = function (app) {
 
     console.log("hit find user by id..." + id);
 
-    for (var i in users) {
-      if (users[i]._id === id) {
-        res.send(users[i]);
-        return;
-      }
-    }
-    res.send({});
+    userModel.findUserById(id).exec(
+      function(err, user) {
+        if (err) {
+          return res.sendStatus(400).send(err);
+        }
+        return res.json(user);
+      },
+    );
   }
 
   function findUserByCredentials(req, res) {
 
-    var username = req.query['username'];
-    var password = req.query['password'];
+    var username = req.query.username;
+    var password = req.query.password;
 
-    for (var i in users) {
-      if (users[i].username === username && users[i].password === password) {
-        res.send(users[i]);
-        return;
-      }
-    }
-    res.send({});
+    userModel.findByCredential(username, password).exec(
+      function(err, user) {
+        if (err) {
+          return res.sendStatus(400).send(err);
+        }
+        return res.json(user);
+      },
+    );
   }
 
   function findUserByUsername(req, res) {
     console.log("find user by name...");
 
-    var username = req.query['username'];
+    var username = req.query.username;
 
-    for (var i in users) {
-      if (users[i].username === username) {
-        res.send(users[i]);
-        return;
-      }
-    }
-    res.send({});
+    userModel.findUserByUserName(username).exec(
+      function(err, user) {
+        if (err) {
+          return res.sendStatus(400).send(err);
+        }
+        return res.json(user);
+      },
+    );
   }
 
   function updateUser(req, res) {
     console.log("update user");
 
     let userId = req.params.userId;
-    let index;
-    for (let i = 0; i < users.length; i++) {
-      if (users[i]._id === userId) {
-        index = i;
-      }
-    }
     let user = req.body;
-    users[index] = user;
-    res.send(user);
+    userModel.updateUser(userId, user).exec(
+      function(err, user) {
+        if (err) {
+          return res.sendStatus(400).send(err);
+        }
+        return res.json(user);
+      },
+    );
   }
 
   function deleteUser(req, res) {
     console.log("delete user");
 
     let userId = req.params.userId;
-    let index;
-    for (let i = 0; i < users.length; i++) {
-      if (users[i]._id === userId) {
-        index = i;
+    userModel.deleteUser(userId).exec(
+      function(err, user) {
+        if (err) {
+          return res.sendStatus(400).send(err);
+        }
+        return res.json(user);
+      },
+    );
+  }
+
+  function login(req, res) {
+    var user = req.user;
+    res.json(user);
+  }
+
+  function logout(req, res) {
+    req.logOut();
+    res.send(200);
+  }
+
+  function register(req, res) {
+    var user = req.body;
+    user.password = bcrypt.hashSync(user.password);
+    userModel.createUser(user).then(function(user) {
+      if (user) {
+        req.login(user, function(err) {
+          if (err) {
+            res.status(400).send(err);
+          } else {
+            res.json(user);
+          }
+        });
       }
-    }
-    let user = users[index];
-    users.splice(i, 1);
-    res.send(user);
+    });
+  }
+
+  function loggedin(req, res) {
+    res.send(req.isAuthenticated() ? req.user : "0");
   }
 };

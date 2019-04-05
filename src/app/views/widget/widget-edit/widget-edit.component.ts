@@ -19,6 +19,7 @@ export class WidgetEditComponent implements OnInit {
   image = 'Image';
 
   constructor(private widgetService: WidgetService, private activeRouter: ActivatedRoute) {
+    this.widget = new Widget('123', 'HEADING', '321');
   }
 
   ngOnInit() {

@@ -1,16 +1,23 @@
 // Get the dependencies
-const express = require('express');
-const path = require('path');
-const http = require('http');
-const bodyParser = require('body-parser');
+const express = require("express");
+const path = require("path");
+const http = require("http");
+const bodyParser = require("body-parser");
 const app = express();
 
+var cookieParser = require("cookie-parser");
+var session = require("express-session");
+app.use(cookieParser());
+// app.use(session({secret: process.env.SESSION_SECRET}));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
+
+var passport = require("passport");
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Point static path to dist -- For building -- REMOVE
-
-app.use(express.static(path.join(__dirname, 'dist/webdev-jianqiao-han')));
+app.use(express.static(path.join(__dirname, "dist/webdev-jianqiao-han")));
 
 // CORS
 app.use(function(req, res, next) {
@@ -20,13 +27,22 @@ app.use(function(req, res, next) {
   next();
 });
 
-
-const port = process.env.PORT || '3200';
-app.set('port', port);
-
+const port = process.env.PORT || "3200";
+app.set("port", port);
 
 // Create HTTP server
 const server = http.createServer(app);
-server.listen( port , () => console.log('Running on port 3200'));
+server.listen( port , () => console.log("Running on port 3200"));
 
-require('./assignment/app')(app);
+var connectionString = "mongodb://127.0.0.1:27017/webdev";
+
+var mongoose = require("mongoose");
+mongoose.Promise = global.Promise;
+const client = mongoose.connect(connectionString, {useNewUrlParser: true});
+
+//Get the default connection
+var db = mongoose.connection;
+//Bind connection to error event (to get notification of connection errors)
+db.on("error", console.error.bind(console, "MongoDB connection error:"));
+
+require("./assignment/app")(app);
