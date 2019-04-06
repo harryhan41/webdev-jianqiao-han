@@ -7,24 +7,15 @@ module.exports = function(app) {
   app.put("/api/page/:pageId", updatePage);
   app.delete("/api/page/:pageId", deletePage);
 
-  // var pages = [
-  //   {_id: "123", name: "page123", websiteId: "234", description: "test page 123"},
-  //   {_id: "456", name: "page423", websiteId: "234", description: "test page 123"},
-  //   {_id: "567", name: "page321", websiteId: "235", description: "test page 232"},
-  //   {_id: "678", name: "page109", websiteId: "235", description: "test page 142"},
-  //   {_id: "789", name: "page444", websiteId: "235", description: "test page 099"},
-  // ];
-
   function createPage(req, res) {
-    console.log("create page");
     let page = req.body;
-    let websiteId = req.params.websiteId;
+    let websiteId = req.params["wid"];
     pageModel.createPage(websiteId, page).then(
-      function(page) {
+      function (page) {
         console.log("page created");
         res.json(page);
       },
-      function(error) {
+      function (error) {
         if (error) {
           console.log(error);
           res.statusCode(400).send(error);
@@ -35,9 +26,9 @@ module.exports = function(app) {
 
   function findAllPagesForWebsite(req, res) {
     console.log("find pages for website");
-    let websiteId = req.params.websiteId;
+    let websiteId = req.params["wid"];
     pageModel.findAllPagesForWebsite(websiteId).exec(
-      function(err, pages) {
+      function (err, pages) {
         if (err) {
           return res.sendStatus(400).send(err);
         }
@@ -48,9 +39,9 @@ module.exports = function(app) {
 
   function findPageById(req, res) {
     console.log("find website by id");
-    let page_id = req.params.pageId;
+    let page_id = req.params["pid"];
     pageModel.findPageById(page_id).exec(
-      function(err, page) {
+      function (err, page) {
         if (err) {
           return res.sendStatus(400).send(err);
         }
@@ -61,10 +52,10 @@ module.exports = function(app) {
 
   function updatePage(req, res) {
     console.log("update page");
-    let page_id = req.params.pageId;
+    let page_id = req.params["pid"];
     let page = req.body;
     pageModel.updatePage(page_id, page).exec(
-      function(err, page) {
+      function (err, page) {
         if (err) {
           return res.sendStatus(400).send(err);
         }
@@ -75,9 +66,9 @@ module.exports = function(app) {
 
   function deletePage(req, res) {
     console.log("delete page");
-    let page_id = req.params.pageId;
+    let page_id = req.params["pid"];
     pageModel.updatePage(page_id).exec(
-      function(err, page) {
+      function (err, page) {
         if (err) {
           return res.sendStatus(400).send(err);
         }

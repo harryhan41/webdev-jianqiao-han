@@ -20,29 +20,33 @@ var facebookConfig = {
 passport.deserializeUser(deserializeUser);
 
 function deserializeUser(user, done) {
-  userModel.findUserById(user._id).then(function(user) {
+  userModel.findUserById(user._id).then(function (user) {
     done(null, user);
-  }, function(err) {
+  }, function (err) {
     done(err, null);
   });
 }
 
 function localStrategy(username, password, done) {
-  userModel.findUserByCredential(username, password).then(function(user) {
-    if (user.username === username && user.password === password) {
-      return done(null, user);
-    } else {
-      return done(null, false);
-    }
-  }, function(err) {
-    if (err) {
-      return done(err);
-    }
-  });
+  userModel.findUserByUserName(username)
+    .then(function (user) {
+      console.log("check log in user name");
+      console.log(bcrypt.compareSync(password, user.password));
+      if (user && bcrypt.compareSync(password, user.password)) {
+
+        return done(null, user);
+      } else {
+        return done(null, false);
+      }
+    }, function (err) {
+      if (err) {
+        return done(err);
+      }
+    });
 }
 
 function facebookStrategy(token, refreshToken, profile, done) {
-  userModel.findUserByFacebookId(profile.id).then(function(user) {
+  userModel.findUserByFacebookId(profile.id).then(function (user) {
     if (user) {
       return done(null, user);
     } else {
@@ -55,20 +59,20 @@ function facebookStrategy(token, refreshToken, profile, done) {
       };
       return userModel.createUser(newFacebookUser);
     }
-  }, function(err) {
+  }, function (err) {
     if (err) {
       return done(err);
     }
-  }).then(function(user) {
+  }).then(function (user) {
     return done(null, user);
-  }, function(err) {
+  }, function (err) {
     if (err) {
       return done(err);
     }
   });
 }
 
-module.exports = function(app) {
+module.exports = function (app) {
 
   var users_pop = [
     {username: "alice", password: "alice", firstName: "Alice", lastName: "Wonderland"},
@@ -85,7 +89,7 @@ module.exports = function(app) {
   app.delete("/api/user/:userId", deleteUser);
   app.post("/api/login", passport.authenticate("local"), login);
   app.get("/facebook/login", passport.authenticate("facebook", {scope: "email"}, {failureRedirect: "/login"}),
-    function(req, res) {
+    function (req, res) {
       // Successful authentication, redirect home.
       res.redirect("/user/:uid");
     });
@@ -98,15 +102,15 @@ module.exports = function(app) {
 
   function createUser(req, res) {
     console.log("create user");
-    let user = req.body;
+    var user = req.body;
     userModel
       .createUser(user)
       .then(
-        function(user) {
+        function (user) {
           console.log("user created!");
           res.json(user);
         },
-        function(error) {
+        function (error) {
           if (error) {
             console.log(error);
             res.statusCode(400).send(error);
@@ -120,11 +124,11 @@ module.exports = function(app) {
     //res.send("pop DB!");
     userModel.populateUsers(users_pop)
       .then(
-        function(users) {
+        function (users) {
           console.log("users populated!");
           res.json(users);
         },
-        function(error) {
+        function (error) {
           if (error) {
             console.log(error);
             res.statusCode(400).send(error);
@@ -135,12 +139,12 @@ module.exports = function(app) {
 
   function findUserById(req, res) {
 
-    var id = req.params.userId;
+    var id = req.params["uid"];
 
     console.log("hit find user by id..." + id);
 
     userModel.findUserById(id).exec(
-      function(err, user) {
+      function (err, user) {
         if (err) {
           return res.sendStatus(400).send(err);
         }
@@ -155,7 +159,7 @@ module.exports = function(app) {
     var password = req.query.password;
 
     userModel.findByCredential(username, password).exec(
-      function(err, user) {
+      function (err, user) {
         if (err) {
           return res.sendStatus(400).send(err);
         }
@@ -170,7 +174,7 @@ module.exports = function(app) {
     var username = req.query.username;
 
     userModel.findUserByUserName(username).exec(
-      function(err, user) {
+      function (err, user) {
         if (err) {
           return res.sendStatus(400).send(err);
         }
@@ -182,10 +186,10 @@ module.exports = function(app) {
   function updateUser(req, res) {
     console.log("update user");
 
-    let userId = req.params.userId;
+    let userId = req.params["uid"];
     let user = req.body;
     userModel.updateUser(userId, user).exec(
-      function(err, user) {
+      function (err, user) {
         if (err) {
           return res.sendStatus(400).send(err);
         }
@@ -197,9 +201,9 @@ module.exports = function(app) {
   function deleteUser(req, res) {
     console.log("delete user");
 
-    let userId = req.params.userId;
+    let userId = req.params["uid"];
     userModel.deleteUser(userId).exec(
-      function(err, user) {
+      function (err, user) {
         if (err) {
           return res.sendStatus(400).send(err);
         }
@@ -220,10 +224,12 @@ module.exports = function(app) {
 
   function register(req, res) {
     var user = req.body;
+    console.log("user original password " + user.password);
     user.password = bcrypt.hashSync(user.password);
-    userModel.createUser(user).then(function(user) {
+    console.log("user final password " + user.password);
+    userModel.createUser(user).then(function (user) {
       if (user) {
-        req.login(user, function(err) {
+        req.login(user, function (err) {
           if (err) {
             res.status(400).send(err);
           } else {

@@ -37,20 +37,20 @@ export class UserService {
   login(username: string, password: string) {
     const body = {username: username, password: password};
 
-    return this._http.post(this.baseUrl + '/api/login', body, {withCredentials: true});
+    return this._http.post(this.baseUrl + '/api/login', body);
   }
 
   logout() {
-    return this._http.post(this.baseUrl + '/api/logout', '', {withCredentials: true});
+    return this._http.post(this.baseUrl + '/api/logout', '');
   }
 
   register(username: string, password: string) {
     const user = {username: username, password: password};
-    return this._http.post(this.baseUrl + '/api/register', user, {withCredentials: true});
+    return this._http.post(this.baseUrl + '/api/register', user);
   }
 
   loggedIn() {
-    return this._http.post(this.baseUrl + '/api/loggedin', '', {withCredentials: true})
+    return this._http.post(this.baseUrl + '/api/loggedin', '')
       .subscribe((res) => {
         const user = res.toString();
         if (user !== '0') {

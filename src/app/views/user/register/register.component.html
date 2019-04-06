@@ -37,7 +37,7 @@
 
     <div class="form-group">
       <button [disabled]="!f.valid || password.value !== verifypassword.value" class="btn btn-primary btn-block"
-              type="submit">Register
+              type="submit" (click)="register()">Register
       </button>
     </div>
 

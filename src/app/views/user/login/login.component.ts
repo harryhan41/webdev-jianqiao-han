@@ -1,7 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
-
 import {User} from '../../../models/user.model.client';
 import {UserService} from '../../../services/user.service.client';
 
@@ -33,13 +32,18 @@ export class LoginComponent implements OnInit {
     this.username = this.loginForm.value.username;
     this.password = this.loginForm.value.password;
 
-    // this.userService.findUserByCredential(this.username, this.password).subscribe((user: any) => {
-    //   this.router.navigate(['/user', user._id]);
+    // this.userService.findUserByCredential(this.username, this.password).subscribe((user: User) => {
+    //   if (user === undefined) {
+    //     this.errorFlag = true;
+    //   } else {
+    //     this.router.navigate(['/user', user._id]);
+    //   }
     // }, (error: any) => {
     //   console.log(error);
     // });
 
     this.userService.login(this.username, this.password).subscribe((user: any) => {
+      console.log('login component ts');
       this.router.navigate(['/user', user._id]);
     }, (error: any) => {
       console.log(error);

@@ -11,35 +11,38 @@ import {User} from '../../../models/user.model.client';
 })
 export class RegisterComponent implements OnInit {
 
-  @ViewChild('f') loginForm: NgForm;
+  @ViewChild('f') registerForm: NgForm;
 
+  username: string;
+  password: string;
+  vpassword: string;
   user;
-  error;
+
+  errorFlag = false;
+  errorMsg = 'Invalid password!';
 
   constructor(private userService: UserService, private router: Router) {
   }
 
 
   register() {
-    const username = this.loginForm.value.username;
-    const password = this.loginForm.value.password;
 
-    console.log('register compoment file ');
+    this.username = this.registerForm.value.username;
+    this.password = this.registerForm.value.password;
+    this.vpassword = this.registerForm.value.verifypassword;
 
-    this.user = {username: username, password: password};
 
-    // this.userService.createUser(this.user)
-    //   .subscribe((user: User) => {
-    //     if (user) {
-    //       this.router.navigate(['/user', user._id]);
-    //     }
-    //   });
-
-    this.userService.register(username, password).subscribe((user: any) => {
-      this.router.navigate(['/user', user._id]);
-    }, (error: any) => {
-      this.error = error._body;
-    });
+    if (this.vpassword !== this.password) {
+      this.errorFlag = true;
+    } else {
+      this.userService.register(this.username, this.password)
+        .subscribe(
+          (user: User) => {
+            this.user = user;
+            this.router.navigate(['/user', this.user._id]);
+          },
+        );
+    }
   }
 
   ngOnInit() {

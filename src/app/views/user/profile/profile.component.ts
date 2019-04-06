@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
   user: User;
 
   constructor(private userService: UserService, private acRouter: ActivatedRoute, private router: Router) {
-    this.user = new User('000', 'alias', 'alias', 'alias', 'alias', 'alias@alias');
+    this.user = new User('', '', '', '', '', '');
   }
 
   UpdateUser() {

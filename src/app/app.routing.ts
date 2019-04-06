@@ -13,7 +13,7 @@ import {WidgetChooserComponent} from './views/widget/widget-chooser/widget-choos
 import {WidgetEditComponent} from './views/widget/widget-edit/widget-edit.component';
 import {WidgetListComponent} from './views/widget/widget-list/widget-list.component';
 import {FlickrImageSearchComponent} from './views/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
-import {AuthGuard} from './services/auth-guard.service';
+// import {AuthGuard} from './services/auth-guard.service';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},

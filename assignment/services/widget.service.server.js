@@ -1,6 +1,6 @@
 var widgetModel = require("../model/widget/widget.model.server");
 
-module.exports = function(app) {
+module.exports = function (app) {
   app.post("/api/page/:pageId/widget", createWidget);
   app.get("/api/page/:pageId/widget", findAllWidgetsForPage);
   app.get("/api/widget/:widgetId", findWidgetById);
@@ -17,41 +17,10 @@ module.exports = function(app) {
   //Recorder
   app.put("/api/page/:pid/widget", reorderWidgets);
 
-  var widgets = [
-    {_id: "1", widgetType: "Header", pageId: "123", size: "2", text: "GIZMODO"},
-    {
-      _id: "3",
-      widgetType: "Image",
-      pageId: "123",
-      size: "2",
-      text: "this is an image",
-      width: "100%",
-      url: "https://www.telegraph.co.uk/content/dam/gaming/2019/02/27/pokemon-sowrd-shield_trans_NvBQzQNjv4Bqt85Un3zb8EQZvOY5NOmHj8-O-K6X5VT_v7wRChyDYkI.jpg?imwidth=1400",
-    },
-    {_id: "4", widgetType: "HTML", pageId: "123", size: "2", text: "<p>This is a test for HTML</p>"},
-    {
-      _id: "2",
-      widgetType: "YouTube",
-      pageId: "123",
-      size: "2",
-      text: "text",
-      width: "100%",
-      url: "https://www.youtube.com/embed/Q97K6CDje3w",
-    },
-    {
-      _id: "5",
-      widgetType: "Text",
-      pageId: "123",
-      row: "2",
-      text: "This a test for text",
-      placeholder: "whatever",
-      formatted: false,
-    },
-  ];
 
   function createWidget(req, res) {
     console.log("create widget");
-    let pageId = req.params.pageId;
+    let pageId = req.params["pid"];
     let widget = req.body;
     widgetModel
       .createWidget(pageId, widget)
@@ -60,7 +29,7 @@ module.exports = function(app) {
           console.log("widget created!");
           res.json(widget);
         },
-        function(error) {
+        function (error) {
           if (error) {
             console.log(error);
             res.statusCode(400).send(error);
@@ -71,12 +40,12 @@ module.exports = function(app) {
 
   function findWidgetById(req, res) {
 
-    let id = req.params.widgetId;
+    let id = req.params["wgid"];
 
     console.log("find widget by id " + id);
 
     widgetModel.findWidgetById(id).exec(
-      function(err, widget) {
+      function (err, widget) {
         if (err) {
           return res.sendStatus(400).send(err);
         }
@@ -86,9 +55,9 @@ module.exports = function(app) {
   }
 
   function findAllWidgetsForPage(req, res) {
-    let id = req.params.pageId;
+    let id = req.params["pid"];
     widgetModel.findAllWidgetsForPage(id).exec(
-      function(err, widget) {
+      function (err, widget) {
         if (err) {
           return res.sendStatus(400).send(err);
         }
@@ -99,10 +68,10 @@ module.exports = function(app) {
 
   function updateWidget(req, res) {
     console.log("update widget");
-    let widgetId = req.params.widgetId;
+    let widgetId = req.params["wgid"];
     let widget = req.body;
     widgetModel.updateWidget(widgetId, widget).exec(
-      function(err, widget) {
+      function (err, widget) {
         if (err) {
           return res.sendStatus(400).send(err);
         }
@@ -113,9 +82,9 @@ module.exports = function(app) {
 
   function deleteWidget(req, res) {
     console.log("delete widget");
-    let widgetId = req.params.widgetId;
+    let widgetId = req.params["wgid"];
     widgetModel.deleteWidget(widgetId).exec(
-      function(err, widget) {
+      function (err, widget) {
         if (err) {
           return res.sendStatus(400).send(err);
         }

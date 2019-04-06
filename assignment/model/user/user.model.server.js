@@ -32,11 +32,11 @@ function findUserByFacebookId(facebookId) {
 }
 
 function findUserByUserName(userName) {
-  return userModel.findOne({userName: userName});
+  return userModel.findOne({username: userName});
 }
 
 function findByCredential(userName, password) {
-  return userModel.findOne({userName: userName, password: password});
+  return userModel.findOne({username: userName, password: password});
 }
 
 function updateUser(userId, user) {

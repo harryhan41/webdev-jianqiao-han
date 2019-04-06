@@ -300,6 +300,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// import {AuthGuard} from './services/auth-guard.service';
 var appRoutes = [
     { path: 'login', component: _views_user_login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"] },
     { path: 'register', component: _views_user_register_register_component__WEBPACK_IMPORTED_MODULE_6__["RegisterComponent"] },
@@ -357,6 +358,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
 var User = /** @class */ (function () {
     function User(_id, username, password, firstName, lastName, email) {
+        if (_id === void 0) { _id = 'undefined'; }
+        if (firstName === void 0) { firstName = ''; }
+        if (lastName === void 0) { lastName = ''; }
         this._id = _id;
         this.username = username;
         this.password = password;
@@ -628,18 +632,18 @@ var UserService = /** @class */ (function () {
     };
     UserService.prototype.login = function (username, password) {
         var body = { username: username, password: password };
-        return this._http.post(this.baseUrl + '/api/login', body, { withCredentials: true });
+        return this._http.post(this.baseUrl + '/api/login', body);
     };
     UserService.prototype.logout = function () {
-        return this._http.post(this.baseUrl + '/api/logout', '', { withCredentials: true });
+        return this._http.post(this.baseUrl + '/api/logout', '');
     };
     UserService.prototype.register = function (username, password) {
         var user = { username: username, password: password };
-        return this._http.post(this.baseUrl + '/api/register', user, { withCredentials: true });
+        return this._http.post(this.baseUrl + '/api/register', user);
     };
     UserService.prototype.loggedIn = function () {
         var _this = this;
-        return this._http.post(this.baseUrl + '/api/loggedin', '', { withCredentials: true })
+        return this._http.post(this.baseUrl + '/api/loggedin', '')
             .subscribe(function (res) {
             var user = res.toString();
             if (user !== '0') {
@@ -1075,12 +1079,17 @@ var LoginComponent = /** @class */ (function () {
         // fetching data from LoginForm
         this.username = this.loginForm.value.username;
         this.password = this.loginForm.value.password;
-        // this.userService.findUserByCredential(this.username, this.password).subscribe((user: any) => {
-        //   this.router.navigate(['/user', user._id]);
+        // this.userService.findUserByCredential(this.username, this.password).subscribe((user: User) => {
+        //   if (user === undefined) {
+        //     this.errorFlag = true;
+        //   } else {
+        //     this.router.navigate(['/user', user._id]);
+        //   }
         // }, (error: any) => {
         //   console.log(error);
         // });
         this.userService.login(this.username, this.password).subscribe(function (user) {
+            console.log('login component ts');
             _this.router.navigate(['/user', user._id]);
         }, function (error) {
             console.log(error);
@@ -1152,7 +1161,7 @@ var ProfileComponent = /** @class */ (function () {
         this.userService = userService;
         this.acRouter = acRouter;
         this.router = router;
-        this.user = new _models_user_model_client__WEBPACK_IMPORTED_MODULE_3__["User"]('000', 'alias', 'alias', 'alias', 'alias', 'alias@alias');
+        this.user = new _models_user_model_client__WEBPACK_IMPORTED_MODULE_3__["User"]('', '', '', '', '', '');
     }
     ProfileComponent.prototype.UpdateUser = function () {
         this.userService.updateUser(this.user).subscribe();
@@ -1207,7 +1216,7 @@ module.exports = ".container {\r\n  padding-top: 5%;\r\n}\r\n\r\n/*# sourceMappi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n\n  <h1>Register</h1>\n\n  <form (ngSubmit)=\"register()\" #f=\"ngForm\">\n    <div class=\"form-group\">\n      <input type=\"text\" class=\"form-control\" name=\"username\" ngModel required #username=\"ngModel\"\n             placeholder=\"username\"/>\n    </div>\n    <div class=\"form-group\">\n      <span class=\"help-block\" *ngIf=\"!username.valid && username.touched\">\n      Please enter username!\n    </span>\n    </div>\n\n    <div class=\"form-group\">\n      <input type=\"password\" class=\"form-control\" name=\"password\" ngModel required #password=\"ngModel\"\n             placeholder=\"password\"/>\n    </div>\n\n    <div class=\"form-group\">\n      <span class=\"help-block\" *ngIf=\"!password.valid && password.touched\">\n      Please enter password!\n    </span>\n    </div>\n\n    <div class=\"form-group\">\n      <input type=\"password\" class=\"form-control\" name=\"verifypassword\" ngModel required #verifypassword=\"ngModel\"\n             placeholder=\"verify password\"/>\n    </div>\n\n    <div class=\"form-group\">\n      <span class=\"help-block\" *ngIf=\"!verifypassword.valid && verifypassword.touched\">\n      Please re-enter password!\n    </span>\n    </div>\n\n    <div class=\"form-group\">\n      <button [disabled]=\"!f.valid || password.value !== verifypassword.value\" class=\"btn btn-primary btn-block\"\n              type=\"submit\">Register\n      </button>\n    </div>\n\n    <a routerLink=\"/login\" class=\"btn btn-danger btn-block\">Cancel</a>\n  </form>\n</div>\n"
+module.exports = "<div class=\"container\">\n\n  <h1>Register</h1>\n\n  <form (ngSubmit)=\"register()\" #f=\"ngForm\">\n    <div class=\"form-group\">\n      <input type=\"text\" class=\"form-control\" name=\"username\" ngModel required #username=\"ngModel\"\n             placeholder=\"username\"/>\n    </div>\n    <div class=\"form-group\">\n      <span class=\"help-block\" *ngIf=\"!username.valid && username.touched\">\n      Please enter username!\n    </span>\n    </div>\n\n    <div class=\"form-group\">\n      <input type=\"password\" class=\"form-control\" name=\"password\" ngModel required #password=\"ngModel\"\n             placeholder=\"password\"/>\n    </div>\n\n    <div class=\"form-group\">\n      <span class=\"help-block\" *ngIf=\"!password.valid && password.touched\">\n      Please enter password!\n    </span>\n    </div>\n\n    <div class=\"form-group\">\n      <input type=\"password\" class=\"form-control\" name=\"verifypassword\" ngModel required #verifypassword=\"ngModel\"\n             placeholder=\"verify password\"/>\n    </div>\n\n    <div class=\"form-group\">\n      <span class=\"help-block\" *ngIf=\"!verifypassword.valid && verifypassword.touched\">\n      Please re-enter password!\n    </span>\n    </div>\n\n    <div class=\"form-group\">\n      <button [disabled]=\"!f.valid || password.value !== verifypassword.value\" class=\"btn btn-primary btn-block\"\n              type=\"submit\" (click)=\"register()\">Register\n      </button>\n    </div>\n\n    <a routerLink=\"/login\" class=\"btn btn-danger btn-block\">Cancel</a>\n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -1235,31 +1244,31 @@ var RegisterComponent = /** @class */ (function () {
     function RegisterComponent(userService, router) {
         this.userService = userService;
         this.router = router;
+        this.errorFlag = false;
+        this.errorMsg = 'Invalid password!';
     }
     RegisterComponent.prototype.register = function () {
         var _this = this;
-        var username = this.loginForm.value.username;
-        var password = this.loginForm.value.password;
-        console.log('register compoment file ');
-        this.user = { username: username, password: password };
-        // this.userService.createUser(this.user)
-        //   .subscribe((user: User) => {
-        //     if (user) {
-        //       this.router.navigate(['/user', user._id]);
-        //     }
-        //   });
-        this.userService.register(username, password).subscribe(function (user) {
-            _this.router.navigate(['/user', user._id]);
-        }, function (error) {
-            _this.error = error._body;
-        });
+        this.username = this.registerForm.value.username;
+        this.password = this.registerForm.value.password;
+        this.vpassword = this.registerForm.value.verifypassword;
+        if (this.vpassword !== this.password) {
+            this.errorFlag = true;
+        }
+        else {
+            this.userService.register(this.username, this.password)
+                .subscribe(function (user) {
+                _this.user = user;
+                _this.router.navigate(['/user', _this.user._id]);
+            });
+        }
     };
     RegisterComponent.prototype.ngOnInit = function () {
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('f'),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgForm"])
-    ], RegisterComponent.prototype, "loginForm", void 0);
+    ], RegisterComponent.prototype, "registerForm", void 0);
     RegisterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-register',
@@ -2473,7 +2482,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 var environment = {
     production: false,
-    baseUrl: 'http://localhost:3100',
+    baseUrl: 'http://localhost:3200',
 };
 
 
