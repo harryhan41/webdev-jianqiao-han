@@ -20,7 +20,7 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, "dist/webdev-jianqiao-han")));
 
 // CORS
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
@@ -32,8 +32,9 @@ app.set("port", port);
 
 // Create HTTP server
 const server = http.createServer(app);
-server.listen( port , () => console.log("Running on port 3200"));
+server.listen(port, () => console.log("Running on port 3200"));
 
+// link to database from local or cloud
 // var connectionString = "mongodb://127.0.0.1:27017/webdev";
 var connectionString = "mongodb://<heroku_wr6gm95z>:<7qeMXk9fetWdH.Z>@ds133086.mlab.com:33086/heroku_wr6gm95z";
 
