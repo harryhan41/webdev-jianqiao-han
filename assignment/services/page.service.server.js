@@ -9,7 +9,7 @@ module.exports = function(app) {
 
   function createPage(req, res) {
     let page = req.body;
-    let websiteId = req.params["wid"];
+    let websiteId = req.params.websiteId;
     pageModel.createPage(websiteId, page).then(
       function (page) {
         console.log("page created");
@@ -26,7 +26,7 @@ module.exports = function(app) {
 
   function findAllPagesForWebsite(req, res) {
     console.log("find pages for website");
-    let websiteId = req.params["wid"];
+    let websiteId = req.params.websiteId;
     pageModel.findAllPagesForWebsite(websiteId).exec(
       function (err, pages) {
         if (err) {
@@ -39,7 +39,7 @@ module.exports = function(app) {
 
   function findPageById(req, res) {
     console.log("find website by id");
-    let page_id = req.params["pid"];
+    let page_id = req.params.pageId;
     pageModel.findPageById(page_id).exec(
       function (err, page) {
         if (err) {
@@ -52,7 +52,7 @@ module.exports = function(app) {
 
   function updatePage(req, res) {
     console.log("update page");
-    let page_id = req.params["pid"];
+    let page_id = req.params.pageId;
     let page = req.body;
     pageModel.updatePage(page_id, page).exec(
       function (err, page) {
@@ -66,7 +66,7 @@ module.exports = function(app) {
 
   function deletePage(req, res) {
     console.log("delete page");
-    let page_id = req.params["pid"];
+    let page_id = req.params.pageId;
     pageModel.updatePage(page_id).exec(
       function (err, page) {
         if (err) {

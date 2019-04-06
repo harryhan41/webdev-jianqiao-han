@@ -60,7 +60,7 @@ module.exports = function(app) {
   function findAllWebsitesForUser(req, res) {
     console.log("find websites for user");
 
-    let dev_id = req.params["uid"];
+    let dev_id = req.params.userId;
     console.log("developer id is " + dev_id);
     websiteModel.findAllWebsitesForUser(dev_id).exec(
       function(err, websites) {
@@ -75,7 +75,7 @@ module.exports = function(app) {
   function findWebsiteById(req, res) {
     console.log("find website by id");
 
-    let web_id = req.params["wid"];
+    let web_id = req.params.websiteId;
 
     console.log("website id is " + web_id);
     websiteModel.findWebsiteById(web_id).exec(
@@ -91,7 +91,7 @@ module.exports = function(app) {
   function updateWebsite(req, res) {
     console.log("update website");
 
-    let web_id = req.params["wid"];
+    let web_id = req.params.websiteId;
     let website = req.body;
     websiteModel.updateWebsite(web_id, website).exec(
       function(err, website) {
@@ -105,7 +105,7 @@ module.exports = function(app) {
 
   function deleteWebsite(req, res) {
     console.log("delete website");
-    let web_id = req.params["wid"];
+    let web_id = req.params.websiteId;
     websiteModel.deleteWebsite(web_id).exec(
       function(err, website) {
         if (err) {

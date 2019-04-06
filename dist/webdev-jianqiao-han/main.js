@@ -618,6 +618,7 @@ var UserService = /** @class */ (function () {
         return this._http.post(this.baseUrl + '/api/user/', user);
     };
     UserService.prototype.findUserById = function (userId) {
+        console.log('user.service.client.ts ' + userId);
         return this._http.get(this.baseUrl + '/api/user/' + userId);
     };
     UserService.prototype.findUserByCredential = function (username, password) {
@@ -1079,15 +1080,6 @@ var LoginComponent = /** @class */ (function () {
         // fetching data from LoginForm
         this.username = this.loginForm.value.username;
         this.password = this.loginForm.value.password;
-        // this.userService.findUserByCredential(this.username, this.password).subscribe((user: User) => {
-        //   if (user === undefined) {
-        //     this.errorFlag = true;
-        //   } else {
-        //     this.router.navigate(['/user', user._id]);
-        //   }
-        // }, (error: any) => {
-        //   console.log(error);
-        // });
         this.userService.login(this.username, this.password).subscribe(function (user) {
             console.log('login component ts');
             _this.router.navigate(['/user', user._id]);
@@ -1161,10 +1153,16 @@ var ProfileComponent = /** @class */ (function () {
         this.userService = userService;
         this.acRouter = acRouter;
         this.router = router;
+        this.updateMsg = 'update your information!';
         this.user = new _models_user_model_client__WEBPACK_IMPORTED_MODULE_3__["User"]('', '', '', '', '', '');
     }
     ProfileComponent.prototype.UpdateUser = function () {
-        this.userService.updateUser(this.user).subscribe();
+        var _this = this;
+        this.userService.updateUser(this.user)
+            .subscribe(function (user) {
+            _this.user = user;
+            alert(_this.updateMsg);
+        });
     };
     ProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1174,7 +1172,7 @@ var ProfileComponent = /** @class */ (function () {
         });
         this.userService.findUserById(this.user._id.toString())
             .subscribe(function (data) {
-            console.log('login...');
+            console.log('profile component ' + _this.user._id.toString());
             console.log(data);
             _this.user = data;
         });

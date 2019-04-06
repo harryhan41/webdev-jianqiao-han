@@ -20,7 +20,7 @@ module.exports = function (app) {
 
   function createWidget(req, res) {
     console.log("create widget");
-    let pageId = req.params["pid"];
+    let pageId = req.params.pageId;
     let widget = req.body;
     widgetModel
       .createWidget(pageId, widget)
@@ -40,7 +40,7 @@ module.exports = function (app) {
 
   function findWidgetById(req, res) {
 
-    let id = req.params["wgid"];
+    let id = req.params.widgetId;
 
     console.log("find widget by id " + id);
 
@@ -55,7 +55,7 @@ module.exports = function (app) {
   }
 
   function findAllWidgetsForPage(req, res) {
-    let id = req.params["pid"];
+    let id = req.params.pageId;
     widgetModel.findAllWidgetsForPage(id).exec(
       function (err, widget) {
         if (err) {
@@ -68,7 +68,7 @@ module.exports = function (app) {
 
   function updateWidget(req, res) {
     console.log("update widget");
-    let widgetId = req.params["wgid"];
+    let widgetId = req.params.widgetId;
     let widget = req.body;
     widgetModel.updateWidget(widgetId, widget).exec(
       function (err, widget) {
@@ -82,7 +82,7 @@ module.exports = function (app) {
 
   function deleteWidget(req, res) {
     console.log("delete widget");
-    let widgetId = req.params["wgid"];
+    let widgetId = req.params.widgetId;
     widgetModel.deleteWidget(widgetId).exec(
       function (err, widget) {
         if (err) {

@@ -139,7 +139,9 @@ module.exports = function (app) {
 
   function findUserById(req, res) {
 
-    var id = req.params["uid"];
+    console.log("param is " + req.params.userId);
+
+    var id = req.params.userId;
 
     console.log("hit find user by id..." + id);
 
@@ -186,7 +188,7 @@ module.exports = function (app) {
   function updateUser(req, res) {
     console.log("update user");
 
-    let userId = req.params["uid"];
+    let userId = req.params.userId;
     let user = req.body;
     userModel.updateUser(userId, user).exec(
       function (err, user) {
@@ -213,6 +215,7 @@ module.exports = function (app) {
   }
 
   function login(req, res) {
+    console.log("body is " + req.user);
     var user = req.user;
     res.json(user);
   }
