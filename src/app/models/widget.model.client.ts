@@ -2,13 +2,13 @@ export class Widget {
   _id: string;
   widgetType: string;
   pageId: string;
-  // name: string;
-  // text: string;
-  // size: string;
-  // url: string;
-  // width: string;
-  // row: string;
-  // placeholder: string;
+  name: string;
+  text: string;
+  size: string;
+  url: string;
+  width: string;
+  row: string;
+  placeholder: string;
 
 
   constructor(_id: string, type: string, pageId: string) {
