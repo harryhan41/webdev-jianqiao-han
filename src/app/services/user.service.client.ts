@@ -38,29 +38,19 @@ export class UserService {
   login(username: string, password: string) {
     const body = {username: username, password: password};
 
-    return this._http.post(this.baseUrl + '/api/login', body);
+    return this._http.post(this.baseUrl + '/api/login', body, {withCredentials: true});
   }
 
   logout() {
-    return this._http.post(this.baseUrl + '/api/logout', '');
+    return this._http.post(this.baseUrl + '/api/logout', '', {withCredentials: true});
   }
 
   register(username: string, password: string) {
     const user = {username: username, password: password};
-    return this._http.post(this.baseUrl + '/api/register', user);
+    return this._http.post(this.baseUrl + '/api/register', user, {withCredentials: true});
   }
 
   loggedIn() {
-    return this._http.post(this.baseUrl + '/api/loggedin', '')
-      .subscribe((res) => {
-        const user = res.toString();
-        if (user !== '0') {
-          this.sharedService.user = user;
-          return true;
-        } else {
-          this.router.navigate(['/login']);
-          return false;
-        }
-      });
+    return this._http.get(this.baseUrl + '/api/loggedin', {withCredentials: true});
   }
 }

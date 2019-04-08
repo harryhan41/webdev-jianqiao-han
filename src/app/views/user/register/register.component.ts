@@ -39,7 +39,9 @@ export class RegisterComponent implements OnInit {
         .subscribe(
           (user: User) => {
             this.user = user;
-            this.router.navigate(['/user', this.user._id]);
+            console.log(user);
+            console.log('this is the register process running');
+            this.router.navigate(['/user', user._id]);
           },
         );
     }

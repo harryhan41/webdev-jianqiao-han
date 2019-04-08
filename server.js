@@ -9,6 +9,9 @@ var cookieParser = require("cookie-parser");
 var session = require("express-session");
 app.use(cookieParser());
 // app.use(session({secret: process.env.SESSION_SECRET}));
+
+app.use(session({secret: 'topsecret'}));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -27,12 +30,12 @@ app.use(function (req, res, next) {
   next();
 });
 
-const port = process.env.PORT || "3200";
+const port = process.env.PORT || "3100";
 app.set("port", port);
 
 // Create HTTP server
 const server = http.createServer(app);
-server.listen(port, () => console.log("Running on port 3200"));
+server.listen(port, () => console.log("Running on port 3100"));
 
 // link to database from local or cloud
 // var connectionString = "mongodb://127.0.0.1:27017/webdev";
@@ -44,6 +47,7 @@ const client = mongoose.connect(connectionString, {useNewUrlParser: true});
 
 //Get the default connection
 var db = mongoose.connection;
+
 //Bind connection to error event (to get notification of connection errors)
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 

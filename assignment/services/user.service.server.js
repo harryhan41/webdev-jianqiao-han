@@ -10,13 +10,6 @@ function serializeUser(user, done) {
   done(null, user);
 }
 
-passport.use(new LocalStrategy(localStrategy));
-var facebookConfig = {
-  clientID: process.env.FACEBOOK_CLIENT_ID,
-  clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-  callbackURL: process.env.FACEBOOK_CALLBACK_URL,
-};
-
 passport.deserializeUser(deserializeUser);
 
 function deserializeUser(user, done) {
@@ -27,13 +20,14 @@ function deserializeUser(user, done) {
   });
 }
 
+passport.use(new LocalStrategy(localStrategy));
+
 function localStrategy(username, password, done) {
   userModel.findUserByUserName(username)
     .then(function (user) {
       console.log("check log in user name");
       console.log(bcrypt.compareSync(password, user.password));
       if (user && bcrypt.compareSync(password, user.password)) {
-
         return done(null, user);
       } else {
         return done(null, false);
@@ -44,6 +38,18 @@ function localStrategy(username, password, done) {
       }
     });
 }
+
+var facebookConfig = {
+  // clientID: process.env.FACEBOOK_CLIENT_ID,
+  // clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+  // callbackURL: process.env.FACEBOOK_CALLBACK_URL,
+
+  clientID: '831729373846939',
+  clientSecret: '3169b085bf1b6594a9fb5184454a5848',
+  callbackURL: 'https://webdev-jianqiao-han.herokuapp.com/auth/facebook/callback'
+};
+
+passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
 
 function facebookStrategy(token, refreshToken, profile, done) {
   userModel.findUserByFacebookId(profile.id).then(function (user) {
@@ -63,12 +69,12 @@ function facebookStrategy(token, refreshToken, profile, done) {
     if (err) {
       return done(err);
     }
-  }).then(function (user) {
-    return done(null, user);
-  }, function (err) {
-    if (err) {
-      return done(err);
-    }
+  // }).then(function (user) {
+  //   return done(null, user);
+  // }, function (err) {
+  //   if (err) {
+  //     return done(err);
+  //   }
   });
 }
 
@@ -88,10 +94,12 @@ module.exports = function (app) {
   app.put("/api/user/:userId", updateUser);
   app.delete("/api/user/:userId", deleteUser);
   app.post("/api/login", passport.authenticate("local"), login);
-  app.get("/facebook/login", passport.authenticate("facebook", {scope: "email"}, {failureRedirect: "/login"}),
+  app.get('/facebook/login', passport.authenticate('facebook', {scope: 'email'}));
+  app.get('/auth/facebook/callback', passport.authenticate('facebook', {failureRedirect: '/#/login'}),
     function (req, res) {
       // Successful authentication, redirect home.
-      res.redirect("/user/:uid");
+      const uid = req.user._id;
+      res.redirect('/#/user/' + uid);
     });
   app.post("/api/logout", logout);
   app.post("/api/register", register);
@@ -121,7 +129,6 @@ module.exports = function (app) {
 
   function populateUsers(req, res) {
     console.log("pop DB!");
-    //res.send("pop DB!");
     userModel.populateUsers(users_pop)
       .then(
         function (users) {
