@@ -82,6 +82,7 @@ module.exports = function (app) {
   app.post("/api/logout", logout);
   app.post("/api/register", register);
   app.get("/api/loggedin", loggedin);
+  app.delete("/api/user/:uid", deleteUser);
 
   function createUser(req, res) {
     console.log("create user");
