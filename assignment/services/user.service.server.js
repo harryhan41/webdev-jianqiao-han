@@ -85,10 +85,10 @@ module.exports = function (app) {
   app.delete("/api/user/:userId", deleteUser);
   app.post("/api/login", passport.authenticate("local"), login);
   app.get('/facebook/login', passport.authenticate('facebook', {scope: 'email'}));
-  app.get('/auth/facebook/callback', passport.authenticate('facebook', {failureRedirect: '/#/login'}),
+  app.get('/auth/facebook/callback', passport.authenticate('facebook', {failureRedirect: '/login'}),
     function (req, res) {
       // Successful authentication, redirect home.
-      var uid = req.user._id;
+      var uid = req.params.userId;
       res.redirect('/user/' + uid);
     });
   app.post("/api/logout", logout);
