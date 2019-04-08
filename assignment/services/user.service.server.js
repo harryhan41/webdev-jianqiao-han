@@ -99,6 +99,7 @@ module.exports = function (app) {
   app.get('/auth/facebook/callback', passport.authenticate('facebook', {failureRedirect: '/login'}),
     function (req, res) {
       // Successful authentication, redirect home.
+      console.log("this is facebook running");
       console.log(req);
       var uid = req.params.userId;
       res.redirect('/user/' + uid);
