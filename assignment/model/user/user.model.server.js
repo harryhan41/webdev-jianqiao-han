@@ -40,9 +40,9 @@ function findByCredential(userName, password) {
 }
 
 function updateUser(userId, user) {
-  return userModel.findByIdAndUpdate(userId, user);
+  return userModel.findOneAndUpdate(userId, user);
 }
 
 function deleteUser(userId) {
-  return userModel.findByIdAndRemove(userId);
+  return userModel.findOneAndRemove(userId);
 }
