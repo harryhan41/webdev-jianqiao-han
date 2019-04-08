@@ -9,7 +9,7 @@
   </a>
 </nav>
 <div class="container" appSortable (newIndexs)="reorderWidgets($event)">
-  <div *ngFor="let widget of widgets | orderBy">
+  <div *ngFor="let widget of widgets">
     <div [ngSwitch]="widget.widgetType">
       <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget', widget._id]">
         <span class="fas fa-cog float-right"></span>
@@ -27,7 +27,7 @@
         <div *ngIf="widget.formatted">
           <quill-editor [(ngModel)]="widget.text" name="text"></quill-editor>
         </div>
-        <input *ngIf="!widget.formatted && (!widget.row || widget.row === 1)"
+        <input *ngIf="!widget.formatted && (!widget.row || widget.row <= 1)"
                placeholder="{{widget.placeholder}}" class="form-control"/>
 
         <textarea *ngIf="!widget.formatted && (widget.row > 1)"

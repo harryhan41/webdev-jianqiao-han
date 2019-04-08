@@ -2,13 +2,12 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {User} from '../models/user.model.client';
-import {Router} from '@angular/router';
-import {SharedService} from './shared.service';
+
 
 
 @Injectable()
 export class UserService {
-  constructor(private _http: HttpClient, private sharedService: SharedService, private router: Router) {
+  constructor(private _http: HttpClient) {
   }
 
   baseUrl = environment.baseUrl;

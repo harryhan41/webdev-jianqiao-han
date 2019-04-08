@@ -48,7 +48,7 @@ export class ProfileComponent implements OnInit {
     this.userService.logout().subscribe((data: any) => this.router.navigate(['/login']));
   }
 
-  onDeleteUser() {
+  DeleteUser() {
     console.log('delete user');
     this.acRouter.params
       .subscribe(params => {

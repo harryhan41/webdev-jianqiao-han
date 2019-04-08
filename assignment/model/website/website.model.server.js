@@ -39,13 +39,13 @@ function findAllWebsitesForUser(userId) {
 }
 
 function findWebsiteById(id) {
-  return websiteModel.findById(id);
+  return websiteModel.findOne(id);
 }
 
 function updateWebsite(websiteId, website) {
-  return websiteModel.findByIdAndUpdate(websiteId, website);
+  return websiteModel.findOneAndUpdate(websiteId, website);
 }
 
 function deleteWebsite(websiteId) {
-  return websiteModel.findByIdAndRemove(websiteId);
+  return websiteModel.findOneAndRemove(websiteId);
 }

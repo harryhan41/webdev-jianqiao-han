@@ -30,7 +30,7 @@
            placeholder="last name"/>
   </div>
   <a routerLink="/user/{{user._id}}/website" class="btn btn-primary btn-block">Websites</a>
-  <a class="btn btn-danger btn-block" (click)="onDeleteUser()" routerLink="/login">Delete User</a>
+  <a class="btn btn-warning btn-block" (click)="DeleteUser()" routerLink="/login">Delete User</a>
   <a class="btn btn-danger btn-block" (click)="logout()" routerLink="/login">Logout</a>
 </div>
 

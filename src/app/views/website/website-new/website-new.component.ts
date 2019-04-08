@@ -1,4 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
+import {Website} from '../../../models/website.model.client';
 import {WebsiteService} from '../../../services/website.service.client';
 import {Router, ActivatedRoute} from '@angular/router';
 import {NgForm} from '@angular/forms';
@@ -13,7 +14,7 @@ export class WebsiteNewComponent implements OnInit {
   @ViewChild('f') webForm: NgForm;
 
   userId: string;
-  websites = [{}];
+  websites: Website[];
 
   constructor(private webService: WebsiteService, private router: Router, private activatedRoute: ActivatedRoute) {
   }

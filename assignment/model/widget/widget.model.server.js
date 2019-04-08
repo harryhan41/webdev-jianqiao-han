@@ -39,17 +39,13 @@ function findAllWidgetsForPage(pageId) {
 }
 
 function findWidgetById(id) {
-  return widgetModel.findById(id);
+  return widgetModel.findOne(id);
 }
 
 function updateWidget(widgetId, widget) {
-  return widgetModel.findByIdAndUpdate(widgetId, widget);
+  return widgetModel.findOneAndUpdate(widgetId, widget);
 }
 
 function deleteWidget(widgetId) {
-  return widgetModel.findByIdAndRemove(widgetId);
-}
-
-function reorderWidget(pageId, start, end) {
-
+  return widgetModel.findOneAndRemove(widgetId);
 }
