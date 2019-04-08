@@ -13,11 +13,6 @@ userModel.findUserByFacebookId = findUserByFacebookId;
 module.exports = userModel;
 
 //helper function
-userModel.populateUsers = populateUsers;
-
-function populateUsers(users) {
-  return userModel.insertMany(users);
-}
 
 function createUser(user) {
   return userModel.create(user);

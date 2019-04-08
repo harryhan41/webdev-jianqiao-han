@@ -13,12 +13,6 @@ websiteModel.deleteWebsite = deleteWebsite;
 module.exports = websiteModel;
 
 //helper function
-websiteModel.populateWebsites = populateWebsites;
-
-function populateWebsites(websites) {
-  return websiteModel.insertMany(websites);
-}
-
 function createWebsite(userId, website) {
   website.userId = userId;
   return websiteModel.create(website).then(
