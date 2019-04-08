@@ -40,13 +40,13 @@ function localStrategy(username, password, done) {
 }
 
 var facebookConfig = {
-  // clientID: process.env.FACEBOOK_CLIENT_ID,
-  // clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-  // callbackURL: process.env.FACEBOOK_CALLBACK_URL,
+  clientID: process.env.FACEBOOK_CLIENT_ID,
+  clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+  callbackURL: process.env.FACEBOOK_CALLBACK_URL,
 
-  clientID: '831729373846939',
-  clientSecret: '3169b085bf1b6594a9fb5184454a5848',
-  callbackURL: 'https://webdev-jianqiao-han.herokuapp.com/auth/facebook/callback'
+  // clientID: '831729373846939',
+  // clientSecret: '3169b085bf1b6594a9fb5184454a5848',
+  // callbackURL: '/auth/facebook/callback'
 };
 
 passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
