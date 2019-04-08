@@ -88,8 +88,8 @@ module.exports = function (app) {
   app.get('/auth/facebook/callback', passport.authenticate('facebook', {failureRedirect: '/#/login'}),
     function (req, res) {
       // Successful authentication, redirect home.
-      const uid = req.user._id;
-      res.redirect('/#/user/' + uid);
+      var uid = req.user._id;
+      res.redirect('/user/' + uid);
     });
   app.post("/api/logout", logout);
   app.post("/api/register", register);
