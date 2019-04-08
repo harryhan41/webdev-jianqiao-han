@@ -9,7 +9,6 @@ widgetModel.findAllWidgetsForPage = findAllWidgetsForPage;
 widgetModel.findWidgetById = findWidgetById;
 widgetModel.updateWidget = updateWidget;
 widgetModel.deleteWidget = deleteWidget;
-widgetModel.reorderWidget = reorderWidget;
 
 module.exports = widgetModel;
 
