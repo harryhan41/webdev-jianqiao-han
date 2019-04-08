@@ -8,11 +8,15 @@ export class AuthGuard implements CanActivate {
   constructor(private userService: UserService, private router: Router, private sharedService: SharedService) {
   }
 
+  // canActivate() {
+  //   return this.userService.loggedIn();
+  // }
+
   async f() {
-    return await this.userService.loggedIn().toPromise();
+    // return await this.userService.loggedIn().toPromise();
+    return await this.userService.loggedIn();
   }
 
-  // @ts-ignore
   async canActivate() {
     let auth = false;
     await this.f().then(data => {

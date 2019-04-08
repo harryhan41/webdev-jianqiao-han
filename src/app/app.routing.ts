@@ -32,4 +32,6 @@ const appRoutes: Routes = [
   { path: '**', redirectTo: 'login' },
 ];
 
-export const routing = RouterModule.forRoot(appRoutes);
+// export const routing = RouterModule.forRoot(appRoutes);
+
+export const routing = RouterModule.forRoot(appRoutes, {useHash: true});
