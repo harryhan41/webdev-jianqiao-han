@@ -26,7 +26,6 @@ function localStrategy(username, password, done) {
   userModel.findUserByUserName(username)
     .then(function (user) {
       console.log("check log in user name");
-      console.log(bcrypt.compareSync(password, user.password));
       if (user && bcrypt.compareSync(password, user.password)) {
         return done(null, user);
       } else {
@@ -67,13 +66,6 @@ function facebookStrategy(token, refreshToken, profile, done) {
 
 module.exports = function (app) {
 
-  var users_pop = [
-    {username: "alice", password: "alice", firstName: "Alice", lastName: "Wonderland"},
-    {username: "bob", password: "bob", firstName: "Bob", lastName: "Marley"},
-    {username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia"},
-    {username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"},
-  ];
-
   app.post("/api/user", createUser);
   app.get("/api/user", findUserByCredentials);
   app.get("/api/user", findUserByUsername);
@@ -84,18 +76,12 @@ module.exports = function (app) {
   app.get('/facebook/login', passport.authenticate('facebook', {scope: 'email'}));
   app.get('/auth/facebook/callback', passport.authenticate('facebook', {failureRedirect: '/#/login'}),
     function (req, res) {
-      // Successful authentication, redirect home.
-      console.log("this is facebook running");
-      console.log(req);
       var uid = req.user._id;
       res.redirect('/#/user/' + uid);
     });
   app.post("/api/logout", logout);
   app.post("/api/register", register);
   app.get("/api/loggedin", loggedin);
-
-  //delete me when push to heroku
-  app.get("/api/populate", populateUsers);
 
   function createUser(req, res) {
     console.log("create user");
@@ -106,23 +92,6 @@ module.exports = function (app) {
         function (user) {
           console.log("user created!");
           res.json(user);
-        },
-        function (error) {
-          if (error) {
-            console.log(error);
-            res.statusCode(400).send(error);
-          }
-        },
-      );
-  }
-
-  function populateUsers(req, res) {
-    console.log("pop DB!");
-    userModel.populateUsers(users_pop)
-      .then(
-        function (users) {
-          console.log("users populated!");
-          res.json(users);
         },
         function (error) {
           if (error) {

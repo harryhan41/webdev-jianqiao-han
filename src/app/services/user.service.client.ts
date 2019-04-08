@@ -13,25 +13,17 @@ export class UserService {
 
   baseUrl = environment.baseUrl;
 
-  createUser(user: any) {
-    return this._http.post<User>(this.baseUrl + '/api/user/', user);
-  }
 
   findUserById(userId: string) {
     console.log('user.service.client.ts ' + userId);
     return this._http.get<User>(this.baseUrl + '/api/user/' + userId);
   }
 
-  findUserByCredential(username: string, password: string) {
-    console.log('this is running');
-    return this._http.get<User>(this.baseUrl + '/api/user?username=' + username + '&password=' + password);
-  }
-
   updateUser(user: User) {
     return this._http.put<User>(this.baseUrl + '/api/user/' + user._id, user);
   }
 
-  deleteUserById(userId: string) {
+  deleteUser(userId: string) {
     return this._http.delete<User>(this.baseUrl + '/api/user/' + userId);
   }
 

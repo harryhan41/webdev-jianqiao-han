@@ -7,17 +7,6 @@ module.exports = function(app) {
   app.put("/api/website/:websiteId", updateWebsite);
   app.delete("/api/website/:websiteId", deleteWebsite);
 
-  //delete me when push to heroku
-  app.get("/api/populateWebsites", populateWebsites);
-
-  var websites_pop = [
-    {name: "Facebook", developerId: "456", description: "Lorem"},
-    {name: "Tweeter", developerId: "456", description: "Lorem"},
-    {name: "Instagram", developerId: "456", description: "Lorem"},
-    {name: "Google", developerId: "123", description: "Lorem"},
-    {name: "Tic Tac Toe", developerId: "123", description: "Lorem"},
-  ];
-
   function createWebsite(req, res) {
     console.log("create website");
 
@@ -29,24 +18,6 @@ module.exports = function(app) {
         function(website) {
           console.log("website created!");
           res.json(website);
-        },
-        function(error) {
-          if (error) {
-            console.log(error);
-            res.statusCode(400).send(error);
-          }
-        },
-      );
-  }
-
-  function populateWebsites(req, res) {
-    console.log("pop DB!");
-    //res.send("pop DB!");
-    websiteModel.populateWebsites(websites_pop)
-      .then(
-        function(websites) {
-          console.log("websites populated!");
-          res.json(websites);
         },
         function(error) {
           if (error) {

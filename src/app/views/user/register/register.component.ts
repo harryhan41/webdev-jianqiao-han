@@ -19,18 +19,15 @@ export class RegisterComponent implements OnInit {
   user;
 
   errorFlag = false;
-  errorMsg = 'Invalid password!';
 
   constructor(private userService: UserService, private router: Router) {
   }
-
 
   register() {
 
     this.username = this.registerForm.value.username;
     this.password = this.registerForm.value.password;
     this.vpassword = this.registerForm.value.verifypassword;
-
 
     if (this.vpassword !== this.password) {
       this.errorFlag = true;
@@ -39,8 +36,6 @@ export class RegisterComponent implements OnInit {
         .subscribe(
           (user: User) => {
             this.user = user;
-            console.log(user);
-            console.log('this is the register process running');
             this.router.navigate(['/user', user._id]);
           },
         );

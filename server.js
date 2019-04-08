@@ -8,7 +8,6 @@ const app = express();
 var cookieParser = require("cookie-parser");
 var session = require("express-session");
 app.use(cookieParser());
-// app.use(session({secret: process.env.SESSION_SECRET}));
 
 app.use(session({secret: 'topsecret'}));
 
