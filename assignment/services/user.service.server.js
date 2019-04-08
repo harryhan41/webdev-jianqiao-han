@@ -65,7 +65,18 @@ function facebookStrategy(token, refreshToken, profile, done) {
     if (err) {
       return done(err);
     }
-  });
+  }.then(
+    function (user) {
+      console.log('facebook strategy!');
+      console.log(user);
+      return done(null, user);
+    },
+    function (err) {
+      if (err) {
+        return done(err);
+      }
+    }
+  ));
 }
 
 module.exports = function (app) {
@@ -88,6 +99,7 @@ module.exports = function (app) {
   app.get('/auth/facebook/callback', passport.authenticate('facebook', {failureRedirect: '/login'}),
     function (req, res) {
       // Successful authentication, redirect home.
+      console.log(req);
       var uid = req.params.userId;
       res.redirect('/user/' + uid);
     });
