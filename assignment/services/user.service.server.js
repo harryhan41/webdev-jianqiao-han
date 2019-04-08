@@ -96,13 +96,13 @@ module.exports = function (app) {
   app.delete("/api/user/:userId", deleteUser);
   app.post("/api/login", passport.authenticate("local"), login);
   app.get('/facebook/login', passport.authenticate('facebook', {scope: 'email'}));
-  app.get('/auth/facebook/callback', passport.authenticate('facebook', {failureRedirect: '/login'}),
+  app.get('/auth/facebook/callback', passport.authenticate('facebook', {failureRedirect: '/#/login'}),
     function (req, res) {
       // Successful authentication, redirect home.
       console.log("this is facebook running");
       console.log(req);
-      var uid = req.params.userId;
-      res.redirect('/user/' + uid);
+      var uid = req.user._id;
+      res.redirect('/#/user/' + uid);
     });
   app.post("/api/logout", logout);
   app.post("/api/register", register);
