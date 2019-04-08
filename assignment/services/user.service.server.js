@@ -61,22 +61,8 @@ function facebookStrategy(token, refreshToken, profile, done) {
       };
       return userModel.createUser(newFacebookUser);
     }
-  }, function (err) {
-    if (err) {
-      return done(err);
-    }
-  }.then(
-    function (user) {
-      console.log('facebook strategy!');
-      console.log(user);
-      return done(null, user);
-    },
-    function (err) {
-      if (err) {
-        return done(err);
-      }
-    }
-  ));
+  }
+  );
 }
 
 module.exports = function (app) {
