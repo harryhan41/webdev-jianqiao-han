@@ -14,7 +14,6 @@ export class UserService {
 
 
   findUserById(userId: string) {
-    console.log('user.service.client.ts ' + userId);
     return this._http.get<User>(this.baseUrl + '/api/user/' + userId);
   }
 
