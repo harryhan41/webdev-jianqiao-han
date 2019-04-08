@@ -54,7 +54,7 @@ export class ProfileComponent implements OnInit {
       .subscribe(params => {
         return this.userService.deleteUser(this.user._id)
           .subscribe((res: any) => {
-            console.log(res);
+            console.log('delete user' + this.user._id);
             this.shared.user = null;
           });
       });
