@@ -10,7 +10,6 @@ var session = require("express-session");
 app.use(cookieParser());
 
 app.use(session({secret: 'topsecret'}));
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
