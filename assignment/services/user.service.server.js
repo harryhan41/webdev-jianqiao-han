@@ -38,17 +38,17 @@ function localStrategy(username, password, done) {
     });
 }
 
-// var facebookConfig = {
-//   clientID: process.env.FACEBOOK_CLIENT_ID,
-//   clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-//   callbackURL: process.env.FACEBOOK_CALLBACK_URL,
-// };
-
 var facebookConfig = {
-  clientID     : 3289492834732947,
-  clientSecret : 432428794234792,
-  callbackURL  : 874324294738,
+  clientID: process.env.FACEBOOK_CLIENT_ID,
+  clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+  callbackURL: process.env.FACEBOOK_CALLBACK_URL,
 };
+
+// var facebookConfig = {
+//   clientID     : 3289492834732947,
+//   clientSecret : 432428794234792,
+//   callbackURL  : 874324294738,
+// };
 
 passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
 
