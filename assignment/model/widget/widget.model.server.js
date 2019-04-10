@@ -38,13 +38,13 @@ function findAllWidgetsForPage(pageId) {
 }
 
 function findWidgetById(id) {
-  return widgetModel.findOne(id);
+  return widgetModel.findOne({_id: id});
 }
 
 function updateWidget(widgetId, widget) {
-  return widgetModel.findOneAndUpdate(widgetId, widget);
+  return widgetModel.findOneAndUpdate({_id: widgetId}, widget);
 }
 
 function deleteWidget(widgetId) {
-  return widgetModel.findOneAndRemove(widgetId);
+  return widgetModel.findOneAndRemove({_id: widgetId});
 }

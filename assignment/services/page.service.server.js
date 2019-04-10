@@ -30,7 +30,7 @@ module.exports = function(app) {
     pageModel.findAllPagesForWebsite(websiteId).exec(
       function (err, pages) {
         if (err) {
-          return res.sendStatus(400).send(err);
+          return res.status(400).send(err);
         }
         return res.json(pages);
       },
@@ -57,7 +57,7 @@ module.exports = function(app) {
     pageModel.updatePage(page_id, page).exec(
       function (err, page) {
         if (err) {
-          return res.sendStatus(400).send(err);
+          return res.status(400).send(err);
         }
         return res.json(page);
       },
@@ -70,7 +70,7 @@ module.exports = function(app) {
     pageModel.updatePage(page_id).exec(
       function (err, page) {
         if (err) {
-          return res.sendStatus(400).send(err);
+          return res.status(400).send(err);
         }
         return res.json(page);
       },

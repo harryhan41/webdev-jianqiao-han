@@ -34,6 +34,8 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.username, this.password).subscribe((user: any) => {
       console.log('login component ts');
       this.sharedService.user = user;
+      console.log(this.sharedService.user);
+      console.log('user id ' + user._id);
       this.router.navigate(['/user', user._id]);
     }, (error: any) => {
       console.log(error);

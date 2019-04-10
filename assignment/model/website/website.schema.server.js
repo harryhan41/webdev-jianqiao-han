@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 var pageSchema = require("../page/page.schema.server");
 
 var websiteSchema = new mongoose.Schema({
-  userId: {type: mongoose.Schema.ObjectId, ref: "User"},
+  developerId: {type: mongoose.Schema.ObjectId, ref: "userModel"},
   name: String,
   description: String,
   pages: [pageSchema],

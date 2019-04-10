@@ -12,36 +12,43 @@ import {UserService} from '../../../services/user.service.client';
 export class ProfileComponent implements OnInit {
 
   // properties
-  user: User;
+  user: User = {_id: '', username: '', password: '', firstName: '', lastName: '', email: ''};
+  userId: string;
+  username: string;
   updateMsg = 'update your information!';
 
-  constructor(private userService: UserService, private acRouter: ActivatedRoute, private router: Router, private shared: SharedService) {
-    this.user = new User('', '', '', '', '', '');
+  constructor(private userService: UserService, private acRouter: ActivatedRoute, private router: Router,
+              private sharedService: SharedService) {
   }
 
-
   UpdateUser() {
-    this.userService.updateUser(this.user)
+    console.log(this.user.username);
+    this.acRouter.params
       .subscribe(
-        (user: User) => {
-          this.user = user;
-          alert(this.updateMsg);
-        },
+        (params => {
+          return this.userService.updateUser(this.user)
+            .subscribe(
+              (user: User) => {
+                this.user = user;
+                this.sharedService.user = user;
+                console.log(this.user.username);
+                alert(this.updateMsg);
+              }
+            );
+        })
       );
   }
 
   ngOnInit() {
-    this.acRouter.params.subscribe(params => {
-      this.user._id = params['uid'];
-      console.log('user id: ' + this.user._id);
-    });
+    this.user = this.sharedService.user;
+    this.userId = this.sharedService.user._id;
 
-    this.userService.findUserById(this.user._id.toString())
-      .subscribe(data => {
-        console.log('profile component ' + this.user._id.toString());
-        console.log(data);
-        this.user = data;
-      });
+    console.log('in profile ts');
+    console.log(this.sharedService.user);
+
+    this.acRouter.params.subscribe(params => {
+      this.username = this.user['username'];
+    });
   }
 
   logout() {
@@ -55,7 +62,7 @@ export class ProfileComponent implements OnInit {
         return this.userService.deleteUser(this.user._id)
           .subscribe((res: any) => {
             console.log('delete user' + this.user._id);
-            this.shared.user = null;
+            this.sharedService.user = null;
           });
       });
   }

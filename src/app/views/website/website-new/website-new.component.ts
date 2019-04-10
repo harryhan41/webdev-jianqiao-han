@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Website} from '../../../models/website.model.client';
+import {SharedService} from '../../../services/shared.service';
 import {WebsiteService} from '../../../services/website.service.client';
 import {Router, ActivatedRoute} from '@angular/router';
 import {NgForm} from '@angular/forms';
@@ -15,24 +16,30 @@ export class WebsiteNewComponent implements OnInit {
 
   userId: string;
   websites: Website[];
+  name: string;
+  description: string;
+  newWebsite;
 
-  constructor(private webService: WebsiteService, private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private webService: WebsiteService, private router: Router,
+              private activatedRoute: ActivatedRoute, private sharedService: SharedService) {
   }
 
   create() {
-    const name = this.webForm.value.name;
-    const description = this.webForm.value.description;
-    const website = {name: name, description: description};
+    this.name = this.webForm.value.name;
+    this.description = this.webForm.value.description;
+    this.newWebsite = {developerId: this.userId, name: this.name, description: this.description};
 
-    this.webService.createWebsite(this.userId, website)
-      .subscribe(site => {
-        this.router.navigateByUrl('/user/' + this.userId + '/website');
-      });
+    this.webService.createWebsite(this.userId, this.newWebsite)
+      .subscribe(
+        (websites: Website[]) => {
+          this.websites = websites;
+          this.router.navigateByUrl('/user/' + this.userId + '/website');
+        });
   }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: any) => {
-      this.userId = params['uid'];
+      this.userId = this.sharedService.user._id;
 
     });
     this.webService.findWebsitesByUser(this.userId)

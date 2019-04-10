@@ -36,7 +36,7 @@ module.exports = function(app) {
     websiteModel.findAllWebsitesForUser(dev_id).exec(
       function(err, websites) {
         if (err) {
-          return res.sendStatus(400).send(err);
+          return res.status(400).send(err);
         }
         return res.json(websites);
       },
@@ -52,7 +52,7 @@ module.exports = function(app) {
     websiteModel.findWebsiteById(web_id).exec(
       function(err, website) {
         if (err) {
-          return res.sendStatus(400).send(err);
+          return res.status(400).send(err);
         }
         return res.json(website);
       },
@@ -67,7 +67,8 @@ module.exports = function(app) {
     websiteModel.updateWebsite(web_id, website).exec(
       function(err, website) {
         if (err) {
-          return res.sendStatus(400).send(err);
+          console.log(err);
+          return res.status(400).send(err);
         }
         return res.json(website);
       },
@@ -75,15 +76,11 @@ module.exports = function(app) {
   }
 
   function deleteWebsite(req, res) {
-    console.log("delete website");
     let web_id = req.params.websiteId;
-    websiteModel.deleteWebsite(web_id).exec(
-      function(err, website) {
-        if (err) {
-          return res.sendStatus(400).send(err);
-        }
-        return res.json(website);
-      },
-    );
+    websiteModel
+      .deleteWebsite(web_id)
+      .then(
+        res.sendStatus(200)
+      );
   }
 };

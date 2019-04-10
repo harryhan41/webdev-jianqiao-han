@@ -1,13 +1,15 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
 import {environment} from '../../environments/environment';
 import {User} from '../models/user.model.client';
-
+import {SharedService} from './shared.service';
+import 'rxjs-compat/add/operator/map';
 
 
 @Injectable()
 export class UserService {
-  constructor(private _http: HttpClient) {
+  constructor(private _http: HttpClient, private sharedService: SharedService, private router: Router) {
   }
 
   baseUrl = environment.baseUrl;
@@ -40,7 +42,24 @@ export class UserService {
     return this._http.post(this.baseUrl + '/api/register', user, {withCredentials: true});
   }
 
+  // loggedIn() {
+  //   return this._http.get(this.baseUrl + '/api/loggedin', {withCredentials: true});
+  // }
+
   loggedIn() {
-    return this._http.get(this.baseUrl + '/api/loggedin', {withCredentials: true});
+    return this._http.post(this.baseUrl + '/api/loggedin', '', {withCredentials: true})
+      .map((res: any) => {
+        console.log('in user.service.client.ts');
+        // console.log(res.json());
+        if (!!res && res !== 0) {
+          this.sharedService.user = res;
+          console.log('in user client server loggedin class as true');
+          return true;
+        } else {
+          this.router.navigate(['/login']);
+          console.log('in user client server loggedin class as false');
+          return false;
+        }
+      });
   }
 }

@@ -38,10 +38,16 @@ function localStrategy(username, password, done) {
     });
 }
 
+// var facebookConfig = {
+//   clientID: process.env.FACEBOOK_CLIENT_ID,
+//   clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+//   callbackURL: process.env.FACEBOOK_CALLBACK_URL,
+// };
+
 var facebookConfig = {
-  clientID: process.env.FACEBOOK_CLIENT_ID,
-  clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-  callbackURL: process.env.FACEBOOK_CALLBACK_URL,
+  clientID     : 3289492834732947,
+  clientSecret : 432428794234792,
+  callbackURL  : 874324294738,
 };
 
 passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
@@ -81,7 +87,7 @@ module.exports = function (app) {
     });
   app.post("/api/logout", logout);
   app.post("/api/register", register);
-  app.get("/api/loggedin", loggedin);
+  app.post("/api/loggedin", loggedin);
   app.delete("/api/user/:uid", deleteUser);
 
   function createUser(req, res) {
@@ -114,7 +120,7 @@ module.exports = function (app) {
     userModel.findUserById(id).exec(
       function (err, user) {
         if (err) {
-          return res.sendStatus(400).send(err);
+          return res.status(400).send(err);
         }
         return res.json(user);
       },
@@ -129,7 +135,7 @@ module.exports = function (app) {
     userModel.findByCredential(username, password).exec(
       function (err, user) {
         if (err) {
-          return res.sendStatus(400).send(err);
+          return res.status(400).send(err);
         }
         return res.json(user);
       },
@@ -144,7 +150,7 @@ module.exports = function (app) {
     userModel.findUserByUserName(username).exec(
       function (err, user) {
         if (err) {
-          return res.sendStatus(400).send(err);
+          return res.status(400).send(err);
         }
         return res.json(user);
       },
@@ -159,7 +165,7 @@ module.exports = function (app) {
     userModel.updateUser(userId, user).exec(
       function (err, user) {
         if (err) {
-          return res.sendStatus(400).send(err);
+          return res.status(400).send(err);
         }
         return res.json(user);
       },
@@ -173,7 +179,7 @@ module.exports = function (app) {
     userModel.deleteUser(userId).exec(
       function (err, user) {
         if (err) {
-          return res.sendStatus(400).send(err);
+          return res.status(400).send(err);
         }
         return res.json(user);
       },
@@ -210,6 +216,9 @@ module.exports = function (app) {
   }
 
   function loggedin(req, res) {
+    console.log('in loggedin server class');
+    console.log(req.isAuthenticated());
+    console.log(req.user);
     res.send(req.isAuthenticated() ? req.user : "0");
   }
 };

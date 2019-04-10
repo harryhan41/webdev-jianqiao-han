@@ -14,11 +14,12 @@ module.exports = pageModel;
 function createPage(websiteId, page) {
   page.websiteId = websiteId;
   return pageModel.create(page).then(
-    function(page) {
+    function (page) {
       websiteModel.findWebsiteById(websiteId)
         .then(
-          function(website) {
+          function (website) {
             website.pages.push(page);
+            websiteModel.updateWebsite(websiteId, website);
           },
         );
       return page;
@@ -31,13 +32,13 @@ function findAllPagesForWebsite(websiteId) {
 }
 
 function findPageById(id) {
-  return pageModel.findById(id);
+  return pageModel.findOne({_id: id});
 }
 
 function updatePage(pageId, page) {
-  return pageModel.findByIdAndUpdate(pageId, page);
+  return pageModel.findOneAndUpdate({_id: pageId}, page);
 }
 
 function deletePage(pageId) {
-  return pageModel.findByIdAndRemove(pageId);
+  return pageModel.findOneAndDelete({_id: pageId});
 }

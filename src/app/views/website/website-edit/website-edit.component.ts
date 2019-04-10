@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Subject} from 'rxjs/internal/Subject';
 import {Website} from '../../../models/website.model.client';
+import {SharedService} from '../../../services/shared.service';
 import {WebsiteService} from '../../../services/website.service.client';
 
 @Component({
@@ -12,34 +14,52 @@ export class WebsiteEditComponent implements OnInit {
 
   website: Website;
   userId: string;
-  websites = [{}];
+  websites: Website[];
   websiteId: string;
+  websiteChanged = new Subject<string>();
+  updateMsg = 'Update web information!';
 
-  constructor(private webService: WebsiteService, private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private webService: WebsiteService, private router: Router, private activatedRoute: ActivatedRoute,
+              private sharedService: SharedService) {
     this.website = new Website('1', '2', '3', '4');
   }
 
-  update() {
-    this.webService.updateWebsite(this.website._id, this.website).subscribe(website => {
-      this.router.navigateByUrl('/user/' + this.userId + '/website');
-    });
+  delete() {
+    this.webService.deleteWebsite(this.websiteId)
+      .subscribe(
+        (websites: Website[]) => {
+          this.websites = websites;
+        }
+      );
+    this.update();
   }
 
-  delete() {
-    this.webService.deleteWebsite(this.website._id).subscribe(website => {
-      this.router.navigateByUrl('/user/' + this.userId + '/website');
-    });
+  update() {
+    this.webService.updateWebsite(this.websiteId, this.website)
+      .subscribe(
+        (website: Website) => {
+          this.website = website;
+          alert(this.updateMsg);
+          this.router.navigateByUrl('/user/' + this.userId + '/website');
+        }
+      );
+  }
+
+  onChangeWebsite(id) {
+    this.websiteChanged.next(id);
   }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: any) => {
-      this.userId = params['uid'];
+      console.log('ngoninit is running');
+      console.log(this.sharedService.user);
+      this.userId = this.sharedService.user._id;
       this.websiteId = params['wid'];
-      console.log('website id: ' + this.websiteId);
     });
 
     this.webService.findWebsitesByUser(this.userId)
       .subscribe(websites => {
+        console.log('find website by user is running');
         this.websites = websites;
       });
 
@@ -47,8 +67,18 @@ export class WebsiteEditComponent implements OnInit {
       .subscribe(website => {
         this.website = website;
         console.log('find website by id is running ');
-        console.log('website: ' + this.website.name);
-        console.log('website: ' + this.website.description);
       });
+    this.websiteChanged
+      .subscribe(
+        (websiteId: string) => {
+          this.websiteId = websiteId;
+          this.webService.findWebsiteById(this.websiteId)
+            .subscribe(
+              (website: Website) => {
+                this.website = website;
+              }
+            );
+        }
+      );
   }
 }

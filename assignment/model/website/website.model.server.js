@@ -16,11 +16,12 @@ module.exports = websiteModel;
 function createWebsite(userId, website) {
   website.userId = userId;
   return websiteModel.create(website).then(
-    function(website) {
+    function (newWebsite) {
       userModel.findUserById(userId)
         .then(
-          function(user) {
-            user.websites.push(website);
+          function (user) {
+            user.websites.push(newWebsite);
+            return user.save();
           },
         );
       return website;
@@ -29,17 +30,17 @@ function createWebsite(userId, website) {
 }
 
 function findAllWebsitesForUser(userId) {
-  return websiteModel.find({userId: userId});
+  return websiteModel.find({"developerId": userId});
 }
 
-function findWebsiteById(id) {
-  return websiteModel.findOne(id);
+function findWebsiteById(websiteId) {
+  return websiteModel.findOne({_id: websiteId});
 }
 
 function updateWebsite(websiteId, website) {
-  return websiteModel.findByIdAndUpdate(websiteId, website);
+  return websiteModel.findOneAndUpdate({_id: websiteId}, website);
 }
 
 function deleteWebsite(websiteId) {
-  return websiteModel.findOneAndRemove(websiteId);
+  return websiteModel.findOneAndDelete({_id: websiteId});
 }

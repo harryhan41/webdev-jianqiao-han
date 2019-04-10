@@ -19,7 +19,7 @@ function createUser(user) {
 }
 
 function findUserById(id) {
-  return userModel.findById(id);
+  return userModel.findById({_id: id});
 }
 
 function findUserByFacebookId(facebookId) {
@@ -35,9 +35,9 @@ function findByCredential(userName, password) {
 }
 
 function updateUser(userId, user) {
-  return userModel.findOneAndUpdate(userId, user);
+  return userModel.findOneAndUpdate({_id: userId}, user);
 }
 
 function deleteUser(userId) {
-  return userModel.findOneAndRemove(userId);
+  return userModel.findOneAndDelete({_id: userId});
 }

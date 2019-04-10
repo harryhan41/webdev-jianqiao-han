@@ -11,7 +11,7 @@ export class WebsiteService {
   baseUrl = environment.baseUrl;
 
   createWebsite(userId: string, website: any) {
-    return this._http.post<Website>(this.baseUrl + '/api/user/' + userId + '/website', website);
+    return this._http.post(this.baseUrl + '/api/user/' + userId + '/website', website);
   }
 
 
@@ -29,6 +29,6 @@ export class WebsiteService {
   }
 
   deleteWebsite(websiteId: string) {
-    return this._http.delete<Website>(this.baseUrl + '/api/website/' + websiteId);
+    return this._http.delete(this.baseUrl + '/api/website/' + websiteId);
   }
 }
